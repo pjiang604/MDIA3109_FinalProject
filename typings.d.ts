@@ -1,3 +1,7 @@
 interface NavProps {
-type: string;
+    type: string;
+}
+
+interface HeaderProps {
+    text: string;
 }

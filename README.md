@@ -14,5 +14,3 @@
 - Vancouver City Public art - https://opendata.vancouver.ca/explore/dataset/public-art/information/ 
 
 ## Dependencies
-
-

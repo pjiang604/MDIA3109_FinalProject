@@ -1,3 +1,4 @@
+import HeaderNav from "@/components/navigation/HeaderNav"
 import Nav from "@/components/navigation/NavBar"
 import Link from "next/link"
 
@@ -5,7 +6,8 @@ export default function Home() {
 
   return (
     <main className={``} >
-      <div className={``}>
+      <HeaderNav text="Welcome back, John"/>
+      <div id="mainContainer" className={`flex flex-col`}>
         <h1>This is the index/home page</h1>
         <Link href='/logIn'>Go to login</Link>
         <Link href='/browse'>Go to browse </Link>

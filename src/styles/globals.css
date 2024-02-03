@@ -24,6 +24,17 @@ height: 100%;
 width: 100%;
 }
 
-main > div:first-of-type{
-  padding: 10%;
+#mainContainer,
+#headerNav{
+  padding-left: 10%;
+  padding-right: 10%
+}
+
+#headerNav{
+  padding-top: 10%;
+  padding-bottom: 5%;
+}
+
+#mainContainer{
+padding-top: 5%;
 }
