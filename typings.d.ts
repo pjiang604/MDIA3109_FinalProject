@@ -1,0 +1,3 @@
+interface NavProps {
+type: string;
+}

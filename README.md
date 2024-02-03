@@ -13,3 +13,6 @@
 - Spotify- https://developer.spotify.com/documentation/web-api
 - Vancouver City Public art - https://opendata.vancouver.ca/explore/dataset/public-art/information/ 
 
+## Dependencies
+
+
