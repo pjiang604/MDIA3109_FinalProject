@@ -4,8 +4,9 @@ import { useEffect, useState } from "react"
 
 
 export default function Nav({
-    // type = ""
+
     type
+    
 }: NavProps) {
 
     return (
