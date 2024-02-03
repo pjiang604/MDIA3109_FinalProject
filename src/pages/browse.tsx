@@ -1,3 +1,4 @@
+import Nav from "@/components/navigation/NavBar";
 
 
 export default function Browse() {
@@ -7,6 +8,7 @@ export default function Browse() {
         
 
       </div>
+      <Nav type="browse"/>
     </main>
   )
 }

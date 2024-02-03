@@ -1,3 +1,4 @@
+import Nav from "@/components/navigation/NavBar";
 
 
 export default function Area() {
@@ -6,6 +7,7 @@ export default function Area() {
       <div className={``}>
 
       </div>
+      <Nav/>
     </main>
   )
 }

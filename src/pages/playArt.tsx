@@ -1,4 +1,4 @@
-
+import Nav from "@/components/navigation/NavBar"
 
 export default function PlayArt() {
   return (
@@ -6,6 +6,7 @@ export default function PlayArt() {
       <div className={``}>
 
       </div>
+      <Nav type="art" />
     </main>
   )
 }

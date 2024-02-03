@@ -1,3 +1,4 @@
+import Nav from "@/components/navigation/NavBar";
 
 
 export default function AllNeighbourhood() {
@@ -6,6 +7,7 @@ export default function AllNeighbourhood() {
       <div className={``}>
 
       </div>
+      <Nav type="music"/>
     </main>
   )
 }

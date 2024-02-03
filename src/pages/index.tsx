@@ -5,7 +5,7 @@ export default function Home() {
 
   return (
     <main className={``} >
-      <div className={``}>
+      <div className={`flex flex-col`}>
         <h1>This is the index/home page</h1>
         <Link href='/logIn'>Go to login</Link>
         <Link href='/browse'>Go to browse </Link>
