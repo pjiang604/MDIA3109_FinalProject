@@ -7,7 +7,7 @@ export default function Area() {
       <div className={``}>
 
       </div>
-      <Nav/>
+      <Nav type="home"/>
     </main>
   )
 }
