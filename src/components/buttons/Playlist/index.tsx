@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function Playlist({
 }) {
     return (
-        <div className={`relative w-full h-auto bg-zinc-400 px-3.5 pt-3 pb-7 rounded-md`}>
+        <div className={`relative w-1/2 h-auto bg-zinc-400 px-2 pt-3 pb-5 rounded-md`}>
             <div className={`relative flex justify-center items-center`}>
                 <h2 className={`z-10 absolute text-[#f8fafc] font-bold text-xl`}>Kitsilano</h2>
                 <Image
@@ -13,7 +13,7 @@ export default function Playlist({
                     alt="neighbourhood"
                     className={`object-fit blur-xs rounded-md z-0`} />
             </div>
-            <div className={`absolute`}>
+            <div className={`flex text-center justify-center`}>
                 <p className={`font-medium uppercase text-sm bg-zinc-400`}>20 songs · 57 mins</p>
             </div>
         </div>
