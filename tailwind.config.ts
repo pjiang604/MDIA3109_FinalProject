@@ -18,6 +18,9 @@ const config: Config = {
         "berry": "var(--berry)",
         "berryHover": "var(--berryHover)"
       },
+      blur: {
+        xs: "1px"
+      }
     },
   },
   plugins: [],
