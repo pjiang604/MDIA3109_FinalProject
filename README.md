@@ -14,3 +14,9 @@
 - Vancouver City Public art - https://opendata.vancouver.ca/explore/dataset/public-art/information/ 
 
 ## Dependencies
+- (React Spotify web playback)[https://github.com/gilbarbara/react-spotify-web-playback]
+
+
+## Other Supporting Documentation
+- (Spotify Web App Player Instructions)[https://developer.spotify.com/documentation/web-playback-sdk/howtos/web-app-player]
+- (Building a Spotify Web App(Youtube Video))[https://www.youtube.com/watch?v=xaK7bpHBF_k]
