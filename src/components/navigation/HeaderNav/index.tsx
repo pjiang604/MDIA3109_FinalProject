@@ -13,7 +13,8 @@ export default function HeaderNav({
             <div className={`w-full border-b-2 border-gray pb-0.5 flex flex-row justify-between gap-6 items-center`}>
                 {
                     type === "simple-backBtn" ||
-                    type === "simple-music"  ? //need to add the different types of headers
+                        type === "simple-music" ||
+                        type === "full-backPlay" ? //need to add the different types of headers
                         <div onClick={() => router.back()}>
                             <Image
                                 src="/Navigation/back/back.png"
@@ -30,9 +31,9 @@ export default function HeaderNav({
                 <div className={`flex flex-1`}>
                     {
                         type === "profile" ?
-                        <h1>{text}</h1>
-                        :
-                        <h2 className={`${type === "simple-music" ? `text-white text-center w-full` : ``}`}>{text}</h2>
+                            <h1>{text}</h1>
+                            :
+                            <h2 className={`${type === "simple-music" ? `text-white text-center w-full` : ``}`}>{text}</h2>
                     }
 
                 </div>
@@ -47,7 +48,29 @@ export default function HeaderNav({
                                 className={`rounded-full object-cover`} />
                         </div>
                         :
-                        null
+                        <>
+                            {
+                                type === "full-backPlay" ?
+                                    <div className={`flex flex-row items-center gap-2`}>
+                                        <Image
+                                            src={"/MusicPlayback/shuffle/shuffle_off.png"}
+                                            height={20}
+                                            width={20}
+                                            alt="shuffle"
+                                            className={`h-fit`}
+                                        />
+                                        <Image
+                                            src={"/MusicPlayback/play/play.png"}
+                                            height={30}
+                                            width={30}
+                                            alt="shuffle"
+                                        />
+                                    </div>
+                                    :
+                                    null
+                            }
+                        </>
+
                 }
             </div>
         </div>

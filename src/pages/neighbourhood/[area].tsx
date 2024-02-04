@@ -1,9 +1,12 @@
+import HeaderNav from "@/components/navigation/HeaderNav";
 import Nav from "@/components/navigation/NavBar";
 
 
-export default function Area() {
+export default function Area() { //Need to insert the name of the neighbourhood area and insert it into the header nav text
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between p-24`} >
+    <main className={``} >
+      
+      <HeaderNav text="[Placeholder Area]" type="full-backPlay" /> 
       <div className={``}>
 
       </div>
