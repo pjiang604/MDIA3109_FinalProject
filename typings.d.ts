@@ -4,4 +4,5 @@ interface NavProps {
 
 interface HeaderProps {
     text: string;
+    type: string;
 }

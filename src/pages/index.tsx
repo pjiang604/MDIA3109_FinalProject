@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <main className={``} >
-      <HeaderNav text="Welcome back, John"/>
+      <HeaderNav text="Welcome back, John" type="profile"/>
       <div id="mainContainer" className={`flex flex-col`}>
         <h1>This is the index/home page</h1>
         <Link href='/logIn'>Go to login</Link>
