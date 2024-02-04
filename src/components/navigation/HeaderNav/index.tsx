@@ -12,7 +12,8 @@ export default function HeaderNav({
         <div id="headerNav" className={`w-full h-auto `}>
             <div className={`w-full border-b-2 border-gray pb-0.5 flex flex-row justify-between gap-6 items-center`}>
                 {
-                    type === "simple-backBtn" ? //need to add the different types of headers
+                    type === "simple-backBtn" ||
+                    type === "simple-music"  ? //need to add the different types of headers
                         <div onClick={() => router.back()}>
                             <Image
                                 src="/Navigation/back/back.png"
@@ -27,7 +28,13 @@ export default function HeaderNav({
                         null
                 }
                 <div className={`flex flex-1`}>
-                    <h2>{text}</h2>
+                    {
+                        type === "profile" ?
+                        <h1>{text}</h1>
+                        :
+                        <h2 className={`${type === "simple-music" ? `text-white text-center w-full` : ``}`}>{text}</h2>
+                    }
+
                 </div>
                 {
                     type === "profile" ?
