@@ -13,7 +13,8 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-router-dom": "^6.22.0"
+    "react-router-dom": "^6.22.0",
+    "react-spotify-web-playback": "^0.14.3"
   },
   "devDependencies": {
     "@types/node": "^20",
