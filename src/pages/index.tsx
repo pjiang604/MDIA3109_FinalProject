@@ -1,57 +1,43 @@
-import HeaderNav from "@/components/navigation/HeaderNav"
-import Nav from "@/components/navigation/NavBar"
-import Link from "next/link"
-import SpotifyPlayer from 'react-spotify-web-playback';
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import { authorize } from "./api/authorize";
 import { useRouter } from "next/router";
-import useRefreshToken from "@/hooks/useRefreshToken";
+import styles from '@/styles/Landing.module.css'
 
-export default function Home() {
+export default function Landing() {
 
-  const [accessToken, setAccessToken] = useState("");
-  const [codeVerifier, setCodeVerifier] = useState('')
+  const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
-  const router = useRouter();
-  const code = router.query.code;
-  useRefreshToken(code as string);
+    useEffect(() => {
+		const handleComplete = () => {
+			setTimeout(() => {
+				setLoading(false);
+				router.push('/logIn');
+        console.log("loading...")
+			},2000)
+		};
 
-  useEffect(() =>{
-    setAccessToken(`${localStorage.getItem("access_token")}`)
-    console.log(accessToken)
-
-  })
-
-  return (
-    <main className={``} >
-      <HeaderNav text="Welcome back, John" type="profile"/>
-      <div id="mainContainer" className={`flex flex-col`}>
-        <h1>This is the index/home page</h1>
-        <Link href='/logIn'>Go to login</Link>
-        <Link href='/browse'>Go to browse </Link>
-        <Link href='/allNeighbourhood'>Go to allNeighbourhood</Link>
-        <Link href='/neighbourhood/[area]'>Go to neighbourhood area page</Link>
-        <Link href='/playMusic'>Go to playMusic</Link>
-        <Link href='/playArt'>Go to playArt</Link>
-
-        <p>Web player test</p>
-        <button onClick={authorize}>Authorize</button>
-        <div>
-          {
-            accessToken ?
-
-              <SpotifyPlayer
-                token={accessToken}
-                uris={['spotify:artist:6HQYnRM4OzToCYPpVBInuU']}
-              />
-              :
-              <p>No access token</p>
-          }
-
+    handleComplete()
+    },[loading]);
+    
+    return (
+        <div className={styles.container}>
+            { loading &&  
+              <div className={styles.info}>
+                <Image
+                    src="/Logo/logo.png"
+                    alt="logo"
+                    height={354}
+                    width={360}
+                />
+                <div>
+                  <div className={styles.loading_dots}></div>
+                  <div className={styles.loading_dots}></div>
+                  <div className={styles.loading_dots}></div>
+                  <div className={styles.loading_dots}></div>
+                </div>
+              </div>
+            }
         </div>
-
-      </div>
-      <Nav type="home" />
-    </main>
-  )
+    )
 }
