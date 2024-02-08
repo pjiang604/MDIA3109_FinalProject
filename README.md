@@ -20,3 +20,6 @@
 ## Other Supporting Documentation
 - (Spotify Web App Player Instructions)[https://developer.spotify.com/documentation/web-playback-sdk/howtos/web-app-player]
 - (Building a Spotify Web App(Youtube Video))[https://www.youtube.com/watch?v=xaK7bpHBF_k]
+
+## Installations
+npm i axios

@@ -18,4 +18,14 @@ interface SpotifyPlayerType {
     access_token: string;
     currentTrack: string;
     playing: boolean;
-  }
+}
+
+interface StreetArt {
+    title_of_work: string;
+    neighbourhood: string;
+    url: string;
+    photourl: {
+        url: string
+    }
+    yearofinstallation: number;
+}
