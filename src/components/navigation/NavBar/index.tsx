@@ -13,7 +13,7 @@ export default function Nav({
         <div className={`w-full h-auto absolute bottom-0 bg-darkGray flex flex-row items-center justify-evenly py-3`} >
             <div className={`flex flex-col items-center `}>
                 <Link
-                    href='/'>
+                    href='/home'>
                     <Image
                         src={ type === "home" ? "/Navigation/home/home_active.png" : "/Navigation/home/home.png" }
                         width={0}
