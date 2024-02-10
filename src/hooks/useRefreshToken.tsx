@@ -8,10 +8,16 @@ export default function useRefreshToken(code: string) {
 
     const fetchToken = async () => {
         let response = await getToken(code);
-        setRefreshToken(response.refresh_token);
-        setAccessToken(response.access_token);
-        setExpiresIn(response.expires_in);
-        localStorage.setItem("access_token", response.access_token);
+
+        if (response.access_token && response.refresh_token && response.expires_in) {
+            console.log("Token Response", response)
+            setAccessToken(response.access_token);
+            setRefreshToken(response.refresh_token);
+            setExpiresIn(response.expires_in);
+            localStorage.setItem("access_token", response.access_token);
+        } else {
+            console.error("Token error", response);
+        }
     };
 
     const refreshTokenFn = async () => {
