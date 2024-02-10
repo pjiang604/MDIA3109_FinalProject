@@ -21,7 +21,11 @@ export default function PlayMusic() {
 
 
   useEffect(() => {
+    if (typeof window !== 'undefined'){
     setAccessToken(`${localStorage.getItem("access_token")}`)
+    } else{
+      console.log("play music page: local storage undefined")
+    }
   }, [authorize])
 
   useEffect(() => {
