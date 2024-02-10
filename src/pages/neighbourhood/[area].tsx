@@ -16,15 +16,16 @@ export default function Area() {  //Need to insert the name of the neighbourhood
   const router = useRouter()
 
   useEffect(() => {
-
-    if (typeof localStorage !== 'undefined') {
+    try{
       const localAccessToken = localStorage.getItem("access_token") || "no token"
       setAccessToken(`${localAccessToken}`)
       console.log(accessToken)
-    } else {
-      console.log("neighbourhood area page: local storage undefined")
+    } catch(error) {
+      console.log("neighbourhood area page: local storage undefined", error)
     }
+  }, [])
 
+  useEffect(() => {
 
     const fetchPlaylist = async () => {
       try {
