@@ -16,7 +16,7 @@ export default function Area() {  //Need to insert the name of the neighbourhood
   const router = useRouter()
 
   useEffect(() => {
-    const localAccessToken = localStorage.getItem("access_token")
+    const localAccessToken = localStorage.getItem("access_token") || "no token"
     setAccessToken(`${localAccessToken}`)
     console.log(accessToken)
 
