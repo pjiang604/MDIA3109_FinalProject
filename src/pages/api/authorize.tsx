@@ -1,7 +1,7 @@
 const clientID: string = `${process.env.NEXT_PUBLIC_CLIENT_ID}`
 const clientSecret: string = `${process.env.NEXT_PUBLIC_CLIENT_SECRET}`
 
-const redirectUri: string = "http://localhost:3000";
+const redirectUri: string = "http://localhost:3000/playMusic";
 const BASEURL = `https://accounts.spotify.com/api`
 
 function generateRandomString(length: number): string {
@@ -85,68 +85,6 @@ export const getToken = async (code: string) => {
     }
 };
 
-// export const getToken = async (code: string) => {
-//     console.log("run token function")
-//     let codeVerifier = localStorage.getItem("code_verifier");
-
-//     const body = new URLSearchParams({
-//         grant_type: "authorization_code" || "",
-//         code: code || "",
-//         redirect_uri: redirectUri || "",
-//         client_id: clientID || "",
-//         code_verifier: codeVerifier || "",
-//     });
-
-//     fetch(`${BASEURL}/token`, {
-//         method: 'POST',
-//         headers: {
-//             "Content-Type": "application/x-www-form-urlencoded",
-//         },
-//         body: body
-//     })
-//         .then((response) => {
-//             if (!response.ok) {
-//                 throw new Error("HTTP status " + response.status);
-//             }
-//             return response.json()
-//         })
-//         .then((data: { access_token: string }) => {
-//             localStorage.setItem("access_token", data.access_token);
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error)
-//         })
-// }
-
-// export const getToken = async (code: string) => {
-//     const codeVerifier = localStorage.getItem("code_verifier");
-
-//     const body = new URLSearchParams({
-//         grant_type: "authorization_code" || "",
-//         code: code || "",
-//         redirect_uri: redirectUri || "",
-//         client_id: clientID || "",
-//         code_verifier: codeVerifier || "",
-//     });
-//     try {
-//         const response = await fetch(`${BASEURL}/token`, {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/x-www-form-urlencoded",
-//                 'Authorization': 'Basic ' + clientID + ':' + clientSecret.toString
-//             },
-//             body: body,
-//         });
-
-//         return response.json();
-
-//     } 
-//     catch (error) {
-//         window.location.href = "/";
-//         console.log("error")
-//     }
-
-// };
 
 export const refreshSpotifyToken = async (refresh_token: string) => {
     const body = new URLSearchParams({

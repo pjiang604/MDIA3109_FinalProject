@@ -20,6 +20,39 @@ interface SpotifyPlayerType {
     playing: boolean;
 }
 
+interface SpotifyPlaylist {
+    name: string;
+    tracks: {
+        items: [
+            {
+                track: {
+                    album: {
+                        images: [
+                            {
+                                url: string
+                            }
+                        ]
+                    },
+                    artists: [
+                        {
+                            name: string
+                        }
+
+                    ],
+                    name: string;
+                    uri: string;
+                }
+            }
+        ]
+    }
+}
+
+interface SongCard {
+    songTitle: string;
+    artistName: string;
+    coverUrl: string;
+}
+
 interface StreetArt {
     title_of_work: string;
     neighbourhood: string;
