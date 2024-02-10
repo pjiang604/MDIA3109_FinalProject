@@ -9,15 +9,15 @@ import { useRouter } from "next/router";
 
 export default function Area() {  //Need to insert the name of the neighbourhood area and insert it into the header nav text
 
-  const [accessToken, setAccessToken] = useState("");
+  const [accessToken, setAccessToken] = useState<string>();
   const [playlistData, setPlaylistData] = useState<SpotifyPlaylist>()
   const [song, setSong] = useState<string>()
 
   const router = useRouter()
 
   useEffect(() => {
-
-    setAccessToken(`${localStorage.getItem("access_token")}`)
+    const localAccessToken = localStorage.getItem("access_token")
+    setAccessToken(`${localAccessToken}`)
     console.log(accessToken)
 
     const fetchPlaylist = async () => {
@@ -30,7 +30,6 @@ export default function Area() {  //Need to insert the name of the neighbourhood
       }
     }
     fetchPlaylist()
-    console.log
 
   }, [])
 
