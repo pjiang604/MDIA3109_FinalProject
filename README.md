@@ -23,3 +23,5 @@
 
 ## Installations
 npm i axios
+npm install firebase
+npm i -D react-router-dom
