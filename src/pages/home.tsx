@@ -2,6 +2,8 @@ import HeaderNav from "@/components/navigation/HeaderNav"
 import Nav from "@/components/navigation/NavBar"
 import Link from "next/link"
 
+// Components
+import UserLogout from "@/firebase/UserLogout"
 
 export default function Home() {
 
@@ -16,6 +18,7 @@ export default function Home() {
         <Link href='/playMusic'>Go to playMusic</Link>
         <Link href='/playArt'>Go to playArt</Link>
 
+        <UserLogout />
 
       </div>
       <Nav type="home" />
