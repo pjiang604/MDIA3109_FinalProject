@@ -1,0 +1,15 @@
+.selectedTab {
+    font-weight: 800;
+}
+
+.tabList {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 4%;
+}
+
+.tabPanel {
+    display: flex;
+    flex-direction:row;
+}
