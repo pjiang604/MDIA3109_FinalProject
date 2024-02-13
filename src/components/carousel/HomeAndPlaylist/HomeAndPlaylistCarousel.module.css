@@ -1,0 +1,11 @@
+.carousel img {
+    width: 100%;
+    max-height: 500px;
+    object-fit:contain;
+}
+
+.carouselContainer {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
