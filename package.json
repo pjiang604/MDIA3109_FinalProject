@@ -14,6 +14,7 @@
     "classnames": "^2.5.1",
     "firebase": "^10.8.0",
     "next": "14.0.4",
+    "nuka-carousel": "^7.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-slick": "^0.30.1",
