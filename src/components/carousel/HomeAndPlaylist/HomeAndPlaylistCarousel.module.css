@@ -1,11 +1,16 @@
 .carousel img {
-    width: 100%;
-    max-height: 500px;
+    max-width: 100%;
+    max-height: 300px;
     object-fit:contain;
+    border-radius:20px;
 }
 
 .carouselContainer {
     display:flex;
     align-items:center;
     justify-content:center;
+}
+
+.carousel button {
+    display:none;
 }
