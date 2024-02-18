@@ -1,7 +1,8 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from './firebase.config';
 import { useState } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import styles from './Firebase.module.css'
 
 export default function UserRegistration() {
     const [registerEmail, setRegisterEmail] = useState('');
@@ -28,30 +29,35 @@ export default function UserRegistration() {
 
     return (
       <>
-        <h1>Create an account</h1>
-        <p>Email</p>
-        <input 
-          type="email"
-          placeholder='Email...'
-          value={registerEmail}
-          onChange={handleChangeEmailValue}
-        />
-        <p>Password</p>
-        <input 
-          type="password"
-          placeholder='Password...'
-          value={registerPassword}
-          onChange={handleChangePasswordValue}
-        />
-        <button 
-          onClick={() => {
-            register()
-            setRegisterEmail("")
-            setRegisterPassword("")
-          }}
-        >
-          Register User
-        </button>
+        <h1 className={styles.createAccountText}>Create an account</h1>
+        <div className={styles.inputInfo}>
+          <p>Email</p>
+          <input 
+            className={styles.inputBox}
+            type="email"
+            placeholder='Enter your email'
+            value={registerEmail}
+            onChange={handleChangeEmailValue}
+          />
+          <p>Password</p>
+          <input 
+            className={styles.inputBox}
+            type="password"
+            placeholder='Enter your password'
+            value={registerPassword}
+            onChange={handleChangePasswordValue}
+          />
+          <button 
+            className={styles.loginBtn}
+            onClick={() => {
+              register()
+              setRegisterEmail("")
+              setRegisterPassword("")
+            }}
+          >
+            Register User
+          </button>
+        </div>
       </>
     )
 }

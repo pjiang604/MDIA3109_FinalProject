@@ -3,14 +3,18 @@
 @tailwind utilities;
 
 :root {
---battleshipGray: #878684 ;
---darkGray: #66635F;
---lightGray: #EFEFEF;
---gray: #ACACAC;
---black: #1C1C1C;
---white: #F5F5F5;
---berry: #990F4B;
---berryHover: #B62263;
+  --battleshipGray: #878684 ;
+  --darkGray: #66635F;
+  --lightGray: #EFEFEF;
+  --gray: #ACACAC;
+  --black: #1C1C1C;
+  --white: #F5F5F5;
+  --berry: #990F4B;
+  --berryHover: #B62263;
+  --blue: #1C6E8C;
+
+  --large-font: 1.875em; /* 30px */
+   --medium-font: 0.875em; /* 14px */
 }
 
 h1{

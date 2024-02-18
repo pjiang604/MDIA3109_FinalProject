@@ -1,8 +1,8 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase.config";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import styles from './Firebase.module.css'
 
 export default function UserEmailSignIn() {
     const [loginEmail, setLoginEmail] = useState("");
@@ -29,30 +29,35 @@ export default function UserEmailSignIn() {
 
     return (
         <>
-            <h1>Sign In</h1>
-            <p>Email</p>
-            <input 
-                type="email"
-                placeholder='Email...'
-                value={loginEmail}
-                onChange={handleChangeEmailValue}
-            />
-            <p>Passwords</p>
-            <input 
-                type="password"
-                placeholder='Password...'
-                value={loginPasswod}
-                onChange={handleChangePasswordValue}
-            />
-            <button
-                onClick={() => {
-                    login()
-                    setLoginEmail("")
-                    setLoginPassword("")
-                }}
-            >
-                LOGIN
-            </button>
+            <h1 className={styles.signInTitle}>Sign In</h1>
+            <div className={styles.inputInfo}>
+                <p>Email</p>
+                <input 
+                    className={styles.inputBox}
+                    type="email"
+                    placeholder='Enter your email'
+                    value={loginEmail}
+                    onChange={handleChangeEmailValue}
+                />
+                <p>Passwords</p>
+                <input 
+                    className={styles.inputBox}
+                    type="password"
+                    placeholder='Enter your password'
+                    value={loginPasswod}
+                    onChange={handleChangePasswordValue}
+                />
+                <button
+                    className={styles.loginBtn}
+                    onClick={() => {
+                        login()
+                        setLoginEmail("")
+                        setLoginPassword("")
+                    }}
+                >
+                    LOGIN
+                </button>
+            </div>
         </>
     )
 }
