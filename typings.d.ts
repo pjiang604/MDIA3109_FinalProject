@@ -1,11 +1,3 @@
-interface NavProps {
-    type: string;
-}
-
-interface HeaderProps {
-    text: string;
-    type: string;
-}
 
 interface MusicArtTabProperties {
     onChange?: (tab: string) => void;
@@ -13,6 +5,7 @@ interface MusicArtTabProperties {
     tabs: Readonly<string[]>;
     id: string;
 }
+//Spotify Files
 
 interface SpotifyPlayerType {
     access_token: string;
@@ -20,6 +13,7 @@ interface SpotifyPlayerType {
     playing: boolean;
 }
 
+//APIs
 interface SpotifyPlaylist {
     name: string;
     tracks: {
@@ -47,6 +41,28 @@ interface SpotifyPlaylist {
     }
 }
 
+//Data
+interface INeighbData {
+    name: string;
+    image: string;
+    playlist_id: string;
+}
+
+interface IArtistData{
+    name: string;
+    image: string;
+}
+
+//Components
+
+interface NavProps {
+    type: string;
+}
+
+interface HeaderProps {
+    text: string;
+    type: string;
+}
 interface SongCard {
     songTitle: string;
     artistName: string;
@@ -62,3 +78,14 @@ interface StreetArt {
     }
     yearofinstallation: number;
 }
+
+interface ISmallPlaylist{
+    name: string;
+    image: string;
+}
+
+interface IPlaylist{
+    name: string;
+    image: string;
+}
+

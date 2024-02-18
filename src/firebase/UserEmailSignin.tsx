@@ -13,7 +13,7 @@ export default function UserEmailSignIn() {
         try {
             const user = await signInWithEmailAndPassword(auth, loginEmail, loginPasswod);
             console.log("SignIn : ",user);
-            router.push('/home')
+            router.push('/spotifyLogin')
         } catch(error) {
             console.log(error)
         }
