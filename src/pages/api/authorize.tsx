@@ -1,7 +1,7 @@
 const clientID: string = `${process.env.NEXT_PUBLIC_CLIENT_ID}`
 const clientSecret: string = `${process.env.NEXT_PUBLIC_CLIENT_SECRET}`
 
-const redirectUri: string = "http://localhost:3000/playMusic";
+const redirectUri: string = "http://localhost:3000/home";
 const BASEURL = `https://accounts.spotify.com/api`
 
 function generateRandomString(length: number): string {
@@ -88,7 +88,7 @@ export const getToken = async (code: string) => {
 
 export const refreshSpotifyToken = async (refresh_token: string) => {
     const body = new URLSearchParams({
-        grant_type: "refresh_token" || "",
+        grant_type: "refresh_token",
         refresh_token: refresh_token,
         client_id: clientID || "",
     });

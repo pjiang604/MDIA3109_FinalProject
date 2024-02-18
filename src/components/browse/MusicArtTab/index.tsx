@@ -12,11 +12,11 @@ export default function MusicArtTab({ //playlists
                 <Tab className={styles.tab} selectedClassName={styles.selectedTab}>Art</Tab>
             </TabList>
             <TabPanel className={styles.tabPanel}>
-                <SmallPlaylist />
+                {/* <SmallPlaylist /> */}
             </TabPanel>
             <TabPanel className={styles.tabPanel}>
-            <SmallPlaylist />
-            <SmallPlaylist />
+            {/* <SmallPlaylist />
+            <SmallPlaylist /> */}
             </TabPanel>
         </Tabs>
 

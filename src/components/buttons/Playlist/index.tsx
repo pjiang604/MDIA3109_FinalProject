@@ -3,21 +3,20 @@ import Link from "next/link"
 import { useState } from "react";
 
 export default function Playlist({
-}) {
+    name,
+    image
+}: IPlaylist) {
 
-
-    const [name, setName] = useState<string>("kitsilano")
 
 
     return (
-        <Link
-            href={`/neighbourhood/${name}`}>
-            <div className={`relative w-1/2 h-auto bg-zinc-400 px-2 pt-3 pb-5 rounded-md`}>
+        <Link href={`/neighbourhood/${name}`}>
+            <div className={`relative h-full bg-zinc-400 px-2 pt-3 pb-5 rounded-md`}>
                 <div className={`relative flex justify-center items-center`}>
-                    <h2 className={`z-10 absolute text-[#f8fafc] font-bold text-xl`}>Kitsilano</h2>
+                    <h2 className={`z-10 absolute text-[#f8fafc] font-bold text-xl`}>{name}</h2>
 
                     <Image
-                        src="/Neighbourhoods/kitsilano.png"
+                        src={image}
                         height={140}
                         width={140}
                         alt="neighbourhood"
