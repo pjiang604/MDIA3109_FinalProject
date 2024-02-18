@@ -6,7 +6,10 @@ import styles from './HomeAndPlaylistCarousel.module.css';
 export default function HomeAndPlaylistCarousel() {
     return (
         <div className={styles.carouselContainer}>
-            <Carousel className={styles.carousel}>
+            <Carousel 
+                className={`${styles.carousel}`} 
+                renderCenterLeftControls={() => null}
+                renderCenterRightControls={() => null}>
                 <Image src="/CarouselPics/pic1.JPG" height={300} width={700} alt="carousel pic 1"/>
                 <Image src="/CarouselPics/pic2.jpg" height={300} width={700} alt="carousel pic 2"/>
                 <Image src="/CarouselPics/pic3.jpg" height={300} width={700} alt="carousel pic 3"/>
