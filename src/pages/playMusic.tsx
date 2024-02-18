@@ -2,43 +2,50 @@ import HeaderNav from "@/components/navigation/HeaderNav";
 import Nav from "@/components/navigation/NavBar";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import SpotifyPlayer from 'react-spotify-web-playback';
+import SpotifyPlayer, { contextType, spotifyApi } from 'react-spotify-web-playback';
 import { authorize } from "./api/authorize";
+import styles from '../styles/PlayMusic.module.css'
 
 
 export default function PlayMusic() {
 
-  const router = useRouter();
-  const [accessToken, setAccessToken] = useState("");
-  const song = router.query.songUri;
-  console.log(song, "songURI")
+    const router = useRouter();
+    const [accessToken, setAccessToken] = useState("");
+    const song = `${router.query.songUri}`;
+    const track_num = Number(router.query.track_num);
+    const playlist = `spotify:playlist:${router.query.playlist_id}`
+    // console.log(song, "songURI")
+    console.log(track_num)
 
-  
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-        setAccessToken(`${localStorage.getItem("access_token")}`)
-    } else {
-        console.log("play music page: local storage undefined")
-    }
-}, [authorize])
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setAccessToken(`${localStorage.getItem("access_token")}`)
 
-useEffect(() => {
-    console.log(accessToken, "access token");
-}, [accessToken]);
+        } else {
+            console.log("play music page: local storage undefined")
+        }
+    }, [authorize])
 
-  return (
-    <main className={``} >
-      <HeaderNav text="Now Playing" type="simple-music" />
-      <div id="mainContainer" className={`flex flex-col`}>
-
-      <div>
+    return (
+        <main className={`bg-battleshipGray min-h-screen`} >
+            <HeaderNav text="Now Playing" type="simple-music" />
+            <div id="mainContainer" className={`flex flex-col`}>
+                <div className={styles.playerContainer}>
                     {
-                        accessToken && song ?
-
+                        accessToken && song && playlist ?
                             <SpotifyPlayer
                                 token={accessToken}
-                                uris={[`${song}`]}
+                                uris={playlist}
                                 play={true}
+                                hideAttribution={true}
+                                offset={track_num}
+                                hideCoverArt={true}
+                                styles={{
+                                    bgColor: "",
+                                    color: "white",
+                                    trackArtistColor: "white",
+                                    trackNameColor: "white"
+                                }}
                             />
                             :
                             <>
@@ -59,8 +66,8 @@ useEffect(() => {
 
                 </div>
 
-      </div>
-      <Nav type="music" />
-    </main>
-  )
+            </div>
+            <Nav type="music" />
+        </main>
+    )
 }
