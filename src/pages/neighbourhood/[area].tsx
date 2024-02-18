@@ -14,6 +14,7 @@ export default function Area() {  //Need to insert the name of the neighbourhood
   const [playlistData, setPlaylistData] = useState<SpotifyPlaylist>()
   const [neighData, setNeighData] = useState([...neighbourhoods])
   const [song, setSong] = useState<string>()
+  const [playlistId, setPlaylistId] = useState<string>()
 
   const router = useRouter()
   const location = router.query.area
@@ -35,6 +36,7 @@ export default function Area() {  //Need to insert the name of the neighbourhood
     if (neighbourhood) {
 
       const playlist_id = neighbourhood.playlist_id;
+      setPlaylistId(playlist_id)
   
       const fetchPlaylist = async () => {
         try {
@@ -53,10 +55,12 @@ export default function Area() {  //Need to insert the name of the neighbourhood
   }, [location, neighData]);
   
 
-  const playSong = (songUri: string) => {
+  const playSong = (songUri: string, index: number) => {
     router.push({
       pathname: '/playMusic',
-      query: { songUri: songUri }
+      query: { songUri: songUri,
+                playlist_id: playlistId,
+                track_num: index }
     })
   }
 
@@ -69,7 +73,7 @@ export default function Area() {  //Need to insert the name of the neighbourhood
             const songUri = i.track.uri
             return (
               <div key={index}
-                onClick={() => playSong(songUri)}>
+                onClick={() => playSong(songUri, index)}>
                 <SongCard
                   songTitle={i.track.name}
                   artistName={i.track.artists[0].name}

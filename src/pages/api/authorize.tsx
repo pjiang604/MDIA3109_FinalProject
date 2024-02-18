@@ -58,6 +58,7 @@ export const authorize = async () => {
 
         window.location.href = "https://accounts.spotify.com/authorize?" + args;
     });
+
 };
 
 export const getToken = async (code: string) => {
