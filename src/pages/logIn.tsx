@@ -1,15 +1,16 @@
 import Link from "next/link"
+import styles from '@/styles/LogIn.module.css'
 
 // Components
 import UserEmailSignIn from "@/firebase/UserEmailSignin"
 
 export default function LogIn() {
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between p-24`} >
-      <div id="mainContainer" className={`flex flex-col`}>
+    <main className={styles.container}>
+      <div>
         <UserEmailSignIn />
-        <h2>No Account?</h2>
-        <Link href={"/signUp"}>Sign up here!</Link>
+        <p className={styles.notAccountText}>Don't have an account yet?</p>
+        <Link className={styles.signUpLink} href={"/signUp"}>Sign up here!</Link>
       </div>
     </main>
   )

@@ -1,0 +1,29 @@
+.signInTitle, .createAccountText {
+  font-size: var(--large-font);
+  margin-bottom: 0.5em;
+}
+
+.inputInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1em;
+}
+
+.inputInfo > p {
+  margin-bottom: 0.5em;
+}
+
+.inputBox {
+  width: 20em;
+  background-color: #EFEFEF;
+  padding: 10px;
+  border-radius: 0.5em;
+}
+
+.loginBtn {
+  background: var(--berry);
+  color: var(--white);
+  padding: 1em;
+  border-radius: 0.8em;
+  margin-top: 1em;
+}
