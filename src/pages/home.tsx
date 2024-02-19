@@ -1,11 +1,15 @@
-import HeaderNav from "@/components/navigation/HeaderNav"
-import Nav from "@/components/navigation/NavBar"
-import Link from "next/link"
+import HeaderNav from "@/components/navigation/HeaderNav";
+import Nav from "@/components/navigation/NavBar";
+import Link from "next/link";
+import Image from "next/image";
+import { publicArt } from '@/data/PublicArt';
 
 // Components
 import UserLogout from "@/firebase/UserLogout"
+import { useState } from "react";
 
 export default function Home() {
+  const [image, setImage] = useState(publicArt);
 
   return (
     <main className={``} >
@@ -19,7 +23,16 @@ export default function Home() {
         <Link href='/playArt'>Go to playArt</Link>
 
         <UserLogout />
-
+        {
+          image && image.map((data, index) => (
+            <Image 
+              src={`${data.image}`}
+              width={100}
+              height={100}
+              alt="public art"
+            />
+          ))
+        }
       </div>
       <Nav type="home" />
     </main>
