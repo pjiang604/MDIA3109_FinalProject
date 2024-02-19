@@ -26,6 +26,3 @@ npm i axios
 npm install firebase
 npm i -D react-router-dom
 npm i nuka-carousel
-
-#### DELETE THIS BEFORE SUBMISSION
-- Note for PJ: need to figure out how to auto refresh tokens when accessing authorized content (e.g., playlist, songs)

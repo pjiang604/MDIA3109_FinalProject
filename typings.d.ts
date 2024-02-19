@@ -13,6 +13,7 @@ interface SpotifyPlayerType {
     playing: boolean;
 }
 
+
 //APIs
 interface SpotifyPlaylist {
     name: string;
@@ -41,6 +42,44 @@ interface SpotifyPlaylist {
     }
 }
 
+interface ArtistTopTracks {
+    tracks: [
+        {
+            uri: "string";
+            name: "string";
+            album: {
+                images: [
+                    {
+                        url: 'string'
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+interface SpotifyRecentlyPlayed{
+    items: [
+        {
+            track: {
+                artists: [
+                    {
+                        name: string;
+                    }
+                ],
+                album: {
+                    images: [
+                        {
+                            url: string;
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+
+
 //Data
 interface INeighbData {
     name: string;
@@ -48,9 +87,10 @@ interface INeighbData {
     playlist_id: string;
 }
 
-interface IArtistData{
+interface IArtistData {
     name: string;
     image: string;
+    artist_id: string;
 }
 
 //Components
@@ -79,16 +119,17 @@ interface PublicArtProps {
     type: string
 }
 
- interface PublicArt {
+interface PublicArt {
     image: string
- }
-
-interface ISmallPlaylist{
-    name: string;
-    image: string;
 }
 
-interface IPlaylist{
+interface ISmallPlaylist {
+    name: string;
+    image: string;
+    type: string;
+}
+
+interface IPlaylist {
     name: string;
     image: string;
 }
