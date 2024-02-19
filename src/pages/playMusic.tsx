@@ -1,74 +1,73 @@
 import HeaderNav from "@/components/navigation/HeaderNav";
 import Nav from "@/components/navigation/NavBar";
-import useRefreshToken from "@/hooks/useRefreshToken";
-import SpotifyPlayer from 'react-spotify-web-playback';
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { authorize, getToken } from "./api/authorize"; //move this authorization button somewhere else later
+import { useState, useEffect } from "react";
+import SpotifyPlayer, { contextType, spotifyApi } from 'react-spotify-web-playback';
+import { authorize } from "./api/authorize";
+import styles from '../styles/PlayMusic.module.css'
 
 
 export default function PlayMusic() {
 
-  const [accessToken, setAccessToken] = useState("");
-  const [codeVerifier, setCodeVerifier] = useState('')
+    const router = useRouter();
+    const [accessToken, setAccessToken] = useState("");
+    const song = `${router.query.songUri}`;
+    const track_num = Number(router.query.track_num);
+    const playlist = `spotify:playlist:${router.query.playlist_id}`
+    // console.log(song, "songURI")
+    console.log(track_num)
 
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setAccessToken(`${localStorage.getItem("access_token")}`)
 
-  const router = useRouter();
-  const code = router.query.code;
-  const song = router.query.songUri;
-  console.log(song, "songURI")
-  useRefreshToken(code as string);
+        } else {
+            console.log("play music page: local storage undefined")
+        }
+    }, [authorize])
 
+    return (
+        <main className={`bg-battleshipGray min-h-screen`} >
+            <HeaderNav text="Now Playing" type="simple-music" />
+            <div id="mainContainer" className={`flex flex-col`}>
+                <div className={styles.playerContainer}>
+                    {
+                        accessToken && song && playlist ?
+                            <SpotifyPlayer
+                                token={accessToken}
+                                uris={playlist}
+                                play={true}
+                                hideAttribution={true}
+                                offset={track_num}
+                                hideCoverArt={true}
+                                styles={{
+                                    bgColor: "",
+                                    color: "white",
+                                    trackArtistColor: "white",
+                                    trackNameColor: "white"
+                                }}
+                            />
+                            :
+                            <>
+                                {
+                                    !accessToken ?
+                                        <p>Please log in to play music!</p>
+                                        :
+                                        <>
+                                            {
+                                                !song &&
+                                                <></>
+                                            }
+                                        </>
+                                }
+                            </>
 
-  useEffect(() => {
-    if (typeof window !== 'undefined'){
-    setAccessToken(`${localStorage.getItem("access_token")}`)
-    } else{
-      console.log("play music page: local storage undefined")
-    }
-  }, [authorize])
+                    }
 
-  useEffect(() => {
-    console.log(accessToken, "access token");
-  }, [accessToken]);
+                </div>
 
-  return (
-    <main className={``} >
-      <HeaderNav text="Now Playing" type="simple-music" />
-      <div id="mainContainer" className={`flex flex-col`}>
-
-        <button onClick={authorize}>Authorize</button> {/*move this authorization button somewhere else later*/}
-
-        <div>
-          {
-            accessToken && song ?
-
-              <SpotifyPlayer
-                token={accessToken}
-                uris={[`${song}`]}
-                play={true}
-              />
-              :
-              <>
-                {
-                  !accessToken ?
-                    <p>Please log in to play music!</p>
-                    :
-                    <>
-                      {
-                        !song &&
-                        <></>
-                      }
-                    </>
-                }
-              </>
-
-          }
-
-        </div>
-
-      </div>
-      <Nav type="music" />
-    </main>
-  )
+            </div>
+            <Nav type="music" />
+        </main>
+    )
 }
