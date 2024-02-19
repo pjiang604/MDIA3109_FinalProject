@@ -2,18 +2,57 @@ import HeaderNav from "@/components/navigation/HeaderNav";
 import Nav from "@/components/navigation/NavBar";
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 import MusicArtTab from "@/components/browse/MusicArtTab";
-import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist";;
+import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist";
+import { useState, useEffect } from "react";
+import { getRecentPlayed } from "./api/getMusic";
+import Carousel from "nuka-carousel";
 
 export default function Browse() {
+
+  const [recentData, setRecentData] = useState<SpotifyRecentlyPlayed>()
+
+  useEffect(() => {
+    const fetchRecentData = async () => {
+      try {
+        const recentData = await getRecentPlayed();
+        setRecentData(recentData)
+        console.log(recentData)
+      } catch (error) {
+        console.error("Error fetching recent data", error)
+      }
+    }
+    fetchRecentData()
+
+  }, []);
+
   return (
     <main className={``} >
       <HeaderNav text="Browse" type="simple-backBtn" />
       <div className={`flex flex-col w-96`}>
         <input type="text" placeholder="Search for art and music" className={`bg-zinc-200 py-2 rounded-md pl-4`}></input>
       </div>
-      <div id="mainContainer" className={`flex flex-col`}>
+      <div id="mainContainer" className={`flex flex-col gap-4`}>
         <MusicArtTab />
+
         <h3>Past Searches</h3>
+        <Carousel
+          wrapAround={true}
+          slidesToShow={2.5}
+          cellSpacing={10}
+          withoutControls={true}
+        >
+          {
+            recentData && recentData.items.map((r, rIndex) => {
+              return (
+                <SmallPlaylist
+                  key={rIndex}
+                  name={r.track.artists[0].name}
+                  image={r.track.album.images[0].url}
+                  type='artist' />
+              )
+            })
+          }
+        </Carousel>
       </div>
       <Nav type="browse" />
     </main>
