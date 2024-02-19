@@ -1,19 +1,24 @@
+
 import HeaderNav from "@/components/navigation/HeaderNav"
 import Nav from "@/components/navigation/NavBar"
 import Link from "next/link"
-import { useState } from "react"
 import { neighbourhoods } from "@/data/neighbourhoods"
 import { artists } from "@/data/artists"
 import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import useRefreshToken from "@/hooks/useRefreshToken"
 import { authorize } from "./api/authorize"
+import { publicArt } from '@/data/PublicArt';
+import Image from "next/image";
+
 
 // Components
 import UserLogout from "@/firebase/UserLogout"
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 
+
 export default function Home() {
+  const [image, setImage] = useState(publicArt);
 
   const [dataNeigh, setDataNeigh] = useState(neighbourhoods)
   const [dataArtist, setDataArtist] = useState(artists)
@@ -77,7 +82,16 @@ export default function Home() {
         </div>
 
         <UserLogout />
-
+        {
+          image && image.map((data, index) => (
+            <Image 
+              src={`${data.image}`}
+              width={100}
+              height={100}
+              alt="public art"
+            />
+          ))
+        }
       </div>
       <Nav type="home" />
     </main>
