@@ -2,7 +2,6 @@
 import HeaderNav from "@/components/navigation/HeaderNav"
 import Nav from "@/components/navigation/NavBar"
 import Link from "next/link"
-import { useState } from "react"
 import { neighbourhoods } from "@/data/neighbourhoods"
 import { artists } from "@/data/artists"
 import { useRouter } from "next/router"
