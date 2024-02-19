@@ -8,6 +8,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import useRefreshToken from "@/hooks/useRefreshToken"
 import { authorize } from "./api/authorize"
+import { publicArt } from '@/data/PublicArt';
 
 // Components
 import UserLogout from "@/firebase/UserLogout"
