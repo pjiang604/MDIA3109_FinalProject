@@ -4,28 +4,24 @@ import Playlist from "@/components/buttons/Playlist";
 import { neighbourhoods } from "@/data/neighbourhoods";
 import { useState } from "react";
 
-
 export default function AllNeighbourhood() {
-
-  const [dataNeigh, setdataNeigh] = useState(neighbourhoods)
+  const [dataNeigh, setdataNeigh] = useState(neighbourhoods);
+  
   return (
-    <main className={``} >
+    <main>
       <HeaderNav text="Art Based on Neighbourhood" type="simple-backBtn" />
-      <div id="mainContainer" className={`flex flex-row gap-4 flex-wrap `}>
-        {
-          dataNeigh && dataNeigh.map((n, nIndex) => {
-            return (
-              <Playlist
-                key={nIndex}
-                name={n.name}
-                image={n.image}
-              />
-            )
-          })
-        }
-
+      <div className="flex justify-center">
+        <div id="mainContainer" className="flex flex-row flex-wrap gap-4 justify-center">
+          {dataNeigh.map((neighbourhood, index) => (
+            <Playlist
+              key={index}
+              name={neighbourhood.name}
+              image={neighbourhood.image}
+            />
+          ))}
+        </div>
       </div>
       <Nav type="music" />
     </main>
-  )
+  );
 }
