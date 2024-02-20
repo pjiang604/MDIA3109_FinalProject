@@ -118,6 +118,10 @@ interface PublicArt {
     artistprojectstatement: string;
 }
 
+interface PublicArtImage {
+    image: string;
+}
+
 interface PublicArtProps {
     type: string
 }

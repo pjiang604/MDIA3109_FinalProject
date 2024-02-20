@@ -1,4 +1,4 @@
-export const publicArt: PublicArt[]= [
+export const publicArt: PublicArtImage[]= [
   {image: '/PublicArt/img1.jpg'},
   {image: '/PublicArt/img2.jpg'},
   {image: '/PublicArt/img3.jpg'},
