@@ -109,10 +109,13 @@ interface SongCard {
     coverUrl: string;
 }
 
-interface StreetArt {
+interface PucbliArt {
     title_of_work: string;
     neighbourhood: string;
     yearofinstallation: number;
+    status: string;
+    descriptionofwork: string;
+    artistprojectstatement: string;
 }
 
 interface PublicArtProps {

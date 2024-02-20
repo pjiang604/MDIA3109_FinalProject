@@ -53,4 +53,25 @@ width: 100%;
 padding-top: 5%;
 }
 
+/* PlayArt Carousel */
+
+.slider-control-centerright {
+  position: absolute;
+  top: 10%
+}
+
+.slider-control-centerright  > button {
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.slider-control-centerleft {
+  position: absolute;
+  top: 10%
+}
+
+.slider-control-centerleft  > button {
+  margin-right: 10px;
+  border-radius: 10px;
+}
 
