@@ -109,7 +109,7 @@ interface SongCard {
     coverUrl: string;
 }
 
-interface PucbliArt {
+interface StreetArt {
     title_of_work: string;
     neighbourhood: string;
     yearofinstallation: number;
