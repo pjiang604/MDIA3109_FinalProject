@@ -5,23 +5,22 @@ import axios from "axios";
 import Image from "next/image";
 
 export default function PlayArt() {
-  // main had className flex min-h-screen flex-col items-center justify-between p-24
 
-  // const [data, setData] = useState<StreetArt[]>([]);
+  const [data, setData] = useState<StreetArt[]>([]);
 
-  // const url = "https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/public-art/records?limit=20"
+  const url = "https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/public-art/records?limit=23"
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const response = await axios.get(url);
-  //     console.log("response.data", response.data.results)
-  //     setData(response.data.results);
-  //   }
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(url);
+      console.log("response.data", response.data.results)
+      setData(response.data.results);
+    }
 
-  //   getData()
+    getData()
 
-  //   .catch(console.error);
-  // },[])
+    .catch(console.error);
+  },[])
 
   return (
     <main className={``} >
@@ -29,12 +28,18 @@ export default function PlayArt() {
         <MusicAndArtCarousel></MusicAndArtCarousel>
       </div>
       <Nav type="art" />
-      {/* <div>
+      <div style={{marginBottom: "100px"}}>
         {
           data && data.map((d, index) => {
 
             return (
               <div key={index}>
+                <Image 
+                  src={`/PublicArt/img${index+1}.jpg`}
+                  width={200}
+                  height={100}
+                  alt={d.title_of_work}
+                />
                 { 
                   d.title_of_work == "Untitled" ? <p>No Title</p> :
                   d.title_of_work == "Untitled (Mural)" ? <p>No Title</p> :
@@ -48,7 +53,7 @@ export default function PlayArt() {
             )
           })
         }
-      </div> */}
+      </div>
     </main>
   )
 }
