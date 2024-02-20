@@ -3,7 +3,6 @@ import HeaderNav from "@/components/navigation/HeaderNav";
 import Nav from "@/components/navigation/NavBar";
 import { getArtist } from "../api/getMusic";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { artists } from "@/data/artists";
 
@@ -59,7 +58,7 @@ export default function Artist() {  //Need to insert the name of the neighbourho
             pathname: '/playMusic',
             query: {
                 songUri: songUri,
-                playlist_id: playlistId,
+                playlist_id: `spotify:artist:${playlistId}`,
                 track_num: index
             }
         })
