@@ -28,8 +28,8 @@ export default function Browse() {
   return (
     <main className={``} >
       <HeaderNav text="Browse" type="simple-backBtn" />
-      <div className={`flex flex-col w-96`}>
-        <input type="text" placeholder="Search for art and music" className={`bg-zinc-200 py-2 rounded-md pl-4`}></input>
+      <div className={`flex flex-col w-full items-center`}>
+        <input type="text" placeholder="Search for art and music" className={`w-10/12 bg-zinc-200 py-2 rounded-md ps-4`}></input>
       </div>
       <div id="mainContainer" className={`flex flex-col gap-4`}>
         <MusicArtTab />
