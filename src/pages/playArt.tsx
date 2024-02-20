@@ -5,12 +5,11 @@ import Carousel from 'nuka-carousel';
 import styles from "@/styles/PlayArt.module.css"
 
 // Components
-import MusicAndArtCarousel from "@/components/carousel/MusicAndArtCarousel"
 import Nav from "@/components/navigation/NavBar"
 
 export default function PlayArt() {
 
-  const [data, setData] = useState<StreetArt[]>([]);
+  const [data, setData] = useState<PublicArt[]>([]);
 
   const url = "https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/public-art/records?limit=23"
 
@@ -24,10 +23,7 @@ export default function PlayArt() {
     getData()
 
     .catch(console.error);
-  },[])
-
-  // console.log("data", data[0].artistprojectstatement)
-  console.log("data", data[0])
+  },[]);
 
   return (
     <main className={``} >
@@ -61,7 +57,9 @@ export default function PlayArt() {
                 <p>Neighbourhood: {d.neighbourhood}</p>
                 <p>Year of Installation: {d.yearofinstallation}</p>
                 <p>Status: {d.status}</p>
-                <p>{d.descriptionofwork}</p>
+                {
+                  d.artistprojectstatement == null ? <></> : <p>{d.artistprojectstatement.substring(0, 500)}</p>
+                }
               </div>
             )
           })

@@ -109,7 +109,7 @@ interface SongCard {
     coverUrl: string;
 }
 
-interface StreetArt {
+interface PublicArt {
     title_of_work: string;
     neighbourhood: string;
     yearofinstallation: number;
@@ -120,10 +120,6 @@ interface StreetArt {
 
 interface PublicArtProps {
     type: string
-}
-
-interface PublicArt {
-    image: string
 }
 
 interface ISmallPlaylist {
