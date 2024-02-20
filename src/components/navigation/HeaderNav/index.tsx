@@ -22,7 +22,7 @@ export default function HeaderNav({
                                 width={30}
                                 alt="back button"
                                 className={`object-contain`}
-
+                                priority
                             />
                         </div>
                         :

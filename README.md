@@ -27,3 +27,4 @@
 - npm i -D react-router-dom
 - npm i nuka-carousel
 - npm install cypress --save-dev
+    - npx cypress run
