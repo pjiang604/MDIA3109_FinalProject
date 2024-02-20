@@ -16,6 +16,7 @@ import Carousel from "nuka-carousel"
 // Components
 import UserLogout from "@/firebase/UserLogout"
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
+import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist"
 
 
 export default function Home() {
@@ -51,8 +52,8 @@ export default function Home() {
     <main >
       <HeaderNav text="Welcome back, John" type="profile" />
       <div id="mainContainer" className={`flex flex-col`}>
-
-        <div>
+        <div className={`flex flex-col justify-between`}>
+          <HomeAndPlaylistCarousel />
           <h2>Art based on Neighbourhood</h2>
           <div className={`flex flex-row w-full`}>
             <Carousel
