@@ -22,7 +22,8 @@
 - (Building a Spotify Web App(Youtube Video))[https://www.youtube.com/watch?v=xaK7bpHBF_k]
 
 ## Installations
-npm i axios
-npm install firebase
-npm i -D react-router-dom
-npm i nuka-carousel
+- npm i axios
+- npm install firebase
+- npm i -D react-router-dom
+- npm i nuka-carousel
+- npm install cypress --save-dev
