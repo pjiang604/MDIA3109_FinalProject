@@ -10,7 +10,7 @@ import Nav from "@/components/navigation/NavBar"
 
 export default function PlayArt() {
 
-  const [data, setData] = useState<PucbliArt[]>([]);
+  const [data, setData] = useState<StreetArt[]>([]);
 
   const url = "https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/public-art/records?limit=23"
 
