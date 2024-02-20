@@ -13,7 +13,7 @@ export default function PlayMusic() {
     const [accessToken, setAccessToken] = useState("");
     const song = `${router.query.songUri}`;
     const track_num = Number(router.query.track_num);
-    const playlist = `spotify:artist:${router.query.playlist_id}`
+    const playlist = router.query.playlist_id
 
     useEffect(() => {
         if (typeof window !== 'undefined') {

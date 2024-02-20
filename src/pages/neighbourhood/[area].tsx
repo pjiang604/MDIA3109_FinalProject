@@ -59,7 +59,7 @@ export default function Area() {  //Need to insert the name of the neighbourhood
     router.push({
       pathname: '/playMusic',
       query: { songUri: songUri,
-                playlist_id: playlistId,
+                playlist_id: `spotify:playlist:${playlistId}`,
                 track_num: index }
     })
   }
