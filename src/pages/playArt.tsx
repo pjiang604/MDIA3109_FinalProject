@@ -1,8 +1,12 @@
-import MusicAndArtCarousel from "@/components/carousel/MusicAndArtCarousel"
-import Nav from "@/components/navigation/NavBar"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
+import Carousel from 'nuka-carousel';
+import styles from "@/styles/PlayArt.module.css"
+
+// Components
+import MusicAndArtCarousel from "@/components/carousel/MusicAndArtCarousel"
+import Nav from "@/components/navigation/NavBar"
 
 export default function PlayArt() {
 
@@ -22,23 +26,30 @@ export default function PlayArt() {
     .catch(console.error);
   },[])
 
+  // console.log("data", data[0].artistprojectstatement)
+  console.log("data", data[0])
+
   return (
     <main className={``} >
-      <div id="mainContainer" className={`flex flex-col`}>
-        <MusicAndArtCarousel></MusicAndArtCarousel>
-      </div>
       <Nav type="art" />
-      <div style={{marginBottom: "100px"}}>
+      <Carousel style={{marginBottom: "100px"}}
+        // renderCenterLeftControls={() => null}
+        // renderCenterRightControls={() => null}
+        renderBottomCenterControls={() => null}
+      >
         {
           data && data.map((d, index) => {
-
             return (
-              <div key={index}>
+              <div key={index} className={styles.slideContainer}>
                 <Image 
                   src={`/PublicArt/img${index+1}.jpg`}
-                  width={200}
-                  height={100}
+                  width={500}
+                  height={300}
                   alt={d.title_of_work}
+                  style={{
+                    width: "500px",
+                    height: "300px"
+                  }}
                 />
                 { 
                   d.title_of_work == "Untitled" ? <p>No Title</p> :
@@ -49,11 +60,13 @@ export default function PlayArt() {
                 }
                 <p>Neighbourhood: {d.neighbourhood}</p>
                 <p>Year of Installation: {d.yearofinstallation}</p>
+                <p>Status: {d.status}</p>
+                <p>{d.descriptionofwork}</p>
               </div>
             )
           })
         }
-      </div>
+      </Carousel>
     </main>
   )
 }
