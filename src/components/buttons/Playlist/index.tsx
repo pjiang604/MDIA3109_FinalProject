@@ -17,10 +17,15 @@ export default function Playlist({
 
                     <Image
                         src={image}
-                        height={140}
                         width={140}
+                        height={140}
                         alt="neighbourhood"
-                        className={`object-fit blur-xs rounded-md z-0`} />
+                        className={`object-fit blur-xs rounded-md z-0`} 
+                        style={{
+                            width: '140px',
+                            height: '140px'
+                        }}
+                        />
 
                 </div>
                 <div className={`flex text-center justify-center`}>
