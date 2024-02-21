@@ -126,7 +126,7 @@ interface PublicArtProps {
     type: string
 }
 
-interface PublicArt {
+interface PublicArtImage {
     image: string
 }
 
