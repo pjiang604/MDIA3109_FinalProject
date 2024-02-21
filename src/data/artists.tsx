@@ -8,26 +8,26 @@ export const artists: IArtistData[] = [
     {
         name: "Céline Dion",
         image: "/Neighbourhoods/Downtown.jpg", 
-        artist_id:"4S9EykWXhStSc15wEx8QFK"
+        artist_id:"37i9dQZF1DZ06evO2RkFc4"
     },
     {
         name: "Metric",
         image: "/Neighbourhoods/Downtown.jpg", 
-        artist_id:"1rCIEwPp5OnXW0ornlSsRl"
+        artist_id:"37i9dQZF1DZ06evO0Ns62Y"
     },
     {
         name: "Stars",
         image: "/Neighbourhoods/Downtown.jpg", 
-        artist_id:"2EO56JK4txid1Pss9GVbOL"
+        artist_id:"37i9dQZF1DZ06evO1wGEJs"
     },
     {
         name: "Barenaked Ladies",
         image: "/Neighbourhoods/Downtown.jpg", 
-        artist_id:"0dEvJpkqhrcn64d3oI8v79"
+        artist_id:"37i9dQZF1DZ06evO03JQXu"
     },
     {
         name: "Alanis Morissette",
         image: "/Neighbourhoods/Downtown.jpg", 
-        artist_id:"6ogn9necmbUdCppmNnGOdi"
+        artist_id:"37i9dQZF1DZ06evO3LXmAU"
     },
 ]
