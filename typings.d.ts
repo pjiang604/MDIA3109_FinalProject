@@ -43,22 +43,29 @@ interface SpotifyPlaylist {
 }
 
 interface ArtistTopTracks {
-    tracks: [
-        {
-            uri: "string";
-            name: "string";
-            album: {
-                images: [
-                    {
-                        url: 'string'
+    tracks: {
+        items: [
+            {
+                track: {
+                    name: string;
+                    uri: string;
+                    album: {
+                        images: [
+                            {
+                                url: string;
+                            }
+                        ]
                     }
-                ]
+                },
+
+
+
             }
-        }
-    ]
+        ],
+    }
 }
 
-interface SpotifyRecentlyPlayed{
+interface SpotifyRecentlyPlayed {
     items: [
         {
             track: {
@@ -136,5 +143,3 @@ interface IPlaylist {
     name: string;
     image: string;
 }
-
-

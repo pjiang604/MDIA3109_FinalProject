@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function PublicArt({type}: PublicArtProps) {
   
-  const [data, setData] = useState<PublicArt[]>([]);
+  const [data, setData] = useState<PublicArtImage[]>([]);
 
   const url = "https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/public-art/records?limit=20"
 
