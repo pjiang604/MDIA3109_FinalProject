@@ -43,22 +43,29 @@ interface SpotifyPlaylist {
 }
 
 interface ArtistTopTracks {
-    tracks: [
-        {
-            uri: "string";
-            name: "string";
-            album: {
-                images: [
-                    {
-                        url: 'string'
+    tracks: {
+        items: [
+            {
+                track: {
+                    name: string;
+                    uri: string;
+                    album: {
+                        images: [
+                            {
+                                url: string;
+                            }
+                        ]
                     }
-                ]
+                },
+
+
+
             }
-        }
-    ]
+        ],
+    }
 }
 
-interface SpotifyRecentlyPlayed{
+interface SpotifyRecentlyPlayed {
     items: [
         {
             track: {
@@ -109,21 +116,18 @@ interface SongCard {
     coverUrl: string;
 }
 
-interface PublicArt {
+interface StreetArt {
     title_of_work: string;
     neighbourhood: string;
     yearofinstallation: number;
-    status: string;
-    descriptionofwork: string;
-    artistprojectstatement: string;
-}
-
-interface PublicArtImage {
-    image: string;
 }
 
 interface PublicArtProps {
     type: string
+}
+
+interface PublicArt {
+    image: string
 }
 
 interface ISmallPlaylist {

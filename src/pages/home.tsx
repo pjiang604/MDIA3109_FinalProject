@@ -104,6 +104,7 @@ export default function Home() {
         {
           image && image.map((data, index) => (
             <Image
+            key={index}
               src={`${data.image}`}
               width={100}
               height={100}

@@ -58,7 +58,7 @@ export default function Artist() {  //Need to insert the name of the neighbourho
             pathname: '/playMusic',
             query: {
                 songUri: songUri,
-                playlist_id: `spotify:artist:${playlistId}`,
+                playlist_id: `spotify:playlist:${playlistId}`,
                 track_num: index
             }
         })
@@ -69,15 +69,15 @@ export default function Artist() {  //Need to insert the name of the neighbourho
             <HeaderNav text={`${artistQuery}` || ""} type="full-backPlay" />
             <div id="mainContainer" className={`flex flex-col`}>
                 {
-                    playlistData && playlistData.tracks.map((i, index) => {
-                        const songUri = i.uri
+                    playlistData && playlistData.tracks.items.map((i, index) => {
+                        const songUri = i.track.uri
                         return (
                             <div key={index}
                                 onClick={() => playSong(songUri, index)}>
                                 <SongCard
-                                    songTitle={i.name}
+                                    songTitle={i.track.name}
                                     artistName={`${artistQuery}`}
-                                    coverUrl={i.album.images[0].url} />
+                                    coverUrl={i.track.album.images[0].url} />
                             </div>
                         )
                     })

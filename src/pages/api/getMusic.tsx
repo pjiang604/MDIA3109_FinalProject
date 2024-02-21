@@ -22,7 +22,7 @@ export const getPlaylist = async (playlist_id: string) => {
 export const getArtist = async (playlist_id: string) => {
     try{
         let accessToken = localStorage.getItem('access_token');
-        const response = await fetch(`https://api.spotify.com/v1/artists/${playlist_id}/top-tracks?market=CA`, {
+        const response = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}`, {
             headers: {
                 Authorization: 'Bearer ' + accessToken
             }

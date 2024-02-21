@@ -2,7 +2,7 @@ export const artists: IArtistData[] = [
     {
         name: "Michael Bublé",
         image: "/Neighbourhoods/Downtown.jpg",
-        artist_id:"1GxkXlMwML1oSg5eLPiAz3"
+        artist_id:"37i9dQZF1DZ06evO0WqnZe"
 
     },
     {
