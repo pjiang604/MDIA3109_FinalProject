@@ -116,18 +116,21 @@ interface SongCard {
     coverUrl: string;
 }
 
-interface StreetArt {
+interface PublicArt {
     title_of_work: string;
     neighbourhood: string;
     yearofinstallation: number;
+    status: string;
+    descriptionofwork: string;
+    artistprojectstatement: string;
+}
+
+interface PublicArtImage {
+    image: string;
 }
 
 interface PublicArtProps {
     type: string
-}
-
-interface PublicArtImage {
-    image: string
 }
 
 interface ISmallPlaylist {
@@ -140,5 +143,3 @@ interface IPlaylist {
     name: string;
     image: string;
 }
-
-
