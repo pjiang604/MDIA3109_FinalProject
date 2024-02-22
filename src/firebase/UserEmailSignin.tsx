@@ -39,7 +39,7 @@ export default function UserEmailSignIn() {
                     value={loginEmail}
                     onChange={handleChangeEmailValue}
                 />
-                <p>Passwords</p>
+                <p>Password</p>
                 <input 
                     className={styles.inputBox}
                     type="password"
