@@ -10,7 +10,7 @@ export default function SignUp() {
       <div>
         {/* <p>SIGN UP</p> */}
         <UserRegistration />
-        <p className={styles.haveAccountText}>Already have an account please,</p>
+        <p className={styles.haveAccountText}>Already have an account?</p>
         <Link className={styles.signInLink} href={"/logIn"}>Sign In</Link>
       </div>
     </main>

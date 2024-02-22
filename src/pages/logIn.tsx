@@ -10,7 +10,7 @@ export default function LogIn() {
       <div>
         <UserEmailSignIn />
         <p className={styles.notAccountText}>Don't have an account yet?</p>
-        <Link className={styles.signUpLink} href={"/signUp"}>Sign up here!</Link>
+        <Link className={styles.signUpLink} href={"/signUp"}>Sign up here.</Link>
       </div>
     </main>
   )
