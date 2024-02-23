@@ -11,7 +11,7 @@ import { authorize } from "./api/authorize"
 import { publicArt } from '@/data/PublicArt';
 import Image from "next/image";
 import Carousel from "nuka-carousel"
-
+import Head from 'next/head'
 
 // Components
 import UserLogout from "@/firebase/UserLogout"
@@ -49,7 +49,10 @@ export default function Home() {
   // }, [accessToken]);
 
   return (
-    <main >
+    <main>
+      <Head>
+        <title>Home | Amplify</title>
+      </Head>
       <HeaderNav text="Welcome back, John" type="profile" />
       <div id="mainContainer" className={`flex flex-col`}>
         <div className={`flex flex-col justify-between`}>

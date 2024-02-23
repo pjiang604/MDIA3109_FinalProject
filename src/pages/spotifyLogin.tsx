@@ -1,6 +1,7 @@
 import HeaderNav from "@/components/navigation/HeaderNav";
 import Nav from "@/components/navigation/NavBar";
 import useRefreshToken from "@/hooks/useRefreshToken";
+import Head from 'next/head'
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -34,6 +35,9 @@ export default function SpotifyLogin() {
         <main className={``} >
 
             <div id="mainContainer" className={`flex flex-col`}>
+            <Head>
+                <title>Spotify Login | Amplify</title>
+            </Head>
                 <p>Dev note: if you're not working on spotify, just type in /home in the url to bypass this</p>
                 <button onClick={authorize}>Authorize</button>
 

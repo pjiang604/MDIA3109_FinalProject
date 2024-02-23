@@ -6,6 +6,7 @@ import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist";
 import { useState, useEffect } from "react";
 import { getRecentPlayed } from "./api/getMusic";
 import Carousel from "nuka-carousel";
+import Head from 'next/head'
 
 export default function Browse() {
 
@@ -27,6 +28,9 @@ export default function Browse() {
 
   return (
     <main className={``} >
+      <Head>
+        <title>Browse | Amplify</title>
+      </Head>
       <HeaderNav text="Browse" type="simple-backBtn" />
       <div className={`flex flex-col w-full items-center`}>
         <input type="text" placeholder="Search for art and music" className={`w-10/12 bg-zinc-200 py-2 rounded-md ps-4`}></input>
