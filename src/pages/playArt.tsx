@@ -3,6 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import Carousel from 'nuka-carousel';
 import styles from "@/styles/PlayArt.module.css"
+import Head from 'next/head'
 
 // Components
 import Nav from "@/components/navigation/NavBar"
@@ -27,6 +28,9 @@ export default function PlayArt() {
 
   return (
     <main className={``} >
+      <Head>
+        <title>Art | Amplify</title>
+      </Head>
       <Nav type="art" />
       <Carousel style={{marginBottom: "100px"}}
         // renderCenterLeftControls={() => null}

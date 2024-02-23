@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import SpotifyPlayer, { contextType, spotifyApi } from 'react-spotify-web-playback';
 import { authorize } from "./api/authorize";
 import styles from '../styles/PlayMusic.module.css'
-
+import Head from 'next/head'
 
 export default function PlayMusic() {
 
@@ -26,6 +26,9 @@ export default function PlayMusic() {
 
     return (
         <main className={`bg-battleshipGray min-h-screen`} >
+            <Head>
+                <title>Now Playing | Amplify</title>
+            </Head>
             <HeaderNav text="Now Playing" type="simple-music" />
             <div id="mainContainer" className={`flex flex-col`}>
                 <div className={styles.playerContainer}>
