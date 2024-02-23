@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from '@/styles/Landing.module.css'
+import Head from 'next/head'
 
 export default function Landing() {
 
@@ -22,6 +23,9 @@ export default function Landing() {
     
     return (
         <div className={styles.container}>
+          <Head>
+            <title>Amplify</title>
+           </Head>
             { loading &&  
               <div className={styles.info}>
                 <Image

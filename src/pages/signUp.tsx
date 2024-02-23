@@ -1,5 +1,6 @@
 import Link from "next/link"
 import styles from '@/styles/SignUp.module.css'
+import Head from 'next/head'
 
 // Components
 import UserRegistration from "@/firebase/UserRegistation"
@@ -7,6 +8,9 @@ import UserRegistration from "@/firebase/UserRegistation"
 export default function SignUp() {
   return (
     <main className={styles.container}>
+      <Head>
+        <title>Sign Up | Amplify</title>
+      </Head>
       <div>
         {/* <p>SIGN UP</p> */}
         <UserRegistration />
