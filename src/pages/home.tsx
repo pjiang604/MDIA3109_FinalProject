@@ -1,7 +1,5 @@
 
 import HeaderNav from "@/components/navigation/HeaderNav"
-import Nav from "@/components/navigation/NavBar"
-import Link from "next/link"
 import { neighbourhoods } from "@/data/neighbourhoods"
 import { artists } from "@/data/artists"
 import { useRouter } from "next/router"
@@ -139,7 +137,7 @@ export default function Home() {
           ))
         }
       </div>
-      <Nav type="home" />
+
     </main>
   )
 }

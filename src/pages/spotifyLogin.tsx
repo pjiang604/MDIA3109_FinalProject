@@ -41,9 +41,6 @@ export default function SpotifyLogin() {
                 <p>Dev note: if you're not working on spotify, just type in /home in the url to bypass this</p>
                 <button onClick={authorize} className={`bg-rose-900	text-white flex w-full content-center justify-center py-4 rounded-xl`}>Authorize</button>
 
-
-
-
             </div>
         </main>
     )

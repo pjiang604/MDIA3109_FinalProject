@@ -10,7 +10,7 @@ export default function Nav({
 }: NavProps) {
 
     return (
-        <div className={`w-full h-auto fixed bottom-0 bg-darkGray flex flex-row items-center justify-evenly py-3`} >
+        <div className={`w-full h-auto bg-darkGray flex flex-row items-center justify-evenly py-3`} >
             <div className={`flex flex-col items-center `}>
                 <Link
                     href='/home'>

@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { artists } from "@/data/artists";
 
 
-export default function Artist() {  //Need to insert the name of the neighbourhood area and insert it into the header nav text
+export default function Artist() {  
 
     const [accessToken, setAccessToken] = useState<string>();
     const [playlistData, setPlaylistData] = useState<ArtistTopTracks>()
@@ -53,6 +53,8 @@ export default function Artist() {  //Need to insert the name of the neighbourho
     }, [artistQuery, artistData]);
 
 
+
+
     const playSong = (songUri: string, index: number) => {
         router.push({
             pathname: '/playMusic',
@@ -84,7 +86,6 @@ export default function Artist() {  //Need to insert the name of the neighbourho
                 }
 
             </div>
-            <Nav type="home" />
         </main>
     )
 }

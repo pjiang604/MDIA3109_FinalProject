@@ -25,7 +25,6 @@ export default function AllNeighbourhood() {
           ))}
         </div>
       </div>
-      <Nav type="music" />
     </main>
   );
 }
