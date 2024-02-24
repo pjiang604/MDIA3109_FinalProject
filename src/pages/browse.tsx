@@ -26,7 +26,7 @@ export default function Browse() {
   }, []);
 
   return (
-    <main className={``} >
+    <main className={`min-h-screen`} >
       <Head>
         <title>Browse | Amplify</title>
       </Head>

@@ -1,10 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 
+enum NavType {
+    Home = "home",
+    Browse = "browse", 
+    Art = "art", 
+    Music = "music", 
+  }
 
 export default function Nav({
-
     type
     
 }: NavProps) {
@@ -15,7 +19,7 @@ export default function Nav({
                 <Link
                     href='/home'>
                     <Image
-                        src={ type === "home" ? "/Navigation/home/home_active.png" : "/Navigation/home/home.png" }
+                        src={ type === NavType.Home ? "/Navigation/home/home_active.png" : "/Navigation/home/home.png" }
                         width={0}
                         height={0}
                         sizes="100vw"
@@ -23,13 +27,13 @@ export default function Nav({
                         alt="home"
                     />
                 </Link>
-                <p className={`${type === "home" ? `text-white` : `text-battleshipGray`}`}>Home</p>
+                <p className={`${type === NavType.Home ? `text-white` : `text-battleshipGray`}`}>Home</p>
             </div>
             <div className={`flex flex-col items-center `}>
                 <Link
                     href='/browse'>
                     <Image
-                        src={ type === "browse" ? "/Navigation/browse/browse_active.png" : "/Navigation/browse/browse.png" }
+                        src={ type === NavType.Browse ? "/Navigation/browse/browse_active.png" : "/Navigation/browse/browse.png" }
                         width={0}
                         height={0}
                         sizes="100vw"
@@ -37,13 +41,13 @@ export default function Nav({
                         alt="browse"
                     />
                 </Link>
-                <p className={`${type === "browse" ? `text-white` : `text-battleshipGray`}`}>Browse</p>
+                <p className={`${type === NavType.Browse ? `text-white` : `text-battleshipGray`}`}>Browse</p>
             </div>
             <div className={`flex flex-col items-center `}>
                 <Link
                     href='/allNeighbourhood'>
                     <Image
-                        src={ type === "music" ? "/Navigation/music/music_active.png" : "/Navigation/music/music.png" }
+                        src={ type === NavType.Music ? "/Navigation/music/music_active.png" : "/Navigation/music/music.png" }
                         width={0}
                         height={0}
                         sizes="100vw"
@@ -51,20 +55,20 @@ export default function Nav({
                         alt="music"
                     />
                 </Link>
-                <p className={`${type === "music" ? `text-white` : `text-battleshipGray`}`}>Music</p>
+                <p className={`${type === NavType.Music ? `text-white` : `text-battleshipGray`}`}>Music</p>
             </div>
             <div className={`flex flex-col items-center `}>
                 <Link
                     href='/playArt'>
                     <Image
-                        src={ type === "art" ? "/Navigation/art/art_active.png" : "/Navigation/art/art.png" }
+                        src={ type === NavType.Art ? "/Navigation/art/art_active.png" : "/Navigation/art/art.png" }
                         width={0}
                         height={0}
                         sizes="100vw"
                         className={`h-8 w-8`}
                         alt="art"
                     />
-                    <p className={`${type === "art" ? `text-white` : `text-battleshipGray`}`}>Art</p>
+                    <p className={`${type === NavType.Art ? `text-white` : `text-battleshipGray`}`}>Art</p>
                 </Link>
             </div>
         </div>

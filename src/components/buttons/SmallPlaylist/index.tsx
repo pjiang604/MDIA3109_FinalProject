@@ -1,6 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
 
+enum ESmallPlaylist {
+Neighbourhood  = "neighbourhood"
+  }
+
 export default function SmallPlaylist({
     name,
     image,
@@ -8,7 +12,7 @@ export default function SmallPlaylist({
 }: ISmallPlaylist) {
     return (
         <>
-            {type === "neighbourhood" ?
+            {type === ESmallPlaylist.Neighbourhood ?
                 <Link href={`/neighbourhood/${name}`}>
                     <div className={`relative aspect-square rounded-md flex justify-center items-center`}>
                         <h2 className={`z-10 absolute text-[#f8fafc] font-bold text-xl text-center`}>{name}</h2>
