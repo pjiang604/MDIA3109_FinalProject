@@ -1,6 +1,13 @@
 import Image from "next/image"
 import { useRouter } from "next/router"
 
+enum HeaderType {
+    SBack = "simple-backBtn",
+    SMusic = "simple-music",
+    FBPlay = "full-backPlay",
+    Profile = "profile",
+}
+
 export default function HeaderNav({
     text,
     type
@@ -12,9 +19,9 @@ export default function HeaderNav({
         <div id="headerNav" className={`w-full h-auto `}>
             <div className={`w-full border-b-2 border-gray pb-0.5 flex flex-row justify-between gap-6 items-center`}>
                 {
-                    type === "simple-backBtn" ||
-                        type === "simple-music" ||
-                        type === "full-backPlay" ? //need to add the different types of headers
+                    type === HeaderType.SBack ||
+                        type === HeaderType.SMusic ||
+                        type === HeaderType.FBPlay ?
                         <div onClick={() => router.back()}>
                             <Image
                                 src="/Navigation/back/back.png"
@@ -30,7 +37,7 @@ export default function HeaderNav({
                 }
                 <div className={`flex flex-1`}>
                     {
-                        type === "profile" ?
+                        type === HeaderType.Profile ?
                             <h1>{text}</h1>
                             :
                             <h2 className={`${type === "simple-music" ? `text-white text-center w-full` : ``}`}>{text}</h2>
@@ -38,7 +45,7 @@ export default function HeaderNav({
 
                 </div>
                 {
-                    type === "profile" ?
+                    type === HeaderType.Profile ?
                         <div>
                             <Image
                                 src="/UserInfo/profilePic.jpg"
@@ -50,7 +57,7 @@ export default function HeaderNav({
                         :
                         <>
                             {
-                                type === "full-backPlay" ?
+                                type === HeaderType.FBPlay ?
                                     <div className={`flex flex-row items-center gap-2`}>
                                         <Image
                                             src={"/MusicPlayback/shuffle/shuffle_off.png"}

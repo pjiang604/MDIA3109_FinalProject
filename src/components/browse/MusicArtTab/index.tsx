@@ -6,13 +6,45 @@ import { artists } from '@/data/artists';
 import { useState, useEffect } from 'react';
 import Carousel from 'nuka-carousel';
 import { getRecentPlayed } from '@/pages/api/getMusic';
+import { getArtistProfiles } from '@/pages/api/getMusic';
+import { authorize } from '@/pages/api/authorize';
 
 export default function MusicArtTab({
 
 }) {
 
     const [dataArtist, setDataArtist] = useState(artists)
+    const [dataArtists, setDataArtists] = useState<IArtistsData>()
+    const [accessToken, setAccessToken] = useState("");
+    const artistIds: any = []
 
+    useEffect(() => {
+        dataArtist && dataArtist.map((a, aIndex) => {
+            artistIds.push(a.artist_id)
+            console.log(artistIds, "artistIds")
+        })
+    })
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setAccessToken(`${localStorage.getItem("access_token")}`)
+            const fetchArtist = async () => {
+                try {
+                    const stringArtistIds = artistIds.toString()
+                    const data = await getArtistProfiles(stringArtistIds);
+                    setDataArtists(data);
+                    console.log("artists data ", data);
+                } catch (error) {
+                    console.error("Error fetching playlist:", error);
+                }
+            };
+
+            fetchArtist();
+
+        } else {
+            console.log("play music page: local storage undefined")
+        }
+    }, [authorize])
 
     return (
         <Tabs>
@@ -27,12 +59,12 @@ export default function MusicArtTab({
                     cellSpacing={10}
                     withoutControls={true}
                 >
-                    {dataArtist && dataArtist.map((a, aIndex) => {
+                    {dataArtists && dataArtists.artists.map((a, aIndex) => {
                         return (
                             <SmallPlaylist
                                 key={aIndex}
                                 name={a.name}
-                                image={a.image}
+                                image={a.images[0].url}
                                 type='artist' />
                         )
                     })}
@@ -40,7 +72,7 @@ export default function MusicArtTab({
 
             </TabPanel>
             <TabPanel className={styles.tabPanel}>
-               
+
             </TabPanel>
         </Tabs>
 

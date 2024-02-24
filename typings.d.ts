@@ -40,6 +40,7 @@ interface SpotifyPlaylist {
             }
         ]
     }
+    uri?: string;
 }
 
 interface ArtistTopTracks {
@@ -96,8 +97,21 @@ interface INeighbData {
 
 interface IArtistData {
     name: string;
-    image: string;
+    artist_playlist: string;
     artist_id: string;
+}
+
+interface IArtistsData{
+    artists: [
+        {
+            images: [
+                {
+                    url: string
+                }
+            ],
+            name: string
+        }
+    ]
 }
 
 //Components
@@ -142,4 +156,10 @@ interface ISmallPlaylist {
 interface IPlaylist {
     name: string;
     image: string;
+}
+
+interface IMusicPlayer{
+    accessToken: string;
+    uri?:string;
+    offset?: number
 }

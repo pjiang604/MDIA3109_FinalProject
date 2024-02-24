@@ -57,12 +57,14 @@ export default function Area() {  //Need to insert the name of the neighbourhood
 
   const playSong = (songUri: string, index: number) => {
     router.push({
-      pathname: '/playMusic',
-      query: { songUri: songUri,
-                playlist_id: `spotify:playlist:${playlistId}`,
-                track_num: index }
+        pathname: '/playMusic',
+        query: {
+            songUri: songUri,
+            playlist_id: `spotify:playlist:${playlistId}`,
+            track_num: index
+        }
     })
-  }
+}
 
   return (
     <main className={``} >
@@ -84,7 +86,7 @@ export default function Area() {  //Need to insert the name of the neighbourhood
         }
 
       </div>
-      <Nav type="home" />
+
     </main>
   )
 }

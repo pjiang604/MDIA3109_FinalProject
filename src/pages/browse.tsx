@@ -1,5 +1,4 @@
 import HeaderNav from "@/components/navigation/HeaderNav";
-import Nav from "@/components/navigation/NavBar";
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 import MusicArtTab from "@/components/browse/MusicArtTab";
 import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist";
@@ -27,7 +26,7 @@ export default function Browse() {
   }, []);
 
   return (
-    <main className={``} >
+    <main className={`min-h-screen`} >
       <Head>
         <title>Browse | Amplify</title>
       </Head>
@@ -58,7 +57,6 @@ export default function Browse() {
           }
         </Carousel>
       </div>
-      <Nav type="browse" />
     </main>
   )
 }

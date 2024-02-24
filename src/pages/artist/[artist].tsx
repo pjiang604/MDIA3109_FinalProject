@@ -1,13 +1,14 @@
 import SongCard from "@/components/buttons/SongCard";
 import HeaderNav from "@/components/navigation/HeaderNav";
-import Nav from "@/components/navigation/NavBar";
 import { getArtist } from "../api/getMusic";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { artists } from "@/data/artists";
+import Image from "next/image";
+import Carousel from "nuka-carousel";
 
 
-export default function Artist() {  //Need to insert the name of the neighbourhood area and insert it into the header nav text
+export default function Artist() {
 
     const [accessToken, setAccessToken] = useState<string>();
     const [playlistData, setPlaylistData] = useState<ArtistTopTracks>()
@@ -33,7 +34,7 @@ export default function Artist() {  //Need to insert the name of the neighbourho
         const artistProfile = artistData.find(artist => artist.name === artistQuery);
 
         if (artistProfile) {
-            const playlist_id = artistProfile.artist_id;
+            const playlist_id = artistProfile.artist_playlist
             setPlaylistId(playlist_id)
 
             const fetchPlaylist = async () => {
@@ -53,6 +54,8 @@ export default function Artist() {  //Need to insert the name of the neighbourho
     }, [artistQuery, artistData]);
 
 
+
+
     const playSong = (songUri: string, index: number) => {
         router.push({
             pathname: '/playMusic',
@@ -68,6 +71,27 @@ export default function Artist() {  //Need to insert the name of the neighbourho
         <main className={``} >
             <HeaderNav text={`${artistQuery}` || ""} type="full-backPlay" />
             <div id="mainContainer" className={`flex flex-col`}>
+                <div className={`flex flex-row w-full mb-4`}>
+                    <Carousel
+                        withoutControls={true}>
+                        {
+                            playlistData && playlistData.tracks.items.map((i, index) => {
+                                return (
+                                    <Image
+                                        key={index}
+                                        src={i.track.album.images[0].url}
+                                        width={500}
+                                        height={500}
+                                        alt={`${i.track.name} album cover`}
+
+                                    />
+                                )
+                            })
+                        }
+
+                    </Carousel>
+                </div>
+
                 {
                     playlistData && playlistData.tracks.items.map((i, index) => {
                         const songUri = i.track.uri
@@ -84,7 +108,6 @@ export default function Artist() {  //Need to insert the name of the neighbourho
                 }
 
             </div>
-            <Nav type="home" />
         </main>
     )
 }
