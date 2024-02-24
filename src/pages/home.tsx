@@ -12,6 +12,7 @@ import { publicArt } from '@/data/PublicArt';
 import Image from "next/image";
 import Carousel from "nuka-carousel"
 import Head from 'next/head'
+import { getArtistProfiles } from "./api/getMusic"
 
 // Components
 import UserLogout from "@/firebase/UserLogout"
@@ -24,6 +25,8 @@ export default function Home() {
 
   const [dataNeigh, setDataNeigh] = useState(neighbourhoods)
   const [dataArtist, setDataArtist] = useState(artists)
+  const artistIds: any = []
+  const [dataArtists, setDataArtists] = useState<IArtistsData>()
 
   const [accessToken, setAccessToken] = useState("");
   const [codeVerifier, setCodeVerifier] = useState('')
@@ -35,18 +38,35 @@ export default function Home() {
   // console.log(song, "songURI")
   useRefreshToken(code as string);
 
+  useEffect(() => {
+    dataArtist && dataArtist.map((a, aIndex) => {
+      artistIds.push(a.artist_id)
+      console.log(artistIds, "artistIds")
+    })
+  })
+
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setAccessToken(`${localStorage.getItem("access_token")}`)
+      const fetchArtist = async () => {
+        try {
+          const stringArtistIds = artistIds.toString()
+          const data = await getArtistProfiles(stringArtistIds);
+          setDataArtists(data);
+          console.log("artists data ", data);
+        } catch (error) {
+          console.error("Error fetching playlist:", error);
+        }
+      };
+
+      fetchArtist();
+
     } else {
       console.log("play music page: local storage undefined")
     }
   }, [authorize])
 
-  // useEffect(() => {
-  //     console.log(accessToken, "access token");
-  // }, [accessToken]);
 
   return (
     <main>
@@ -83,23 +103,26 @@ export default function Home() {
         <div>
           <h2>Discover New Canadian Artists</h2>
           <div className={`flex flex-row w-full`}>
-          <Carousel
+            <Carousel
               wrapAround={true}
               slidesToShow={2.5}
               cellSpacing={10}
               withoutControls={true}
             >
-            {
-              dataArtist && dataArtist.map((n, nIndex) => {
-                return (
-                  <SmallPlaylist
-                    key={nIndex}
-                    name={n.name}
-                    image={n.image}
-                    type="artist" />
-                )
-              })}
-              </Carousel>
+
+              {
+                dataArtists && dataArtists.artists.map((com, comIndex) => {
+                  return (
+                    <SmallPlaylist
+                      key={comIndex}
+                      name={com.name}
+                      image={com.images[0].url}
+                      type="artist" />
+                  )
+                })
+              }
+
+            </Carousel>
           </div>
         </div>
 
@@ -107,7 +130,7 @@ export default function Home() {
         {
           image && image.map((data, index) => (
             <Image
-            key={index}
+              key={index}
               src={`${data.image}`}
               width={100}
               height={100}

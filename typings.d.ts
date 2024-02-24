@@ -96,8 +96,21 @@ interface INeighbData {
 
 interface IArtistData {
     name: string;
-    image: string;
+    artist_playlist: string;
     artist_id: string;
+}
+
+interface IArtistsData{
+    artists: [
+        {
+            images: [
+                {
+                    url: string
+                }
+            ],
+            name: string
+        }
+    ]
 }
 
 //Components

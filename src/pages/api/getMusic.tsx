@@ -36,6 +36,24 @@ export const getArtist = async (playlist_id: string) => {
     }
 }
 
+
+export const getArtistProfiles = async (stringArtistIds: string) => {
+    try{
+        let accessToken = localStorage.getItem('access_token');
+        const response = await fetch(`https://api.spotify.com/v1/artists?ids=${stringArtistIds}`, {
+            headers: {
+                Authorization: 'Bearer ' + accessToken
+            }
+        });
+        const playlistData = await response.json();
+        console.log('Artist data: ', playlistData);
+
+        return playlistData;
+    }catch (error) {
+        console.error('Artist error: ', error);
+    }
+}
+
 export const getRecentPlayed = async () => {
     try{
         let accessToken = localStorage.getItem('access_token');

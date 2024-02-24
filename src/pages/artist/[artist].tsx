@@ -33,7 +33,7 @@ export default function Artist() {  //Need to insert the name of the neighbourho
         const artistProfile = artistData.find(artist => artist.name === artistQuery);
 
         if (artistProfile) {
-            const playlist_id = artistProfile.artist_id;
+            const playlist_id = artistProfile.artist_playlist
             setPlaylistId(playlist_id)
 
             const fetchPlaylist = async () => {
