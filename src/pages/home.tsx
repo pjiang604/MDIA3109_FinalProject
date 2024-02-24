@@ -33,7 +33,7 @@ export default function Home() {
   const router = useRouter();
   const code = router.query.code;
   const song = router.query.songUri;
-  // console.log(song, "songURI")
+
   useRefreshToken(code as string);
 
   useEffect(() => {
