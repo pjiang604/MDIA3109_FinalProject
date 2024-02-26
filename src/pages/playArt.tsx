@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Image from "next/image";
 import Carousel from 'nuka-carousel';
 import styles from "@/styles/PlayArt.module.css"
 import Head from 'next/head'
+import { getArt } from "@/hooks/getArt";
 
 // Components
 import HeaderNav from "@/components/navigation/HeaderNav";
@@ -20,19 +20,15 @@ export default function PlayArt() {
   const [data, setData] = useState<PublicArt[]>([]);
   const [headerTitle, setHeadertitle] = useState<string>(`Captain George Vancouver`)
 
-  const url = "https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/public-art/records?limit=23"
 
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get(url);
-      console.log("response.data", response.data.results)
-      setData(response.data.results);
-    }
+useEffect(() => {
+  const fetchArt = async () => {
+    const data = await getArt();
+    setData(data)
+  }
+  fetchArt()
 
-    getData()
-
-      .catch(console.error);
-  }, []);
+}, [])
 
   const changeSlideHeader = (slideIndex: number) => {
     setHeadertitle(data[slideIndex].title_of_work)

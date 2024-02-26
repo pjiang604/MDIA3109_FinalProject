@@ -3,18 +3,22 @@ import HeaderNav from "@/components/navigation/HeaderNav";
 import Nav from "@/components/navigation/NavBar";
 import { getPlaylist } from "../api/getMusic";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { neighbourhoods } from "@/data/neighbourhoods";
+import { getArt } from "@/hooks/getArt";
+import Carousel from "nuka-carousel";
+import Image from "next/image";
+import PublicArt from "@/components/PublicArt";
 
-
-export default function Area() {  //Need to insert the name of the neighbourhood area and insert it into the header nav text
+export default function Area() {
 
   const [accessToken, setAccessToken] = useState<string>();
   const [playlistData, setPlaylistData] = useState<SpotifyPlaylist>()
   const [neighData, setNeighData] = useState([...neighbourhoods])
   const [song, setSong] = useState<string>()
   const [playlistId, setPlaylistId] = useState<string>()
+  const [data, setData] = useState<PublicArt[]>([]);
+  const [artImg, setartImg] = useState<PublicArtImage>()
 
   const router = useRouter()
   const location = router.query.area
@@ -29,7 +33,7 @@ export default function Area() {  //Need to insert the name of the neighbourhood
       console.log("neighbourhood area page: local storage undefined")
     }
   }, [])
-  
+
   useEffect(() => {
     const neighbourhood = neighData.find(neigh => neigh.name === location);
 
@@ -37,7 +41,7 @@ export default function Area() {  //Need to insert the name of the neighbourhood
 
       const playlist_id = neighbourhood.playlist_id;
       setPlaylistId(playlist_id)
-  
+
       const fetchPlaylist = async () => {
         try {
           const data = await getPlaylist(playlist_id);
@@ -47,29 +51,58 @@ export default function Area() {  //Need to insert the name of the neighbourhood
           console.error("Error fetching playlist:", error);
         }
       };
-  
+
       fetchPlaylist();
     } else {
       console.log("Error retrieving location or neighData");
     }
   }, [location, neighData]);
-  
+
+  useEffect(() => {
+    const fetchArt = async () => {
+      const data = await getArt();
+      setData(data)
+    }
+    fetchArt()
+
+  }, [])
+
 
   const playSong = (songUri: string, index: number) => {
     router.push({
-        pathname: '/playMusic',
-        query: {
-            songUri: songUri,
-            playlist_id: `spotify:playlist:${playlistId}`,
-            track_num: index
-        }
+      pathname: '/playMusic',
+      query: {
+        songUri: songUri,
+        playlist_id: `spotify:playlist:${playlistId}`,
+        track_num: index
+      }
     })
-}
+  }
 
   return (
     <main className={``} >
       <HeaderNav text={playlistData?.name || ""} type="full-backPlay" />
       <div id="mainContainer" className={`flex flex-col`}>
+        <Carousel>
+          {
+            data && data.map((a, aIndex) => {
+              return (
+                <Image
+                  key={aIndex}
+                  src={`/PublicArt/img${aIndex + 1}.jpg`}
+                  width={500}
+                  height={300}
+                  alt={a.title_of_work}
+                  style={{
+                    width: "500px",
+                    height: "300px"
+                  }}
+                />
+              )
+
+            })
+          }
+        </Carousel>
         {
           playlistData && playlistData.tracks.items.map((i, index) => {
             const songUri = i.track.uri

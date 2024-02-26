@@ -74,7 +74,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-      <div className={`sticky bottom-0 w-full pt-8`}>
+      <div className={`sticky bottom-0 w-full`}>
         {/* {
           !accessToken ?
             <>
