@@ -38,6 +38,16 @@ export default function HeaderNav({
         })
     }
 
+
+    const playShuffle = () => {
+        router.push({
+            pathname: '/playMusic',
+            query: {
+                playlist_id: `spotify:playlist:${playlistId}`,
+                track_num: Math.random()*10
+            }
+        })
+    }
     return (
         <div id="headerNav" className={`w-full h-auto `}>
             <div className={`w-full border-b-2 border-gray pb-0.5 flex flex-row justify-between gap-6 items-center`}>
@@ -88,6 +98,7 @@ export default function HeaderNav({
                                             width={20}
                                             alt="shuffle"
                                             className={`h-fit`}
+                                            onClick={() => playShuffle()}
                                         />
                                         <Image
                                             src={"/MusicPlayback/play/play.png"}
