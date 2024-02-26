@@ -69,7 +69,7 @@ export default function Home() {
         !accessTokenHome ?
           <p>loading</p>
           :
-          <main>
+          <main className={`flex-1`}>
             <Head>
               <title>Home | Amplify</title>
             </Head>
@@ -129,7 +129,8 @@ export default function Home() {
               </div>
 
               <UserLogout />
-              {
+              {/*not sure why all the images below are here, delete? */}
+              {/* {
                 image && image.map((data, index) => (
                   <Image
                     key={index}
@@ -139,7 +140,7 @@ export default function Home() {
                     alt="public art"
                   />
                 ))
-              }
+              } */}
             </div>
 
           </main>
