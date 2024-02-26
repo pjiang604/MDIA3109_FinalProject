@@ -6,26 +6,43 @@ import { authorize } from './api/authorize';
 import { useRouter } from 'next/router';
 import Nav from '@/components/navigation/NavBar';
 import { usePathname } from 'next/navigation';
+import useRefreshToken from '@/hooks/useRefreshToken';
 
 export default function App({ Component, pageProps }: AppProps) {
 
-  const [accessToken, setAccessToken] = useState("");
+  // const [accessToken, setAccessToken] = useState("");
   const [uriData, setUriData] = useState<string>()
   const [offsetData, setOffsetData] = useState<number>()
   const router = useRouter()
   const pathname = usePathname()
+  const code = router.query.code;
+  const [accessTokenApp, setAccessTokenApp] = useState<string>("")
 
   const [type, setType] = useState<string>("")
 
+
+  const { accessToken, loading } = useRefreshToken(code as string);
+
   console.log(uriData, "uri data")
 
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     setAccessToken(`${localStorage.getItem("access_token")}`)
+  //   } else {
+  //     console.log("_app.tsx page: local storage undefined")
+  //   }
+  // }, [authorize])
+
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setAccessToken(`${localStorage.getItem("access_token")}`)
+    if (accessToken && !loading ||
+      !accessTokenApp) {
+      setAccessTokenApp(`${localStorage.getItem("access_token")}`)
     } else {
       console.log("_app.tsx page: local storage undefined")
     }
-  }, [authorize])
+
+  }, [accessToken, loading]);
+
 
   useEffect(() => {
     const { playlist_id } = router.query
@@ -54,21 +71,25 @@ export default function App({ Component, pageProps }: AppProps) {
 
   })
 
-
   return (
     <>
       <Component {...pageProps} />
-      <div className={`sticky bottom-0 w-full pt-8`}>
-        <MusicPlayer
-          accessToken={accessToken}
-          uri={uriData}
-          offset={offsetData ?? 0}
-        />
+      <div className={`sticky bottom-0 w-full`}>
+
+
         {
           type && type === "none" ?
             <></>
             :
-            <Nav type={type} />
+            <>
+              <MusicPlayer
+                accessToken={accessTokenApp}
+                uri={uriData}
+                offset={offsetData ?? 0}
+              />
+              <Nav type={type} />
+            </>
+
         }
 
 

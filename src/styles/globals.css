@@ -33,6 +33,12 @@ body {
     width: 100%;
 }
 
+body > div:first-of-type{
+  display: flex;
+  flex-direction: column; 
+  height: 100vh;
+}
+
 main {
 height: 100%;
 width: 100%;

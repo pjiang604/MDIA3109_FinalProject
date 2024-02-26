@@ -1,5 +1,8 @@
+import { playSong } from "@/pages/api/getMusic"
 import Image from "next/image"
 import { useRouter } from "next/router"
+import { neighbourhoods } from "@/data/neighbourhoods"
+import { useEffect, useState } from "react"
 
 enum HeaderType {
     SBack = "simple-backBtn",
@@ -14,7 +17,37 @@ export default function HeaderNav({
 }: HeaderProps) {
 
     const router = useRouter()
+    const [playlistId, setPlaylistId] = useState<string>("")
+    const [data, setData] = useState([...neighbourhoods])
+    const location = router.query.area
 
+    useEffect(() => {
+        const neighbourhood = data.find(dataN => dataN.name === location);
+        if (neighbourhood) {
+            setPlaylistId(neighbourhood.playlist_id)
+        }
+    })
+
+    const playSong = () => {
+        router.push({
+            pathname: '/playMusic',
+            query: {
+                playlist_id: `spotify:playlist:${playlistId}`,
+                track_num: 0
+            }
+        })
+    }
+
+
+    const playShuffle = () => {
+        router.push({
+            pathname: '/playMusic',
+            query: {
+                playlist_id: `spotify:playlist:${playlistId}`,
+                track_num: Math.random()*10
+            }
+        })
+    }
     return (
         <div id="headerNav" className={`w-full h-auto `}>
             <div className={`w-full border-b-2 border-gray pb-0.5 flex flex-row justify-between gap-6 items-center`}>
@@ -65,12 +98,14 @@ export default function HeaderNav({
                                             width={20}
                                             alt="shuffle"
                                             className={`h-fit`}
+                                            onClick={() => playShuffle()}
                                         />
                                         <Image
                                             src={"/MusicPlayback/play/play.png"}
                                             height={30}
                                             width={30}
                                             alt="shuffle"
+                                            onClick={() => playSong()}
                                         />
                                     </div>
                                     :

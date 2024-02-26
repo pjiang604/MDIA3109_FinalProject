@@ -9,7 +9,7 @@ export default function AllNeighbourhood() {
   const [dataNeigh, setdataNeigh] = useState(neighbourhoods);
   
   return (
-    <main>
+    <main className={`flex-1`}>
       <Head>
         <title>Art Based on Neighbourhood</title>
       </Head>
