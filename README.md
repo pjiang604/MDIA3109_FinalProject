@@ -28,3 +28,4 @@
 - npm i nuka-carousel
 - npm install cypress --save-dev
 - npx cypress run and npx cypress open
+- (npm install --save react-spinners)[https://www.npmjs.com/package/react-spinners]

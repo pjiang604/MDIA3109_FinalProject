@@ -5,10 +5,10 @@ import { artists } from "@/data/artists"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import useRefreshToken from "@/hooks/useRefreshToken"
-import { authorize } from "./api/authorize"
 import { publicArt } from '@/data/PublicArt';
-import Image from "next/image";
-import Carousel from "nuka-carousel"
+import styles from '../styles/Home.module.css'
+
+
 import Head from 'next/head'
 import { getArtistProfiles } from "./api/getMusic"
 
@@ -16,6 +16,8 @@ import { getArtistProfiles } from "./api/getMusic"
 import UserLogout from "@/firebase/UserLogout"
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist"
+import { PuffLoader } from "react-spinners"
+import Carousel from "nuka-carousel"
 
 
 export default function Home() {
@@ -67,7 +69,13 @@ export default function Home() {
     <>
       {
         !accessTokenHome ?
-          <p>loading</p>
+          <main className={`relative`}>
+            <PuffLoader
+              color="#990F4B"
+              className={styles.loading}
+            />
+          </main>
+
           :
           <main className={`flex-1`}>
             <Head>
