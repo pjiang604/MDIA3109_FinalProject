@@ -8,7 +8,6 @@ import { neighbourhoods } from "@/data/neighbourhoods";
 import { getArt } from "@/hooks/getArt";
 import Carousel from "nuka-carousel";
 import Image from "next/image";
-import PublicArt from "@/components/PublicArt";
 
 export default function Area() {
 
@@ -18,7 +17,6 @@ export default function Area() {
   const [song, setSong] = useState<string>()
   const [playlistId, setPlaylistId] = useState<string>()
   const [data, setData] = useState<PublicArt[]>([]);
-  const [artImg, setartImg] = useState<PublicArtImage>()
 
   const router = useRouter()
   const location = router.query.area
