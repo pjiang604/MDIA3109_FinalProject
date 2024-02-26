@@ -75,25 +75,21 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Component {...pageProps} />
       <div className={`sticky bottom-0 w-full`}>
-        {/* {
-          !accessToken ?
-            <>
-            </>
-            : */}
-            <MusicPlayer
-              accessToken={accessTokenApp}
-              uri={uriData}
-              offset={offsetData ?? 0}
-            />
-        {/* } */}
-
 
 
         {
           type && type === "none" ?
             <></>
             :
-            <Nav type={type} />
+            <>
+              <MusicPlayer
+                accessToken={accessTokenApp}
+                uri={uriData}
+                offset={offsetData ?? 0}
+              />
+              <Nav type={type} />
+            </>
+
         }
 
 

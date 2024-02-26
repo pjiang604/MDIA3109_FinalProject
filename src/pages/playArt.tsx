@@ -43,7 +43,7 @@ useEffect(() => {
         type="simple-backBtn"
         text={headerTitle} />
       <div className={`flex flex-col`}>
-        <Carousel style={{ marginBottom: "100px" }}
+        <Carousel style={{ /*marginBottom: "100px"*/ }}
           // renderCenterLeftControls={() => null}
           // renderCenterRightControls={() => null}
           renderBottomCenterControls={() => null}
