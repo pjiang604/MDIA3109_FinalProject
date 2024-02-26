@@ -5,14 +5,14 @@ import styles from './MusicArtTab.module.css'
 import { artists } from '@/data/artists';
 import { useState, useEffect } from 'react';
 import Carousel from 'nuka-carousel';
-import { getRecentPlayed } from '@/pages/api/getMusic';
 import { getArtistProfiles } from '@/pages/api/getMusic';
 import { authorize } from '@/pages/api/authorize';
+import { neighbourhoods } from "@/data/neighbourhoods"
 
 export default function MusicArtTab({
 
 }) {
-
+    const [dataNeigh, setDataNeigh] = useState(neighbourhoods)
     const [dataArtist, setDataArtist] = useState(artists)
     const [dataArtists, setDataArtists] = useState<IArtistsData>()
     const [accessToken, setAccessToken] = useState("");
@@ -72,7 +72,26 @@ export default function MusicArtTab({
 
             </TabPanel>
             <TabPanel className={styles.tabPanel}>
+                <div className={`flex flex-row w-full`}>
+                    <Carousel
+                        wrapAround={true}
+                        slidesToShow={2.5}
+                        cellSpacing={10}
+                        withoutControls={true}
+                    >
 
+                        {
+                            dataNeigh && dataNeigh.map((a, aIndex) => {
+                                return (
+                                    <SmallPlaylist
+                                        key={aIndex}
+                                        name={a.name}
+                                        image={a.image}
+                                        type="neighbourhood" />
+                                )
+                            })}
+                    </Carousel>
+                </div>
             </TabPanel>
         </Tabs>
 
