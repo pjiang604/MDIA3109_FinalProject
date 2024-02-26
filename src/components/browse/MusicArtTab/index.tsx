@@ -19,17 +19,16 @@ export default function MusicArtTab({
     const artistIds: any = []
 
     useEffect(() => {
-        dataArtist && dataArtist.map((a, aIndex) => {
-            artistIds.push(a.artist_id)
-            console.log(artistIds, "artistIds")
-        })
-    })
-
-    useEffect(() => {
         if (typeof window !== 'undefined') {
             setAccessToken(`${localStorage.getItem("access_token")}`)
             const fetchArtist = async () => {
                 try {
+
+                    dataArtist && dataArtist.map((a, aIndex) => {
+                        artistIds.push(a.artist_id)
+                        console.log(artistIds, "artistIds")
+                    })
+
                     const stringArtistIds = artistIds.toString()
                     const data = await getArtistProfiles(stringArtistIds);
                     setDataArtists(data);

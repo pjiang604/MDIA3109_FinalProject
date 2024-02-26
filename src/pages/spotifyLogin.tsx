@@ -1,23 +1,18 @@
-import HeaderNav from "@/components/navigation/HeaderNav";
-import Nav from "@/components/navigation/NavBar";
 import useRefreshToken from "@/hooks/useRefreshToken";
 import Head from 'next/head'
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { authorize, getToken } from "./api/authorize";
+import { authorize } from "./api/authorize";
 
 export default function SpotifyLogin() {
 
     const [accessToken, setAccessToken] = useState("");
     const [codeVerifier, setCodeVerifier] = useState('')
 
-
     const router = useRouter();
     const code = router.query.code;
 
     useRefreshToken(code as string);
-
 
     useEffect(() => {
         if (typeof window !== 'undefined') {

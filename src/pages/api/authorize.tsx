@@ -79,8 +79,8 @@ export const getToken = async (code: string) => {
             },
             body: body,
         });
-
         return response.json();
+
     } catch (error) {
         window.location.href = "/";
     }

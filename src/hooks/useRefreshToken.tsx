@@ -5,6 +5,7 @@ export default function useRefreshToken(code: string) {
     const [expiresIn, setExpiresIn] = useState(0);
     const [accessToken, setAccessToken] = useState("");
     const [refreshToken, setRefreshToken] = useState("");
+    const [loading, setLoading] = useState<boolean>(true)
 
     const fetchToken = async () => {
         let response = await getToken(code);
@@ -15,6 +16,8 @@ export default function useRefreshToken(code: string) {
             setRefreshToken(response.refresh_token);
             setExpiresIn(response.expires_in);
             localStorage.setItem("access_token", response.access_token);
+            setLoading(false)
+            console.log(loading, "loading")
         } else {
             console.error("Token error", response);
         }
@@ -40,4 +43,5 @@ export default function useRefreshToken(code: string) {
 
         return () => clearInterval(interval);
     }, [refreshToken, expiresIn]);
+    return {accessToken, loading}
 }
