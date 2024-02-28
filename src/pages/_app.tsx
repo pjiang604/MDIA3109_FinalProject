@@ -66,7 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
   const { device } = useMediaQuery({
-    breakpoints: { desktop: 950, tablet: 800, mobile: 123 }
+    breakpoints: { desktop: 1080, tablet: 800, mobile: 0 }
   })
 
   return (
@@ -94,25 +94,47 @@ export default function App({ Component, pageProps }: AppProps) {
           :
           <>
             {
-              device === "tablet" || device === "desktop" &&
-              <>
-                <Component {...pageProps} />
+              device === "tablet" ?
+                <>
+                  <Component {...pageProps} />
+                  {type && type !== "none" && <Nav type={type} />}
+                  <div className={`fixed bottom-0 w-full`}>
+                    {
+                      type && type === "none" ?
+                        <></>
+                        :
+                        <>
+                          <MusicPlayer
+                            accessToken={accessTokenApp}
+                            uri={uriData}
+                            offset={offsetData ?? 0}
+                          />
+                        </>
+                    }
+                  </div >
+                </>
+                :
+                <>
+                <div className={`flex flex-row`}>
                 {type && type !== "none" && <Nav type={type} />}
-                <div className={`fixed bottom-0 w-full`}>
-                  {
-                    type && type === "none" ?
-                      <></>
-                      :
-                      <>
-                        <MusicPlayer
-                          accessToken={accessTokenApp}
-                          uri={uriData}
-                          offset={offsetData ?? 0}
-                        />
-                      </>
-                  }
-                </div >
-              </>
+                <Component {...pageProps} />
+                </div>
+                 
+                  <div className={`fixed bottom-0 w-full`}>
+                    {
+                      type && type === "none" ?
+                        <></>
+                        :
+                        <>
+                          <MusicPlayer
+                            accessToken={accessTokenApp}
+                            uri={uriData}
+                            offset={offsetData ?? 0}
+                          />
+                        </>
+                    }
+                  </div >
+                </>
             }
           </>
 

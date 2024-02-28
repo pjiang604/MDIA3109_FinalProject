@@ -22,7 +22,9 @@ const config: Config = {
         xs: "1px"
       },
       width: {
-        eightp: "8%"
+        eightp: "8%",
+        tenp: "10%",
+        twentyp: "20%"
       },
       padding: {
         tenp: "10%"
