@@ -7,10 +7,10 @@ import { useRouter } from 'next/router';
 import Nav from '@/components/navigation/NavBar';
 import { usePathname } from 'next/navigation';
 import useRefreshToken from '@/hooks/useRefreshToken';
+import { useMediaQuery } from '@react-hooks-hub/use-media-query';
 
 export default function App({ Component, pageProps }: AppProps) {
 
-  // const [accessToken, setAccessToken] = useState("");
   const [uriData, setUriData] = useState<string>()
   const [offsetData, setOffsetData] = useState<number>()
   const router = useRouter()
@@ -25,13 +25,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   console.log(uriData, "uri data")
 
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     setAccessToken(`${localStorage.getItem("access_token")}`)
-  //   } else {
-  //     console.log("_app.tsx page: local storage undefined")
-  //   }
-  // }, [authorize])
 
   useEffect(() => {
     if (accessToken && !loading ||
@@ -71,29 +64,60 @@ export default function App({ Component, pageProps }: AppProps) {
 
   })
 
+
+  const { device } = useMediaQuery({
+    breakpoints: { desktop: 950, tablet: 800, mobile: 123 }
+  })
+
   return (
     <>
-      <Component {...pageProps} />
-      <div className={`sticky bottom-0 w-full`}>
+      {
+        device === "mobile" ?
+          <>
+            <Component {...pageProps} />
+            <div className={`fixed bottom-0 w-full`}>
+              {
+                type && type === "none" ?
+                  <></>
+                  :
+                  <>
+                    <MusicPlayer
+                      accessToken={accessTokenApp}
+                      uri={uriData}
+                      offset={offsetData ?? 0}
+                    />
+                    <Nav type={type} />
+                  </>
+              }
+            </div >
+          </>
+          :
+          <>
+            {
+              device === "tablet" || device === "desktop" &&
+              <>
+                <Component {...pageProps} />
+                {type && type !== "none" && <Nav type={type} />}
+                <div className={`fixed bottom-0 w-full`}>
+                  {
+                    type && type === "none" ?
+                      <></>
+                      :
+                      <>
+                        <MusicPlayer
+                          accessToken={accessTokenApp}
+                          uri={uriData}
+                          offset={offsetData ?? 0}
+                        />
+                      </>
+                  }
+                </div >
+              </>
+            }
+          </>
 
+      }
 
-        {
-          type && type === "none" ?
-            <></>
-            :
-            <>
-              <MusicPlayer
-                accessToken={accessTokenApp}
-                uri={uriData}
-                offset={offsetData ?? 0}
-              />
-              <Nav type={type} />
-            </>
-
-        }
-
-
-      </div >
     </>
 
   )

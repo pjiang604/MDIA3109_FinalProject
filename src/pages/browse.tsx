@@ -31,8 +31,8 @@ export default function Browse() {
         <title>Browse | Amplify</title>
       </Head>
       <HeaderNav text="Browse" type="simple-backBtn" />
-      <div className={`flex flex-col w-full items-center`}>
-        <input type="text" placeholder="Search for art and music" className={`w-10/12 bg-zinc-200 py-2 rounded-md ps-4`}></input>
+      <div className={`flex flex-col w-full items-center px-tenp`}>
+        <input type="text" placeholder="Search for art and music" className={`w-full bg-zinc-200 py-2 rounded-md ps-4`}></input>
       </div>
       <div id="mainContainer" className={`flex flex-col gap-4`}>
         <MusicArtTab />
