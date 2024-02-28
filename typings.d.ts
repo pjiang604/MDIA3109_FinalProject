@@ -148,7 +148,7 @@ interface PublicArtProps {
 }
 
 interface ISmallPlaylist {
-    name: string;
+    name?: string;
     image: string;
     type: string;
 }
