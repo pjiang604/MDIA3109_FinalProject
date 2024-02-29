@@ -12,7 +12,7 @@
     "@types/react-slick": "^0.23.13",
     "axios": "^1.6.7",
     "classnames": "^2.5.1",
-    "firebase": "^10.8.0",
+    "firebase": "^10.6.0",
     "next": "14.0.4",
     "nuka-carousel": "^7.0.0",
     "react": "^18",
