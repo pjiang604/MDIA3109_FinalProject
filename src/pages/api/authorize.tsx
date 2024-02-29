@@ -1,7 +1,8 @@
+import { useEffect } from "react";
+
 const clientID: string = `${process.env.NEXT_PUBLIC_CLIENT_ID}`
 const clientSecret: string = `${process.env.NEXT_PUBLIC_CLIENT_SECRET}`
 
-const redirectUri: string = "http://localhost:3000/home";
 const BASEURL = `https://accounts.spotify.com/api`
 
 function generateRandomString(length: number): string {
@@ -39,7 +40,12 @@ if (typeof window !== "undefined") {
 }
 
 export const authorize = async () => {
+
+    
     generateCodeChallenge(codeVerifier).then((codeChallenge) => {
+        const origin: string = window.location.origin
+        const redirectUri: string = `${origin}/home`;
+
         const state: string = generateRandomString(16);
         const scope: string =
             "user-read-private user-read-email streaming user-read-playback-state user-modify-playback-state user-read-recently-played";
@@ -63,6 +69,9 @@ export const authorize = async () => {
 
 export const getToken = async (code: string) => {
     const codeVerifier = localStorage.getItem("code_verifier");
+
+    const origin: string = window.location.origin
+    const redirectUri: string = `${origin}/home`;
 
     const body = new URLSearchParams({
         grant_type: "authorization_code" || "",

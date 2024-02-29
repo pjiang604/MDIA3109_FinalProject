@@ -20,6 +20,14 @@ const config: Config = {
       },
       blur: {
         xs: "1px"
+      },
+      width: {
+        eightp: "8%",
+        tenp: "10%",
+        twentyp: "20%"
+      },
+      padding: {
+        tenp: "10%"
       }
     },
   },
