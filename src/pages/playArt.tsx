@@ -21,33 +21,31 @@ export default function PlayArt() {
   const [headerTitle, setHeadertitle] = useState<string>(`Captain George Vancouver`)
 
 
-useEffect(() => {
-  const fetchArt = async () => {
-    const data = await getArt();
-    setData(data)
-  }
-  fetchArt()
+  useEffect(() => {
+    const fetchArt = async () => {
+      const data = await getArt();
+      setData(data)
+    }
+    fetchArt()
 
-}, [])
+  }, [])
 
   const changeSlideHeader = (slideIndex: number) => {
     setHeadertitle(data[slideIndex].title_of_work)
   }
 
   return (
-    <main className={``} >
+    <main className={`flex-1`} >
       <Head>
         <title>Art | Amplify</title>
       </Head>
-      <HeaderNav
-        type="simple-backBtn"
-        text={headerTitle} />
-      <div className={`flex flex-col`}>
-        <Carousel style={{ /*marginBottom: "100px"*/ }}
-          // renderCenterLeftControls={() => null}
-          // renderCenterRightControls={() => null}
+      <HeaderNav type="simple-backBtn" text={headerTitle} />
+      <div id="mainContainer" className={`flex flex-col`}>
+
+        <Carousel
           renderBottomCenterControls={() => null}
           afterSlide={changeSlideHeader}
+          className={`max-w-eightyVw`}
         >
           {
             data && data.map((d, index) => {
@@ -55,34 +53,35 @@ useEffect(() => {
                 <div key={index} className={styles.slideContainer}>
                   <Image
                     src={`/PublicArt/img${index + 1}.jpg`}
+                    height={500}
                     width={500}
-                    height={300}
                     alt={d.title_of_work}
-                    style={{
-                      width: "500px",
-                      height: "300px"
-                    }}
                   />
-                  {
-                    d.title_of_work == ArtUntitled.Untitled ||
-                      d.title_of_work == ArtUntitled.Mural ||
-                      d.title_of_work == ArtUntitled.Hundred ||
-                      d.title_of_work == ArtUntitled.Fountain ? <p>No Title</p>
-                      :
-                      <p>TITLE: {d.title_of_work}</p>
-                  }
-                  <p>Neighbourhood: {d.neighbourhood}</p>
-                  <p>Year of Installation: {d.yearofinstallation}</p>
-                  <p>Status: {d.status}</p>
-                  {
-                    d.artistprojectstatement == null ? <></> : <p>{d.artistprojectstatement.substring(0, 500)}</p>
-                  }
+                  <div >
+                    {
+                      d.title_of_work == ArtUntitled.Untitled ||
+                        d.title_of_work == ArtUntitled.Mural ||
+                        d.title_of_work == ArtUntitled.Hundred ||
+                        d.title_of_work == ArtUntitled.Fountain ? <p>No Title</p>
+                        :
+                        <p>TITLE: {d.title_of_work}</p>
+                    }
+                    <p>Neighbourhood: {d.neighbourhood}</p>
+                    <p>Year of Installation: {d.yearofinstallation}</p>
+                    <p>Status: {d.status}</p>
+                    {
+                      d.artistprojectstatement == null ? <></> : <p>{d.artistprojectstatement.substring(0, 500)}</p>
+                    }
+                  </div>
                 </div>
               )
             })
           }
         </Carousel>
+
+
       </div>
-   </main>
+    </main>
   )
 }
+

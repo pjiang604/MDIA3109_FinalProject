@@ -151,6 +151,7 @@ interface ISmallPlaylist {
     name?: string;
     image: string;
     type: string;
+    showName?: boolean
 }
 
 interface IPlaylist {

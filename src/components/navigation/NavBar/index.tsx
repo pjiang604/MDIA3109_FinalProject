@@ -206,6 +206,8 @@ export default function Nav({
                                                                     <SmallPlaylist
                                                                         key={rIndex}
                                                                         image={r.track.album.images[0].url}
+                                                                        name={r.track.artists[0].name}
+                                                                        showName={false}
                                                                         type='artist' />
                                                                 </div>
 
@@ -240,6 +242,8 @@ export default function Nav({
                                                                     <SmallPlaylist
                                                                         key={aIndex}
                                                                         image={a.image}
+                                                                        name={a.name}
+                                                                        showName={false}
                                                                         type="neighbourhood" />
                                                                 </div>
                                                             }

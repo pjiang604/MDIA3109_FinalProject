@@ -1,5 +1,6 @@
 .slideContainer {
     display: flex;
     flex-direction: column;
-    padding: 30px;
-}
+    padding: 1em;
+    box-sizing: border-box;
+}   
