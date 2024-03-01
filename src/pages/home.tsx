@@ -8,7 +8,6 @@ import useRefreshToken from "@/hooks/useRefreshToken"
 import { publicArt } from '@/data/PublicArt';
 import styles from '../styles/Home.module.css'
 
-
 import Head from 'next/head'
 import { getArtistProfiles } from "./api/getMusic"
 
@@ -125,20 +124,6 @@ export default function Home() {
 
                 </div>
               </div>
-
-              <UserLogout />
-              {/*not sure why all the images below are here, delete? */}
-              {/* {
-                image && image.map((data, index) => (
-                  <Image
-                    key={index}
-                    src={`${data.image}`}
-                    width={100}
-                    height={100}
-                    alt="public art"
-                  />
-                ))
-              } */}
             </div>
 
           </main>

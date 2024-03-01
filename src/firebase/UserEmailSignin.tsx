@@ -1,13 +1,18 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase.config";
 import { useState } from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import styles from './Firebase.module.css'
+import { authorize } from "@/pages/api/authorize";
+import useRefreshToken from "@/hooks/useRefreshToken";
 
 export default function UserEmailSignIn() {
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPasswod, setLoginPassword] = useState("");
     const router = useRouter();
+
+    const code = router.query.code;
+    useRefreshToken(code as string);
 
     const login = async () => {
         try {
@@ -51,8 +56,10 @@ export default function UserEmailSignIn() {
                     className={styles.loginBtn}
                     onClick={() => {
                         login()
+                        authorize()
                         setLoginEmail("")
                         setLoginPassword("")
+
                     }}
                 >
                     LOGIN
