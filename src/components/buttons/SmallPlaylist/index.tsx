@@ -8,14 +8,15 @@ Neighbourhood  = "neighbourhood"
 export default function SmallPlaylist({
     name,
     image,
-    type
+    type,
+    showName
 }: ISmallPlaylist) {
     return (
         <>
             {type === ESmallPlaylist.Neighbourhood ?
                 <Link href={`/neighbourhood/${name}`}>
                     <div className={`relative aspect-square rounded-md flex justify-center items-center`}>
-                        <h2 className={`z-10 absolute text-[#f8fafc] font-bold text-xl text-center`}>{name}</h2>
+                        {showName === false ? <></> : <h2 className={`z-10 absolute text-[#f8fafc] font-bold text-xl text-center`}>{name}</h2>}
                         <Image
                             src={image}
                             height={500}
@@ -28,7 +29,7 @@ export default function SmallPlaylist({
                 <>
                     <Link href={`/artist/${name}`}>
                         <div className={`relative aspect-square rounded-md flex justify-center items-center`}>
-                            <h2 className={`z-10 absolute text-[#f8fafc] font-bold text-xl text-center`}>{name}</h2>
+                            {showName === false ? <></> : <h2 className={`z-10 absolute text-[#f8fafc] font-bold text-xl text-center`}>{name}</h2>}
                             <Image
                                 src={image}
                                 height={500}

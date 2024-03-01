@@ -25,7 +25,7 @@
 - npm i axios
 - npm install firebase
 - npm i -D react-router-dom
-- npm i nuka-carousel
+- (npm i nuka-carousel)[https://www.npmjs.com/package/nuka-carousel]
 - npm install cypress --save-dev
 - npx cypress run and npx cypress open
 - (npm install --save react-spinners)[https://www.npmjs.com/package/react-spinners]

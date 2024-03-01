@@ -26,6 +26,9 @@ const config: Config = {
         tenp: "10%",
         twentyp: "20%"
       },
+      maxWidth:{
+        eightyVw: "80vw"
+      },
       padding: {
         tenp: "10%"
       }
