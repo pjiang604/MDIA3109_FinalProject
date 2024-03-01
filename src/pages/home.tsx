@@ -16,8 +16,8 @@ import { getArtistProfiles } from "./api/getMusic"
 import UserLogout from "@/firebase/UserLogout"
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist"
-import { PuffLoader } from "react-spinners"
 import Carousel from "nuka-carousel"
+import Loading from "@/components/loading"
 
 
 export default function Home() {
@@ -36,46 +36,36 @@ export default function Home() {
   const { accessToken, loading } = useRefreshToken(code as string);
 
   useEffect(() => {
-    if (accessToken && !loading ||
-      !accessTokenHome) {
-      const fetchData = async () => {
-        try {
-          if (typeof window !== 'undefined') {
-            const getAccessToken = localStorage.getItem("access_token");
-            setAccessTokenHome(`${getAccessToken}`);
-            console.log(accessTokenHome, 'AccessTokenHome')
+    const fetchData = async () => {
+      try {
+        let accessTokenFromLocalStorage = localStorage.getItem("access_token");
 
-            if (getAccessToken !== "") {
-              const stringArtistIds = dataArtist.map(a => a.artist_id).toString();
-              const data = await getArtistProfiles(stringArtistIds);
-              setDataArtists(data);
-              console.log("artists data ", data);
-            } else {
-              console.log("Access token is empty");
-            }
-          }
-        } catch (error) {
-          console.error("Error fetching artist data:", error);
+        while (!accessTokenFromLocalStorage) {
+          console.log("No access token, retrying");
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          accessTokenFromLocalStorage = localStorage.getItem("access_token");
         }
-      };
 
-      fetchData();
-    }
+        setAccessTokenHome(accessTokenFromLocalStorage);
 
-  }, [accessToken, loading]);
+        const stringArtistIds = dataArtist.map(a => a.artist_id).toString();
+        const recentData = await getArtistProfiles(stringArtistIds);
+        setDataArtists(recentData);
+        console.log("Artists data", recentData);
+      } catch (error) {
+        console.error("Home.tsx useEffect error", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
 
   return (
     <>
       {
-        !accessTokenHome ?
-          <main className={`relative`}>
-            <PuffLoader
-              color="#990F4B"
-              className={styles.loading}
-            />
-          </main>
-
+        !dataArtists ?
+          <Loading />
           :
           <main className={`flex-1`}>
             <Head>
