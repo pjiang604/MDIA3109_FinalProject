@@ -2,12 +2,12 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import MusicPlayer from '@/components/spotifyPlayer'
 import { useState, useEffect } from 'react';
-import { authorize } from './api/authorize';
 import { useRouter } from 'next/router';
 import Nav from '@/components/navigation/NavBar';
 import { usePathname } from 'next/navigation';
 import useRefreshToken from '@/hooks/useRefreshToken';
 import { useMediaQuery } from '@react-hooks-hub/use-media-query';
+import Loading from '@/components/loading';
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -27,14 +27,24 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
   useEffect(() => {
-    if ((accessToken && !loading) ||
-      !accessTokenApp || accessTokenApp === "") {
-      setAccessTokenApp(`${localStorage.getItem("access_token")}`)
-    } else {
-      console.log("_app.tsx page: local storage undefined")
-    }
+    const fetchAccessToken = async () => {
+      try {
+        let accessTokenFromLocalStorage = localStorage.getItem("access_token");
+        while (!accessTokenFromLocalStorage || accessTokenFromLocalStorage === "") {
+          console.log("No access token, retrying");
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          accessTokenFromLocalStorage = localStorage.getItem("access_token");
+        }
+        setAccessTokenApp(accessTokenFromLocalStorage);
 
-  }, [accessToken, loading]);
+      } catch (error) {
+        console.error("_app.tsx useEffect error", error);
+      }
+    }
+    fetchAccessToken()
+
+
+  }, [accessToken]);
 
 
   useEffect(() => {
@@ -81,11 +91,17 @@ export default function App({ Component, pageProps }: AppProps) {
                   <></>
                   :
                   <>
-                    <MusicPlayer
-                      accessToken={accessTokenApp}
-                      uri={uriData}
-                      offset={offsetData ?? 0}
-                    />
+                    {
+                      accessTokenApp ?
+                        <MusicPlayer
+                          accessToken={accessTokenApp}
+                          uri={uriData}
+                          offset={offsetData ?? 0}
+                        />
+                        :
+                        <Loading />
+                    }
+
                     <Nav type={type} />
                   </>
               }
@@ -104,33 +120,43 @@ export default function App({ Component, pageProps }: AppProps) {
                         <></>
                         :
                         <>
-                          <MusicPlayer
-                            accessToken={accessTokenApp}
-                            uri={uriData}
-                            offset={offsetData ?? 0}
-                          />
+                          {
+                            accessTokenApp ?
+                              <MusicPlayer
+                                accessToken={accessTokenApp}
+                                uri={uriData}
+                                offset={offsetData ?? 0}
+                              />
+                              :
+                              <Loading />
+                          }
                         </>
                     }
                   </div >
                 </>
                 :
                 <>
-                <div className={`flex flex-row`}>
-                {type && type !== "none" && <Nav type={type} />}
-                <Component {...pageProps} />
-                </div>
-                 
+                  <div className={`flex flex-row`}>
+                    {type && type !== "none" && <Nav type={type} />}
+                    <Component {...pageProps} />
+                  </div>
+
                   <div className={`fixed bottom-0 w-full`}>
                     {
                       type && type === "none" ?
                         <></>
                         :
                         <>
-                          <MusicPlayer
-                            accessToken={accessTokenApp}
-                            uri={uriData}
-                            offset={offsetData ?? 0}
-                          />
+                          {
+                            accessTokenApp ?
+                              <MusicPlayer
+                                accessToken={accessTokenApp}
+                                uri={uriData}
+                                offset={offsetData ?? 0}
+                              />
+                              :
+                              <Loading />
+                          }
                         </>
                     }
                   </div >

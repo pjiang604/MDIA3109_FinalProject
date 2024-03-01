@@ -26,32 +26,6 @@ export default function Nav({
     const [recentData, setRecentData] = useState<SpotifyRecentlyPlayed>()
     const [dataNeigh, setDataNeigh] = useState(neighbourhoods)
 
-    // useEffect(() => {
-    //     if (accessToken && !loading ||
-    //       !accessTokenHome) {
-    //       const fetchData = async () => {
-    //         try {
-    //           if (typeof window !== 'undefined') {
-    //             const getAccessToken = localStorage.getItem("access_token");
-    //             setAccessTokenHome(`${getAccessToken}`);
-    //             console.log(accessTokenHome, 'AccessTokenHome')
-    
-    //             if (getAccessToken) {
-    //               const stringArtistIds = dataArtist.map(a => a.artist_id).toString();
-    //               const data = await getArtistProfiles(stringArtistIds);
-    //               setDataArtists(data);
-    //               console.log("artists data ", data);
-    //             } else {
-    //               console.log("Access token is empty");
-    //             }
-    //           }
-    //         } catch (error) {
-    //           console.error("Error fetching artist data:", error);
-    //         }
-    //       };
-    
-    //       fetchData();
-    //     }
 
     useEffect(() => {
         const fetchRecentData = async () => {
