@@ -4,6 +4,7 @@ import Playlist from "@/components/buttons/Playlist";
 import { neighbourhoods } from "@/data/neighbourhoods";
 import { useState } from "react";
 import Head from 'next/head'
+import styles from "@/styles/AllNeighbourhood.module.css"
 
 export default function AllNeighbourhood() {
   const [dataNeigh, setdataNeigh] = useState(neighbourhoods);
