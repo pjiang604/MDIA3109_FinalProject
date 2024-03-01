@@ -27,8 +27,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
   useEffect(() => {
-    if (accessToken && !loading ||
-      !accessTokenApp) {
+    if ((accessToken && !loading) ||
+      !accessTokenApp || accessTokenApp === "") {
       setAccessTokenApp(`${localStorage.getItem("access_token")}`)
     } else {
       console.log("_app.tsx page: local storage undefined")

@@ -45,7 +45,7 @@ export default function Home() {
             setAccessTokenHome(`${getAccessToken}`);
             console.log(accessTokenHome, 'AccessTokenHome')
 
-            if (getAccessToken) {
+            if (getAccessToken !== "") {
               const stringArtistIds = dataArtist.map(a => a.artist_id).toString();
               const data = await getArtistProfiles(stringArtistIds);
               setDataArtists(data);
