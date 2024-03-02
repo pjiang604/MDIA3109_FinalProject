@@ -4,3 +4,25 @@
     padding: 1em;
     box-sizing: border-box;
 }   
+
+  .slideContainer p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+
+  .neighbourhood span {
+    font-weight: bold;
+  }
+
+  .year span {
+    font-weight: bold;
+  }
+  
+  .status span {
+    font-weight: bold;
+  }
+
+  
+
+  
+ 
