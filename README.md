@@ -30,3 +30,4 @@
 - npx cypress run and npx cypress open
 - (npm install --save react-spinners)[https://www.npmjs.com/package/react-spinners]
 - (npm i @react-hooks-hub/use-media-query)[https://www.npmjs.com/package/@react-hooks-hub/use-media-query]
+- npm install -D webpack
