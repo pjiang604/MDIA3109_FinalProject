@@ -69,9 +69,9 @@ export default function PlayMusic() {
                                             :
                                             <p>TITLE: {a.title_of_work}</p>
                                     }
-                                    <p>Neighbourhood: {a.neighbourhood}</p>
-                                    <p>Year of Installation: {a.yearofinstallation}</p>
-                                    <p>Status: {a.status}</p>
+                                    <p className={styles.neighbourhood}><span>Neighbourhood: </span>{a.neighbourhood}</p>
+                                    <p className={styles.year}><span>Year of Installation: </span>{a.yearofinstallation}</p>
+                                    <p className={styles.status}><span>Status: </span>{a.status}</p>
                                     {
                                         a.artistprojectstatement == null ? <></> : <p>{a.artistprojectstatement.substring(0, 500)}</p>
                                     }

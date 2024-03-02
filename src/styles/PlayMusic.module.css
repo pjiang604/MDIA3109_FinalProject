@@ -6,3 +6,15 @@
     background-color: var(--white);
     border-radius: 100%;
   }
+
+  .neighbourhood span {
+    font-weight: bold;
+  }
+
+  .year span {
+    font-weight: bold;
+  }
+  
+  .status span {
+    font-weight: bold;
+  }
