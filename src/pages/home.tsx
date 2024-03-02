@@ -17,8 +17,6 @@ import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist"
 import Carousel from "nuka-carousel"
 import Loading from "@/components/loading"
-import Skeleton from "@/components/skeleton"
-
 
 export default function Home() {
   const [image, setImage] = useState(publicArt);
@@ -70,77 +68,73 @@ export default function Home() {
 
   return (
     <>
-      {/* {
-        (loading && !accessTokenHome) ?
-          <Loading />
-          : */}
-          <main className={`flex-1`}>
-            <Head>
-              <title>Home | Amplify</title>
-            </Head>
-            <HeaderNav text="Welcome back, John" type="profile" />
-            <div id="mainContainer" className={`flex flex-col`}>
-              <div className={`flex flex-col justify-between`}>
-                <HomeAndPlaylistCarousel />
-                <h2>Art based on Neighbourhood</h2>
-                <div className={`flex flex-row w-full`}>
-                  <Carousel
-                    wrapAround={true}
-                    slidesToShow={2.5}
-                    cellSpacing={10}
-                    withoutControls={true}
-                  >
+      <main className={`flex-1`}>
+        <Head>
+          <title>Home | Amplify</title>
+        </Head>
+        <HeaderNav text="Welcome back, John" type="profile" />
+        <div id="mainContainer" className={`flex flex-col`}>
+          <div className={`flex flex-col justify-between`}>
+            <HomeAndPlaylistCarousel />
+            <h2>Art based on Neighbourhood</h2>
+            <div className={`flex flex-row w-full`}>
+              <Carousel
+                wrapAround={true}
+                slidesToShow={2.5}
+                cellSpacing={10}
+                withoutControls={true}
+              >
 
-                    {
-                      dataNeigh && dataNeigh.map((a, aIndex) => {
-                        return (
-                          <SmallPlaylist
-                            key={aIndex}
-                            name={a.name}
-                            image={a.image}
-                            type="neighbourhood" />
-                        )
-                      })}
-                  </Carousel>
-                </div>
-              </div>
+                {
+                  dataNeigh && dataNeigh.map((a, aIndex) => {
+                    return (
+                      <SmallPlaylist
+                        key={aIndex}
+                        name={a.name}
+                        image={a.image}
+                        type="neighbourhood" />
+                    )
+                  })}
+              </Carousel>
+            </div>
+          </div>
 
-              <div>
-                <h2>Discover New Canadian Artists</h2>
-                <div className={`flex flex-row w-full`}>
+          <div>
+            <h2>Discover New Canadian Artists</h2>
+            <div className={`flex flex-row w-full`}>
+              {dataArtists ?
+                <Carousel
+                  wrapAround={true}
+                  slidesToShow={2.5}
+                  cellSpacing={10}
+                  withoutControls={true}
+                >
                   {
-                    userType === "anonymous" ?
-                      <Skeleton />
-                      :
-                      <Carousel
-                        wrapAround={true}
-                        slidesToShow={2.5}
-                        cellSpacing={10}
-                        withoutControls={true}
-                      >
+                    dataArtists.artists && dataArtists.artists.map((com, comIndex) => {
+                      return (
+                        <SmallPlaylist
+                          key={comIndex}
+                          name={com.name}
+                          image={com.images[0].url}
+                          type="artist" />
+                      )
+                    })
 
-                        {
-                          dataArtists && dataArtists.artists && dataArtists.artists.map((com, comIndex) => {
-                            return (
-                              <SmallPlaylist
-                                key={comIndex}
-                                name={com.name}
-                                image={com.images[0].url}
-                                type="artist" />
-                            )
-                          })
-                        }
-
-                      </Carousel>
                   }
 
+                </Carousel>
+                :
+                <SmallPlaylist
+                  image={'/Logo/logo.png'}
+                  type="skeleton" />
+              }
 
-                </div>
-              </div>
+
             </div>
+          </div>
+        </div>
 
-          </main>
-      {/* } */}
+      </main>
     </>
 
   )

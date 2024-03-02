@@ -55,7 +55,9 @@ export default function MusicArtTab({
             <TabPanel className={styles.tabPanel}>
                 {
                     !dataArtists ?
-                        <Skeleton />
+                        <SmallPlaylist
+                            image={'/Logo/logo.png'}
+                            type="skeleton" />
                         :
                         <Carousel
                             wrapAround={true}

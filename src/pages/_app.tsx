@@ -138,7 +138,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         <>
                           {
                             !accessTokenApp ?
-                              <Skeleton />
+                             <Skeleton/>
                               :
                               <>
                                 {

@@ -8,7 +8,6 @@ import { neighbourhoods } from "@/data/neighbourhoods";
 import { getArt } from "@/hooks/getArt";
 import Carousel from "nuka-carousel";
 import Image from "next/image";
-import Skeleton from "@/components/skeleton";
 
 export default function Area() {
 
@@ -102,13 +101,12 @@ export default function Area() {
             })
           }
         </Carousel>
+
         {
-          !playlistData ?
-            <Skeleton />
-            :
+          playlistData ?
             <>
               {
-                playlistData && playlistData.tracks.items.map((i, index) => {
+                playlistData.tracks.items.map((i, index) => {
                   const songUri = i.track.uri
                   return (
                     <div key={index}
@@ -121,8 +119,16 @@ export default function Area() {
                   )
                 })
               }
-
             </>
+            :
+            <>
+              <SongCard
+                songTitle="logIn"
+                coverUrl={'/Logo/logo.png'}
+                type="skeleton"
+              />
+            </>
+
         }
 
       </div>
