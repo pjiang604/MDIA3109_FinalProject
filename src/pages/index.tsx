@@ -7,41 +7,41 @@ import Head from 'next/head'
 export default function Landing() {
 
   const [loading, setLoading] = useState(true);
-    const router = useRouter();
+  const router = useRouter();
 
-    useEffect(() => {
-		const handleComplete = () => {
-			setTimeout(() => {
-				setLoading(false);
-				router.push('/logIn');
+  useEffect(() => {
+    const handleComplete = () => {
+      setTimeout(() => {
+        setLoading(false);
+        router.push('/logIn');
         // console.log("loading...")
-			},2000)
-		};
+      }, 2000)
+    };
 
     handleComplete()
-    },[loading]);
-    
-    return (
-        <div className={styles.container}>
-          <Head>
-            <title>Amplify</title>
-           </Head>
-            { loading &&  
-              <div className={styles.info}>
-                <Image
-                    src="/Logo/logo.png"
-                    alt="logo"
-                    height={354}
-                    width={360}
-                />
-                <div>
-                  <div className={styles.loading_dots}></div>
-                  <div className={styles.loading_dots}></div>
-                  <div className={styles.loading_dots}></div>
-                  <div className={styles.loading_dots}></div>
-                </div>
-              </div>
-            }
+  }, [loading]);
+
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Amplify</title>
+      </Head>
+      {loading &&
+        <div className={styles.info}>
+          <Image
+            src="/Logo/logo.png"
+            alt="logo"
+            height={354}
+            width={360}
+          />
+          <div>
+            <div className={styles.loading_dots}></div>
+            <div className={styles.loading_dots}></div>
+            <div className={styles.loading_dots}></div>
+            <div className={styles.loading_dots}></div>
+          </div>
         </div>
-    )
+      }
+    </div>
+  )
 }

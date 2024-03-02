@@ -126,8 +126,9 @@ interface HeaderProps {
 }
 interface SongCard {
     songTitle: string;
-    artistName: string;
+    artistName?: string;
     coverUrl: string;
+    type?: string;
 }
 
 interface PublicArt {
@@ -163,4 +164,8 @@ interface IMusicPlayer{
     accessToken: string;
     uri?:string;
     offset?: number
+}
+
+interface ISkeleton{
+    type: string
 }

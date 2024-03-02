@@ -41,7 +41,9 @@ export default function Browse() {
         <h3>Past Searches</h3>
         {
           !recentData ?
-            <Skeleton />
+            <SmallPlaylist
+              image={'/Logo/logo.png'}
+              type="skeleton" />
             :
             <Carousel
               wrapAround={true}

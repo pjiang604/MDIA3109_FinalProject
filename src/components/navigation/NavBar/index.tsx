@@ -83,8 +83,8 @@ export default function Nav({
                             </Link>
 
                         </div>
-                        <div className={`flex flex-col items-start`}>
-                            <Link href='/allNeighbourhood' className={`flex flex-row gap-8 items-center mx-auto`}>
+                        <div className={`flex flex-col items-center gap-2 mx-auto`}>
+                            <Link href='/allNeighbourhoods' className={`flex flex-row gap-8 items-center`}>
                                 <Image
                                     src={type === NavType.Music ? "/Navigation/music/music_active.png" : "/Navigation/music/music.png"}
                                     width={0}
@@ -96,10 +96,13 @@ export default function Nav({
                                 <p className={`${type === NavType.Music ? `text-white` : `text-battleshipGray`}`}>Music</p>
                             </Link>
                             {
-                                recentData ?
-                                    <div>
+                                !recentData ?
+                                    <>
+                                    </>
+                                    :
+                                    <>
                                         {
-                                            recentData && recentData.items.map((r, rIndex) => {
+                                            recentData.items.map((r, rIndex) => {
                                                 return (
                                                     <>
                                                         {
@@ -122,14 +125,14 @@ export default function Nav({
                                                 )
                                             })
                                         }
-                                    </div>
-                                    :
-                                    <Skeleton />
+                                    </>
+
                             }
 
+
                         </div>
-                        <div className={`flex flex-col items-start`}>
-                            <Link href='/playArt' className={`flex flex-row gap-8 items-center mx-auto`}>
+                        <div className={`flex flex-col items-center gap-2 mx-auto`}>
+                            <Link href='/playArt' className={`flex flex-row gap-8 items-center`}>
                                 <Image
                                     src={type === NavType.Art ? "/Navigation/art/art_active.png" : "/Navigation/art/art.png"}
                                     width={0}
@@ -212,29 +215,35 @@ export default function Nav({
                                         </Link>
                                         <div>
                                             {
-                                                recentData ? recentData.items.map((r, rIndex) => {
-                                                    return (
-                                                        <>
-                                                            {
-                                                                rIndex < 4 &&
-                                                                <div className={`m-3`}>
-                                                                    <SmallPlaylist
-                                                                        key={rIndex}
-                                                                        image={r.track.album.images[0].url}
-                                                                        name={r.track.artists[0].name}
-                                                                        showName={false}
-                                                                        type='artist' />
-                                                                </div>
-
-                                                            }
-                                                        </>
-
-                                                    )
-                                                })
+                                                !recentData ?
+                                                    <>
+                                                    </>
                                                     :
                                                     <>
-                                                        <Skeleton />
+                                                        {
+                                                            recentData.items.map((r, rIndex) => {
+                                                                return (
+                                                                    <>
+                                                                        {
+                                                                            rIndex < 4 &&
+                                                                            <div className={`m-3`}>
+                                                                                <SmallPlaylist
+                                                                                    key={rIndex}
+                                                                                    image={r.track.album.images[0].url}
+                                                                                    name={r.track.artists[0].name}
+                                                                                    showName={false}
+                                                                                    type='artist' />
+                                                                            </div>
+
+                                                                        }
+                                                                    </>
+
+                                                                )
+                                                            })
+                                                        }
                                                     </>
+
+
                                             }
                                         </div>
                                     </div>
