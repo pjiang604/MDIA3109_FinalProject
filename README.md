@@ -35,4 +35,4 @@
 - (npm install --save react-spinners)[https://www.npmjs.com/package/react-spinners]
 - (npm i @react-hooks-hub/use-media-query)[https://www.npmjs.com/package/@react-hooks-hub/use-media-query]
 - (npm i react-content-loader)[https://www.npmjs.com/package/react-content-loader]
-- npm i react-native-chart-kit
+- npm install chart.js
