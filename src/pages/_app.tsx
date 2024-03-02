@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import useRefreshToken from '@/hooks/useRefreshToken';
 import { useMediaQuery } from '@react-hooks-hub/use-media-query';
 import Loading from '@/components/loading';
+import Skeleton from '@/components/skeleton';
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -16,29 +17,36 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const pathname = usePathname()
   const code = router.query.code;
+  const userType = router.query.userType
   const [accessTokenApp, setAccessTokenApp] = useState<string>("")
 
   const [type, setType] = useState<string>("")
 
 
   const { accessToken, loading } = useRefreshToken(code as string);
+  const [anonLoading, setAnonLoading] = useState(true)
 
   console.log(uriData, "uri data")
 
 
   useEffect(() => {
     const fetchAccessToken = async () => {
-      try {
-        let accessTokenFromLocalStorage = localStorage.getItem("access_token");
-        while (!accessTokenFromLocalStorage || accessTokenFromLocalStorage === "") {
-          console.log("No access token, retrying");
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          accessTokenFromLocalStorage = localStorage.getItem("access_token");
-        }
-        setAccessTokenApp(accessTokenFromLocalStorage);
+      if (userType === "anonymous") {
+        setAnonLoading(false)
+        console.log("anonymous user, no data pulled")
+      } else {
+        try {
+          let accessTokenFromLocalStorage = localStorage.getItem("access_token");
+          while (!accessTokenFromLocalStorage || accessTokenFromLocalStorage === "") {
+            console.log("No access token, retrying");
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            accessTokenFromLocalStorage = localStorage.getItem("access_token");
+          }
+          setAccessTokenApp(accessTokenFromLocalStorage);
 
-      } catch (error) {
-        console.error("_app.tsx useEffect error", error);
+        } catch (error) {
+          console.error("_app.tsx useEffect error", error);
+        }
       }
     }
     fetchAccessToken()
@@ -92,14 +100,22 @@ export default function App({ Component, pageProps }: AppProps) {
                   :
                   <>
                     {
-                      accessTokenApp ?
-                        <MusicPlayer
-                          accessToken={accessTokenApp}
-                          uri={uriData}
-                          offset={offsetData ?? 0}
-                        />
+                      !accessTokenApp ?
+                        <Skeleton />
                         :
-                        <Loading />
+                        <>
+                          {
+                            accessTokenApp ?
+                              <MusicPlayer
+                                accessToken={accessTokenApp}
+                                uri={uriData}
+                                offset={offsetData ?? 0}
+                              />
+                              :
+                              <Loading />
+                          }
+
+                        </>
                     }
 
                     <Nav type={type} />
@@ -121,15 +137,23 @@ export default function App({ Component, pageProps }: AppProps) {
                         :
                         <>
                           {
-                            accessTokenApp ?
-                              <MusicPlayer
-                                accessToken={accessTokenApp}
-                                uri={uriData}
-                                offset={offsetData ?? 0}
-                              />
+                            !accessTokenApp ?
+                              <Skeleton />
                               :
-                              <Loading />
+                              <>
+                                {
+                                  accessTokenApp ?
+                                    <MusicPlayer
+                                      accessToken={accessTokenApp}
+                                      uri={uriData}
+                                      offset={offsetData ?? 0}
+                                    />
+                                    :
+                                    <Loading />
+                                }
+                              </>
                           }
+
                         </>
                     }
                   </div >
@@ -148,15 +172,24 @@ export default function App({ Component, pageProps }: AppProps) {
                         :
                         <>
                           {
-                            accessTokenApp ?
-                              <MusicPlayer
-                                accessToken={accessTokenApp}
-                                uri={uriData}
-                                offset={offsetData ?? 0}
-                              />
+                            !accessTokenApp ?
+                              <Skeleton />
                               :
-                              <Loading />
+                              <>
+                                {
+                                  accessTokenApp ?
+                                    <MusicPlayer
+                                      accessToken={accessTokenApp}
+                                      uri={uriData}
+                                      offset={offsetData ?? 0}
+                                    />
+                                    :
+                                    <Loading />
+                                }
+                              </>
+
                           }
+
                         </>
                     }
                   </div >

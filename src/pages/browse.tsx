@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { getRecentPlayed } from "./api/getMusic";
 import Carousel from "nuka-carousel";
 import Head from 'next/head'
+import Skeleton from "@/components/skeleton";
 
 export default function Browse() {
 
@@ -38,24 +39,30 @@ export default function Browse() {
         <MusicArtTab />
 
         <h3>Past Searches</h3>
-        <Carousel
-          wrapAround={true}
-          slidesToShow={2.5}
-          cellSpacing={10}
-          withoutControls={true}
-        >
-          {
-            recentData && recentData.items.map((r, rIndex) => {
-              return (
-                <SmallPlaylist
-                  key={rIndex}
-                  name={r.track.artists[0].name}
-                  image={r.track.album.images[0].url}
-                  type='artist' />
-              )
-            })
-          }
-        </Carousel>
+        {
+          !recentData ?
+            <Skeleton />
+            :
+            <Carousel
+              wrapAround={true}
+              slidesToShow={2.5}
+              cellSpacing={10}
+              withoutControls={true}
+            >
+              {
+                recentData && recentData.items.map((r, rIndex) => {
+                  return (
+                    <SmallPlaylist
+                      key={rIndex}
+                      name={r.track.artists[0].name}
+                      image={r.track.album.images[0].url}
+                      type='artist' />
+                  )
+                })
+              }
+            </Carousel>
+        }
+
       </div>
     </main>
   )

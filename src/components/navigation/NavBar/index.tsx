@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 import { getRecentPlayed } from "@/pages/api/getMusic"
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 import { neighbourhoods } from "@/data/neighbourhoods"
+import Loading from "@/components/loading"
+import Skeleton from "@/components/skeleton"
 
 enum NavType {
     Home = "home",
@@ -30,9 +32,16 @@ export default function Nav({
     useEffect(() => {
         const fetchRecentData = async () => {
             try {
-                const recentData = await getRecentPlayed();
+                let recentData = await getRecentPlayed();
+                while (!recentData) {
+
+                    console.log("No recent data, retrying");
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    recentData = await getRecentPlayed();
+                }
                 setRecentData(recentData)
-                console.log(recentData)
+                console.log("recent Data, navBar page", recentData)
+
             } catch (error) {
                 console.error("Error fetching recent data", error)
             }
@@ -86,32 +95,38 @@ export default function Nav({
                                 />
                                 <p className={`${type === NavType.Music ? `text-white` : `text-battleshipGray`}`}>Music</p>
                             </Link>
-                            <div>
-                                {
-                                    recentData && recentData.items.map((r, rIndex) => {
-                                        return (
-                                            <>
-                                                {
-                                                    rIndex < 4 &&
-                                                    <div className={`flex flex-row justify-evenly items-center`}>
-                                                        <div className={`w-1/3 my-6`}>
-                                                            <SmallPlaylist
-                                                                key={rIndex}
-                                                                image={r.track.album.images[0].url}
-                                                                type='artist' />
-                                                        </div>
-                                                        <div className={`w-1/3`}>
-                                                            <p className={`text-white text-center`}>{r.track.artists[0].name}</p>
-                                                        </div>
-                                                    </div>
+                            {
+                                recentData ?
+                                    <div>
+                                        {
+                                            recentData && recentData.items.map((r, rIndex) => {
+                                                return (
+                                                    <>
+                                                        {
+                                                            rIndex < 4 &&
+                                                            <div className={`flex flex-row justify-evenly items-center`}>
+                                                                <div className={`w-1/3 my-6`}>
+                                                                    <SmallPlaylist
+                                                                        key={rIndex}
+                                                                        image={r.track.album.images[0].url}
+                                                                        type='artist' />
+                                                                </div>
+                                                                <div className={`w-1/3`}>
+                                                                    <p className={`text-white text-center`}>{r.track.artists[0].name}</p>
+                                                                </div>
+                                                            </div>
 
-                                                }
-                                            </>
+                                                        }
+                                                    </>
 
-                                        )
-                                    })
-                                }
-                            </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                    :
+                                    <Skeleton />
+                            }
+
                         </div>
                         <div className={`flex flex-col items-start`}>
                             <Link href='/playArt' className={`flex flex-row gap-8 items-center mx-auto`}>
@@ -197,7 +212,7 @@ export default function Nav({
                                         </Link>
                                         <div>
                                             {
-                                                recentData && recentData.items.map((r, rIndex) => {
+                                                recentData ? recentData.items.map((r, rIndex) => {
                                                     return (
                                                         <>
                                                             {
@@ -216,6 +231,10 @@ export default function Nav({
 
                                                     )
                                                 })
+                                                    :
+                                                    <>
+                                                        <Skeleton />
+                                                    </>
                                             }
                                         </div>
                                     </div>
