@@ -13,7 +13,7 @@
     "@types/react-slick": "^0.23.13",
     "axios": "^1.6.7",
     "classnames": "^2.5.1",
-    "firebase": "^10.6.0",
+    "firebase": "^10.8.1",
     "next": "14.0.4",
     "nuka-carousel": "^7.0.0",
     "react": "^18",
@@ -33,7 +33,7 @@
     "autoprefixer": "^10.0.1",
     "cypress": "^13.6.6",
     "postcss": "^8",
-    "react-router-dom": "^6.22.1",
+    "react-router-dom": "^6.22.2",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
     "webpack": "^5.90.3"
