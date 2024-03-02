@@ -8,6 +8,7 @@ import Carousel from 'nuka-carousel';
 import { getArtistProfiles } from '@/pages/api/getMusic';
 import { authorize } from '@/pages/api/authorize';
 import { neighbourhoods } from "@/data/neighbourhoods"
+import Skeleton from '@/components/skeleton';
 
 export default function MusicArtTab({
 
@@ -52,22 +53,28 @@ export default function MusicArtTab({
                 <Tab className={styles.tab} selectedClassName={styles.selectedTab}>Art</Tab>
             </TabList>
             <TabPanel className={styles.tabPanel}>
-                <Carousel
-                    wrapAround={true}
-                    slidesToShow={2.5}
-                    cellSpacing={10}
-                    withoutControls={true}
-                >
-                    {dataArtists && dataArtists.artists.map((a, aIndex) => {
-                        return (
-                            <SmallPlaylist
-                                key={aIndex}
-                                name={a.name}
-                                image={a.images[0].url}
-                                type='artist' />
-                        )
-                    })}
-                </Carousel>
+                {
+                    !dataArtists ?
+                        <Skeleton />
+                        :
+                        <Carousel
+                            wrapAround={true}
+                            slidesToShow={2.5}
+                            cellSpacing={10}
+                            withoutControls={true}
+                        >
+                            {dataArtists && dataArtists.artists.map((a, aIndex) => {
+                                return (
+                                    <SmallPlaylist
+                                        key={aIndex}
+                                        name={a.name}
+                                        image={a.images[0].url}
+                                        type='artist' />
+                                )
+                            })}
+                        </Carousel>
+                }
+
 
             </TabPanel>
             <TabPanel className={styles.tabPanel}>

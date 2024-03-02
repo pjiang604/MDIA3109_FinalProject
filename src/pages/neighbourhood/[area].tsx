@@ -8,6 +8,7 @@ import { neighbourhoods } from "@/data/neighbourhoods";
 import { getArt } from "@/hooks/getArt";
 import Carousel from "nuka-carousel";
 import Image from "next/image";
+import Skeleton from "@/components/skeleton";
 
 export default function Area() {
 
@@ -102,18 +103,26 @@ export default function Area() {
           }
         </Carousel>
         {
-          playlistData && playlistData.tracks.items.map((i, index) => {
-            const songUri = i.track.uri
-            return (
-              <div key={index}
-                onClick={() => playSong(songUri, index)}>
-                <SongCard
-                  songTitle={i.track.name}
-                  artistName={i.track.artists[0].name}
-                  coverUrl={i.track.album.images[0].url} />
-              </div>
-            )
-          })
+          !playlistData ?
+            <Skeleton />
+            :
+            <>
+              {
+                playlistData && playlistData.tracks.items.map((i, index) => {
+                  const songUri = i.track.uri
+                  return (
+                    <div key={index}
+                      onClick={() => playSong(songUri, index)}>
+                      <SongCard
+                        songTitle={i.track.name}
+                        artistName={i.track.artists[0].name}
+                        coverUrl={i.track.album.images[0].url} />
+                    </div>
+                  )
+                })
+              }
+
+            </>
         }
 
       </div>
