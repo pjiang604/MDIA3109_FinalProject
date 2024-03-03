@@ -6,8 +6,11 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { neighbourhoods } from "@/data/neighbourhoods";
 import { getArt } from "@/hooks/getArt";
+import Head from "next/head";
 import Carousel from "nuka-carousel";
 import Image from "next/image";
+import styles from "@/styles/Neighbourhood.module.css"
+import { GoChevronLeft , GoChevronRight} from "react-icons/go";
 
 export default function Area() {
 
@@ -77,24 +80,49 @@ export default function Area() {
     })
   }
 
+  // const renderCenterLeftControls = ({ previousSlide }) => ( 
+  //   <button onClick={previousSlide}>
+  //     <i className="fa fa-arrow-left" />
+  //   </button>
+  //  );
+
   return (
-    <main className={``} >
+    <main>
+      <Head>
+        <title>Neighbourhood | Amplify</title>
+      </Head>
       <HeaderNav text={playlistData?.name || ""} type="full-backPlay" />
       <div id="mainContainer" className={`flex flex-col`}>
-        <Carousel>
+        <Carousel 
+          className={styles.carousel}
+          renderBottomCenterControls={() => null}
+          renderCenterLeftControls={({ previousSlide }) => (
+            <button onClick={previousSlide}>
+              <GoChevronLeft />
+            </button>
+          )}
+          renderCenterRightControls= {({ nextSlide }) => (
+            <button onClick={nextSlide}>
+              <GoChevronRight />
+            </button>
+          )}
+          // slideIndex={100}
+          slidesToScroll={1}
+          slidesToShow={1}
+          cellSpacing={1}
+          disableEdgeSwiping={false}
+          dragging={false}
+        >
           {
             data && data.map((a, aIndex) => {
               return (
                 <Image
+                  className={styles.carouselImages}
                   key={aIndex}
                   src={`/PublicArt/img${aIndex + 1}.jpg`}
                   width={500}
                   height={300}
                   alt={a.title_of_work}
-                  style={{
-                    width: "500px",
-                    height: "300px"
-                  }}
                 />
               )
 
