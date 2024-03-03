@@ -7,14 +7,36 @@
     border-radius: 100%;
   }
 
-  .neighbourhood span {
-    font-weight: bold;
+  #mainContainer {
+    display:flex;
+    flex-direction:column;
+    height:100vh;
   }
 
-  .year span {
-    font-weight: bold;
+  .statement {
+    color:white;
+    margin-top: 4%;
+    height:100%;
   }
-  
-  .status span {
-    font-weight: bold;
+
+  .neighbourhood, 
+  .status, 
+  .year,
+  .title {
+    color:white;
+  }
+
+  .title {
+    margin-top: 4%;
+  }
+
+  .slideContainer img {
+    border-radius: 10px;
+    object-fit:cover;
+  }
+
+  .noTitle {
+    font-size:20px;
+    color:white;
+    font-weight:600;
   }

@@ -41,8 +41,8 @@ export default function PlayMusic() {
             <div id="mainContainer" className={`flex flex-col`}>
 
                 <Carousel style={{ marginBottom: "100px" }}
-                    // renderCenterLeftControls={() => null}
-                    // renderCenterRightControls={() => null}
+                    renderCenterLeftControls={() => null}
+                    renderCenterRightControls={() => null}
                     renderBottomCenterControls={() => null}
                     afterSlide={changeSlideHeader}
                 >
@@ -65,15 +65,15 @@ export default function PlayMusic() {
                                         a.title_of_work == ArtUntitled.Untitled ||
                                             a.title_of_work == ArtUntitled.Mural ||
                                             a.title_of_work == ArtUntitled.Hundred ||
-                                            a.title_of_work == ArtUntitled.Fountain ? <p>No Title</p>
+                                            a.title_of_work == ArtUntitled.Fountain ? <p className={styles.noTitle}>No Title</p>
                                             :
-                                            <p>TITLE: {a.title_of_work}</p>
+                                            <p className={styles.title}><b>Title:</b> {a.title_of_work}</p>
                                     }
-                                    <p className={styles.neighbourhood}><span>Neighbourhood: </span>{a.neighbourhood}</p>
-                                    <p className={styles.year}><span>Year of Installation: </span>{a.yearofinstallation}</p>
-                                    <p className={styles.status}><span>Status: </span>{a.status}</p>
+                                    <p className={styles.neighbourhood}><b>Neighbourhood: </b>{a.neighbourhood}</p>
+                                    <p className={styles.year}><b>Year of Installation: </b>{a.yearofinstallation}</p>
+                                    <p className={styles.status}><b>Status: </b>{a.status}</p>
                                     {
-                                        a.artistprojectstatement == null ? <></> : <p>{a.artistprojectstatement.substring(0, 500)}</p>
+                                        a.artistprojectstatement == null ? <></> : <p className={styles.statement}><b>About the Art</b> <br /> {a.artistprojectstatement.substring(0, 500)}</p>
                                     }
                                 </div>
                             )
