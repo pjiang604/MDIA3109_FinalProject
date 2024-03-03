@@ -23,16 +23,20 @@ ChartJS.register(
 
 export const options = {
     responsive: true,
+    aspectRatio: 2,
     plugins: {
         legend: {
             position: 'top' as const,
-        },
-        title: {
-            display: true,
-            text: 'Chart.js Bar Chart',
-        },
+        }
     },
-
+    minBarLength: 0,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
 };
 
 const labels = ['2013', '2015', '2017', '2019', '2021'];
@@ -83,7 +87,7 @@ export default function SalesBar() {
                 <h2>Sound recording and music publishing, sales based on format of musical recordings</h2>
                 <p>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></p>
                 <div className={styles.chartContainer}>
-                    <Bar options={options} data={data} />
+                    <Bar options={options} data={data}/>
                 </div>
                 <p>The bar chart takes data from Statistics Canada, looking at the number of sales based on format of musical recordings every two years from 2013.</p>
             </div>
