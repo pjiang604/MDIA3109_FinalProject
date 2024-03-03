@@ -35,7 +35,10 @@
 }
 
 .playListContainer {
-  padding-bottom: 96px;
+  padding-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 /* Tablet Size (iPad Air) */

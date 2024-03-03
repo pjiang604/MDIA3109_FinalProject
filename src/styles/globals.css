@@ -46,6 +46,8 @@ width: 100%;
 
 #mainContainer,
 #headerNav{
+  width: 100%;
+  max-width: 1200px;
   padding-left: 15%;
   padding-right: 10%;
 }
@@ -55,8 +57,4 @@ width: 100%;
   padding-bottom: 5%;
 }
 
-#mainContainer{
-  width: 100%;
-  max-width: 1200px;
-}
 
