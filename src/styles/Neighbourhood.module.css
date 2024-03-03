@@ -1,14 +1,35 @@
-.carousel {
-  background-color: rgb(227, 88, 88);
+
+.container {
+  width: 100%;
 }
 
-/* .carousel > img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
+#mainContainer {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.carouselButton {
+  font-size: 22px;
+  background-color: #dbdbdb;
+}
 
 .carouselImages {
-  width: 700px;
-  height: 400px;
+  width: 1000px;
+  height: 650px;
+}
+
+/* Tablet Size (iPad Air) */
+@media only screen and (max-width: 900px) {
+  .carouselImages {
+    width: 800px;
+    height: 415px;
+  }
+}
+
+/* Mobile Size (iPhone XR) */
+@media only screen and (max-width: 600px) {
+  .carouselImages {
+    width: 300px;
+    height: 180px;
+  }
 }
