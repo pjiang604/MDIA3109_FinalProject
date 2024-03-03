@@ -13,6 +13,10 @@
 - Spotify- https://developer.spotify.com/documentation/web-api
 - Vancouver City Public art - https://opendata.vancouver.ca/explore/dataset/public-art/information/ 
 
+## Charts Used
+- (Sound recording and music publishing, sales based on format of musical recordings)[https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401]
+- (Types of Artists in Canada)[https://canadacouncil.ca/research/research-library/2019/03/a-statistical-profile-of-artists-in-canada-in-2016]
+
 ## Dependencies
 - (React Spotify web playback)[https://github.com/gilbarbara/react-spotify-web-playback]
 
@@ -30,5 +34,5 @@
 - npx cypress run and npx cypress open
 - (npm install --save react-spinners)[https://www.npmjs.com/package/react-spinners]
 - (npm i @react-hooks-hub/use-media-query)[https://www.npmjs.com/package/@react-hooks-hub/use-media-query]
-- npm install -D webpack
 - (npm i react-content-loader)[https://www.npmjs.com/package/react-content-loader]
+- npm install chart.js
