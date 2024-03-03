@@ -62,12 +62,11 @@ export default function Area() {
   useEffect(() => {
     const fetchArt = async () => {
       const data = await getArt();
-      setData(data)
+      setData(data);
     }
     fetchArt()
 
-  }, [])
-
+  }, []);
 
   const playSong = (songUri: string, index: number) => {
     router.push({
@@ -92,26 +91,29 @@ export default function Area() {
           renderBottomCenterControls={() => null}
           renderCenterLeftControls={({ previousSlide }) => (
             <button onClick={previousSlide}>
-              <p className={styles.carouselButton}><GoChevronLeft/></p>
+              <p className={styles.carouselButtonLeft}><GoChevronLeft/></p>
             </button>
           )}
           renderCenterRightControls= {({ nextSlide }) => (
             <button onClick={nextSlide}>
-              <p className={styles.carouselButton}><GoChevronRight /></p>
+              <p className={styles.carouselButtonRight}><GoChevronRight /></p>
             </button>
           )}
         >
           {
             data && data.map((a, aIndex) => {
               return (
-                <Image
-                  className={styles.carouselImages}
-                  key={aIndex}
-                  src={`/PublicArt/img${aIndex + 1}.jpg`}
-                  width={500}
-                  height={300}
-                  alt={a.title_of_work}
-                />
+                <div key={aIndex}>
+                  <p className={styles.artTitle}>{a.title_of_work}</p>
+                  <Image
+                    className={styles.carouselImages}
+                    key={aIndex}
+                    src={`/PublicArt/img${aIndex + 1}.jpg`}
+                    width={500}
+                    height={300}
+                    alt={a.title_of_work}
+                  />
+                </div>
               )
 
             })

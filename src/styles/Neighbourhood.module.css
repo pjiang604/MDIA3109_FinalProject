@@ -3,25 +3,40 @@
   width: 100%;
 }
 
-#mainContainer {
-  width: 100%;
-  max-width: 1000px;
+.artTitle {
+  text-align: center;
+  font-size: 20px;
 }
 
-.carouselButton {
-  font-size: 22px;
-  background-color: #dbdbdb;
+.carouselButtonLeft, .carouselButtonRight {
+  font-size: 30px;
+  background-color: var(--berry);
+  position: absolute;
+  top: -5px;
+  color: var(--lightGray);
+  padding: 3px 5px;
+  border-radius: 6px;
+}
+
+.carouselButtonLeft {
+  left: 10px;
+}
+
+.carouselButtonRight {
+  right: 10px;
 }
 
 .carouselImages {
-  width: 1000px;
-  height: 650px;
+  width: 90%;
+  height: 530px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px #b1b1b1;
+  margin: 30px;
 }
 
 /* Tablet Size (iPad Air) */
 @media only screen and (max-width: 900px) {
   .carouselImages {
-    width: 800px;
     height: 415px;
   }
 }
