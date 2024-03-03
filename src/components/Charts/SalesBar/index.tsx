@@ -84,6 +84,17 @@ export default function SalesBar() {
                             { dataKey: 'other', label: 'Other formats (vinyl records, DVD audio, etc.', valueFormatter },
                             { dataKey: 'streaming', label: 'streaming sales', valueFormatter },
                         ]}
+                        slotProps={{
+                            legend: {
+                                itemMarkWidth: 10,
+                                itemMarkHeight:10,
+                                markGap: 5,
+                                itemGap: 5,
+                                direction:'row',
+                                padding: 0,
+                                position: { vertical: 'top', horizontal: 'left' },
+                            },
+                        }}
                         {...chartSetting}
                     />
                 </div>
