@@ -24,10 +24,16 @@ export default function useRefreshToken(code: string) {
     };
 
     const refreshTokenFn = async () => {
-        let response = await refreshSpotifyToken(refreshToken);
-        setAccessToken(response.access_token);
-        setExpiresIn(response.expires_in);
-        localStorage.setItem("access_token", response.access_token);
+        try {
+            let response = await refreshSpotifyToken(refreshToken);
+            setAccessToken(response.access_token);
+            setExpiresIn(response.expires_in);
+            localStorage.setItem("access_token refreshed", response.access_token);
+        } catch (error) {
+            console.error("refreshTokenFn error", error)
+        }
+
+
     };
 
     useEffect(() => {
@@ -43,5 +49,5 @@ export default function useRefreshToken(code: string) {
 
         return () => clearInterval(interval);
     }, [refreshToken, expiresIn]);
-    return {accessToken, loading}
+    return { accessToken, loading }
 }
