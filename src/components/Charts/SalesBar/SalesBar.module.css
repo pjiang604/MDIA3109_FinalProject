@@ -7,14 +7,14 @@
     gap: 1em;
 }
 
-.barChart {
+/* .barChart {
     display:flex;
     flex-direction:column;
-}
+} */
 
-.chartContainer {
+/* .chartContainer {
     gap:30px;
-}
+} */
 
 .main h2 {
     display:flex;

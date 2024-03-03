@@ -169,3 +169,8 @@ interface IMusicPlayer{
 interface ISkeleton{
     type: string
 }
+
+interface IArtistPie{
+    data: Chart.ChartData;
+    options?: Chart.ChartOptions;
+}
