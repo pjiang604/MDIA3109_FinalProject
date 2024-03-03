@@ -1,4 +1,3 @@
-
 import HeaderNav from "@/components/navigation/HeaderNav"
 import { neighbourhoods } from "@/data/neighbourhoods"
 import { artists } from "@/data/artists"
@@ -68,74 +67,68 @@ export default function Home() {
 
   return (
     <>
-      <main className={`flex-1`}>
+      <main className={styles.main}>
         <Head>
           <title>Home | Amplify</title>
         </Head>
         <HeaderNav text="Welcome back, John" type="profile" />
-        <div id="mainContainer" className={`flex flex-col`}>
-          <div className={`flex flex-col justify-between`}>
+        <div id="mainContainer" className={styles.mainContainer}>
+          <div className={styles.carouselContainer}>
             <HomeAndPlaylistCarousel />
-            <h2>Art based on Neighbourhood</h2>
-            <div className={`flex flex-row w-full`}>
-              <Carousel
-                wrapAround={true}
-                slidesToShow={2.5}
-                cellSpacing={10}
-                withoutControls={true}
-              >
-
-                {
-                  dataNeigh && dataNeigh.map((a, aIndex) => {
-                    return (
-                      <SmallPlaylist
-                        key={aIndex}
-                        name={a.name}
-                        image={a.image}
-                        type="neighbourhood" />
-                    )
-                  })}
-              </Carousel>
-            </div>
           </div>
-
+          <h2 className={styles.sectionTitle}>Art based on Neighbourhood</h2>
+          <div className={styles.carouselContainer}>
+            <Carousel
+              className={styles.carousel}
+              wrapAround={true}
+              slidesToShow={2.5}
+              cellSpacing={10}
+              withoutControls={true}
+            >
+              {
+                dataNeigh && dataNeigh.map((a, aIndex) => (
+                  <SmallPlaylist
+                    key={aIndex}
+                    name={a.name}
+                    image={a.image}
+                    type="neighbourhood"
+                  />
+                ))
+              }
+            </Carousel>
+          </div>
           <div>
-            <h2>Discover New Canadian Artists</h2>
-            <div className={`flex flex-row w-full`}>
+            <h2 className={styles.sectionTitle}>Discover New Canadian Artists</h2>
+            <div className={styles.carouselContainer}>
               {dataArtists ?
                 <Carousel
+                  className={styles.carousel}
                   wrapAround={true}
                   slidesToShow={2.5}
                   cellSpacing={10}
                   withoutControls={true}
                 >
                   {
-                    dataArtists.artists && dataArtists.artists.map((com, comIndex) => {
-                      return (
-                        <SmallPlaylist
-                          key={comIndex}
-                          name={com.name}
-                          image={com.images[0].url}
-                          type="artist" />
-                      )
-                    })
-
+                    dataArtists.artists && dataArtists.artists.map((com, comIndex) => (
+                      <SmallPlaylist
+                        key={comIndex}
+                        name={com.name}
+                        image={com.images[0].url}
+                        type="artist"
+                      />
+                    ))
                   }
-
                 </Carousel>
                 :
                 <SmallPlaylist
                   image={'/Logo/logo.png'}
-                  type="skeleton" />
+                  type="skeleton"
+                />
               }
-
-
             </div>
           </div>
         </div>
-
       </main>
     </>
-
   )
 }
