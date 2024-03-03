@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ['i.scdn.co'],
   },
+  transpilePackages: ['@mui/x-charts']
 };
 
 module.exports = nextConfig
