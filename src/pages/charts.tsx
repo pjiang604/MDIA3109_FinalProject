@@ -72,7 +72,6 @@ export default function Charts() {
         </Head>
         <HeaderNav text="Profile" type="profile" />
         <div id="mainContainer" className={`flex flex-col`}>
-      
         </div>
 
       </main>
