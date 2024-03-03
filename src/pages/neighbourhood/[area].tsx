@@ -122,7 +122,7 @@ export default function Area() {
 
         {
           playlistData ?
-            <>
+            <div>
               {
                 playlistData.tracks.items.map((i, index) => {
                   const songUri = i.track.uri
@@ -137,7 +137,7 @@ export default function Area() {
                   )
                 })
               }
-            </>
+            </div>
             :
             <>
               <SongCard

@@ -34,6 +34,10 @@
   margin: 30px;
 }
 
+.playListContainer {
+  padding-bottom: 96px;
+}
+
 /* Tablet Size (iPad Air) */
 @media only screen and (max-width: 900px) {
   .carouselImages {

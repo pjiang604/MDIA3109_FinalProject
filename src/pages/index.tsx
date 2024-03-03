@@ -14,7 +14,6 @@ export default function Landing() {
       setTimeout(() => {
         setLoading(false);
         router.push('/logIn');
-        // console.log("loading...")
       }, 2000)
     };
 
