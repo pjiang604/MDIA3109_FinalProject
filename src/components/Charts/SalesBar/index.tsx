@@ -1,5 +1,6 @@
 import * as MuiXCharts from "@mui/x-charts"; //import everything from the dependency, then declare the chart below or else it'll give an export error
 import Link from "next/link"
+import styles from './SalesBar.module.css'
 
 export default function SalesBar() {
 
@@ -14,10 +15,11 @@ export default function SalesBar() {
         ],
         width: 500,
         height: 300,
+        itemMarkHeight: 8,
         sx: {
             [`.${axisClasses.left} .${axisClasses.label}`]: {
                 transform: 'translate(-20px, 0)',
-            },
+            }
         },
     };
     const dataset = [
@@ -67,23 +69,26 @@ export default function SalesBar() {
 
     return (
         <>
-
-            <h2>Sound recording and music publishing, sales based on format of musical recordings</h2>
-            <p>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></p>
-            <BarChart
-                dataset={dataset}
-                xAxis={[{ scaleType: 'band', dataKey: 'year' }]}
-                series={[
-                    { dataKey: 'CDs', label: 'Musical Compact Discs', valueFormatter },
-                    { dataKey: 'digitalAlbum', label: 'Digital Downloads - albums', valueFormatter },
-                    { dataKey: 'digitalSingle', label: 'Digital Downloads - singles', valueFormatter },
-                    { dataKey: 'other', label: 'Other formats (vinyl records, DVD audio, etc.', valueFormatter },
-                    { dataKey: 'streaming', label: 'streaming sales', valueFormatter },
-                ]}
-                {...chartSetting}
-            />
-            <p>Add a lil description of the chart here</p>
-
+            <div className={styles.main}>
+                <h2>Sound recording and music publishing, sales based on format of musical recordings</h2>
+                <p>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></p>
+                <div className={styles.chartContainer}>
+                    <BarChart
+                        className={styles.barChart}
+                        dataset={dataset}
+                        xAxis={[{ scaleType: 'band', dataKey: 'year' }]}
+                        series={[
+                            { dataKey: 'CDs', label: 'Musical Compact Discs', valueFormatter },
+                            { dataKey: 'digitalAlbum', label: 'Digital Downloads - albums', valueFormatter },
+                            { dataKey: 'digitalSingle', label: 'Digital Downloads - singles', valueFormatter },
+                            { dataKey: 'other', label: 'Other formats (vinyl records, DVD audio, etc.', valueFormatter },
+                            { dataKey: 'streaming', label: 'streaming sales', valueFormatter },
+                        ]}
+                        {...chartSetting}
+                    />
+                </div>
+                <p>Add a lil description of the chart here</p>
+            </div>
         </>
     )
 }
