@@ -36,5 +36,5 @@
 - (npm i @react-hooks-hub/use-media-query)[https://www.npmjs.com/package/@react-hooks-hub/use-media-query]
 - (npm i react-content-loader)[https://www.npmjs.com/package/react-content-loader]
 - npm install @mui/material @emotion/react @emotion/styled
-- (npm install @mui/x-charts)[https://mui.com/x/react-charts/]
+- (npm install --save chart.js react-chartjs-2)[https://react-chartjs-2.js.org/]
 - npm install react-icons

@@ -1,71 +1,81 @@
-import * as MuiXCharts from "@mui/x-charts"; //import everything from the dependency, then declare the chart below or else it'll give an export error
+
 import Link from "next/link"
 import styles from './SalesBar.module.css'
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+export const options = {
+    responsive: true,
+    plugins: {
+        legend: {
+            position: 'top' as const,
+        },
+        title: {
+            display: true,
+            text: 'Chart.js Bar Chart',
+        },
+    },
+
+};
+
+const labels = ['2013', '2015', '2017', '2019', '2021'];
+
+const cd = [170.7, 151.0, 118.2, 57.5, 40.0]; //need to specify this is in million $ scale
+const digitalAlbum = [69.3, 49.0, 39.7, 15.1, 10.3];
+const digitalSingles = [90.1, 74.3, 51.8, 35.9, 23.7];
+const other = [21.5, 23.2, 34.4, 31.3, 67.8];
+const streaming = [0, 0, 181.0, 316.4, 407.0];
+
+export const data = {
+    labels,
+    datasets: [
+        {
+            label: 'Musical Compact Discs',
+            data: cd,
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+        {
+            label: 'Digital Downloads - Albums',
+            data: digitalAlbum,
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+        {
+            label: 'Digital Downloads - Singles',
+            data: digitalSingles,
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+        {
+            label: 'Other Formats (vinyl records, DVD audio, etc.',
+            data: other,
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+        {
+            label: 'Streaming Sales',
+            data: streaming,
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+    ],
+};
 
 export default function SalesBar() {
 
-    const { BarChart } = MuiXCharts;
-    const { axisClasses } = MuiXCharts;
-
-    const chartSetting = {
-        yAxis: [
-            {
-                label: 'dollars ($)',
-            },
-        ],
-        width: 500,
-        height: 300,
-        itemMarkHeight: 8,
-        sx: {
-            [`.${axisClasses.left} .${axisClasses.label}`]: {
-                transform: 'translate(-20px, 0)',
-            }
-        },
-    };
-    const dataset = [
-        {
-            CDs: 59,
-            digitalAlbum: 57,
-            digitalSingle: 86,
-            other: 21,
-            streaming: 21,
-            year: '2013',
-        },
-        {
-            CDs: 59,
-            digitalAlbum: 57,
-            digitalSingle: 86,
-            other: 21,
-            streaming: 21,
-            year: '2015',
-        },
-        {
-            CDs: 59,
-            digitalAlbum: 57,
-            digitalSingle: 86,
-            other: 21,
-            streaming: 21,
-            year: '2017',
-        },
-        {
-            CDs: 59,
-            digitalAlbum: 57,
-            digitalSingle: 86,
-            other: 21,
-            streaming: 21,
-            year: '2019',
-        },
-        {
-            CDs: 59,
-            digitalAlbum: 57,
-            digitalSingle: 86,
-            other: 21,
-            streaming: 21,
-            year: '2021',
-        },
-    ];
-
-    const valueFormatter = (value: number) => `$${value}`;
 
     return (
         <>
@@ -73,30 +83,7 @@ export default function SalesBar() {
                 <h2>Sound recording and music publishing, sales based on format of musical recordings</h2>
                 <p>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></p>
                 <div className={styles.chartContainer}>
-                    <BarChart
-                        className={styles.barChart}
-                        dataset={dataset}
-                        xAxis={[{ scaleType: 'band', dataKey: 'year' }]}
-                        series={[
-                            { dataKey: 'CDs', label: 'Musical Compact Discs', valueFormatter },
-                            { dataKey: 'digitalAlbum', label: 'Digital Downloads - albums', valueFormatter },
-                            { dataKey: 'digitalSingle', label: 'Digital Downloads - singles', valueFormatter },
-                            { dataKey: 'other', label: 'Other formats (vinyl records, DVD audio, etc.', valueFormatter },
-                            { dataKey: 'streaming', label: 'streaming sales', valueFormatter },
-                        ]}
-                        slotProps={{
-                            legend: {
-                                itemMarkWidth: 10,
-                                itemMarkHeight:10,
-                                markGap: 5,
-                                itemGap: 5,
-                                direction:'row',
-                                padding: 0,
-                                position: { vertical: 'top', horizontal: 'left' },
-                            },
-                        }}
-                        {...chartSetting}
-                    />
+                    <Bar options={options} data={data} />
                 </div>
                 <p>The bar chart takes data from Statistics Canada, looking at the number of sales based on format of musical recordings every two years from 2013.</p>
             </div>
