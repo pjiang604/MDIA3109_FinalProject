@@ -7,16 +7,25 @@
     gap: 1em;
 }
 
-/* .barChart {
-    display:flex;
-    flex-direction:column;
-} */
-
-/* .chartContainer {
-    gap:30px;
-} */
+.barChart canvas {
+    width: 100%;
+}
 
 .main h2 {
     display:flex;
     align-items:center;
+    padding-left:10%;
+}
+
+.chartContainer {
+    display:flex;
+    height:220px;
+    width:500px;
+    padding-left:15%;
+    padding-right:10%;
+}
+
+.main p {
+    display:flex;
+    padding-left:10%;
 }
