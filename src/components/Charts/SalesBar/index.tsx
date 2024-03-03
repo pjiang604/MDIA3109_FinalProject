@@ -98,7 +98,7 @@ export default function SalesBar() {
                         {...chartSetting}
                     />
                 </div>
-                <p>Add a lil description of the chart here</p>
+                <p>The bar chart takes data from Statistics Canada, looking at the number of sales based on format of musical recordings every two years from 2013.</p>
             </div>
         </>
     )

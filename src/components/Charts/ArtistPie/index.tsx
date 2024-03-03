@@ -32,9 +32,9 @@ export default function ArtistPie() {
                         slotProps={{
                             legend: {
                                 itemMarkWidth: 10,
-                                itemMarkHeight: 10,
+                                itemMarkHeight: 5,
                                 markGap: 5,
-                                itemGap: 5,
+                                itemGap: 3,
                                 direction: 'row',
                                 padding: -20,
                                 position: { vertical: 'top', horizontal: 'left' },
@@ -44,7 +44,7 @@ export default function ArtistPie() {
                         height={300}
                     />
                 </div>
-                <p>Add a lil description of the chart here</p>
+                <p>The above pie chart provides statistics on the kinds of artists in Canada in 2016. The pie chart categorizes artists into different areas, such as dancers or actors and comedians, to show how many Canadians are grouped in each category. From the pie chart above, musicians and singers are the largest category.</p>
             </div>
         </>
     )
