@@ -19,6 +19,7 @@
     "react": "^18",
     "react-content-loader": "^6.2.1",
     "react-dom": "^18",
+    "react-icons": "^5.0.1",
     "react-slick": "^0.30.1",
     "react-spinners": "^0.13.8",
     "react-spotify-web-playback": "^0.14.3",

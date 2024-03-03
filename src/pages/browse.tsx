@@ -5,8 +5,9 @@ import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist";
 import { useState, useEffect } from "react";
 import { getRecentPlayed } from "./api/getMusic";
 import Carousel from "nuka-carousel";
-import Head from 'next/head'
+import Head from 'next/head';
 import Skeleton from "@/components/skeleton";
+import styles from "@/styles/Browse.module.css"
 
 export default function Browse() {
 

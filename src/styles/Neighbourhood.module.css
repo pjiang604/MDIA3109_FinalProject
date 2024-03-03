@@ -1,0 +1,14 @@
+.carousel {
+  background-color: rgb(227, 88, 88);
+}
+
+/* .carousel > img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.carouselImages {
+  width: 700px;
+  height: 400px;
+}
