@@ -5,22 +5,16 @@ import Head from 'next/head'
 import SalesBar from "@/components/Charts/SalesBar"
 import ArtistPie from "@/components/Charts/ArtistPie"
 
-
-
-
 export default function Charts() {
-
-
-
 
   return (
     <>
-      <main className={`flex-1`}>
+      <main className={styles.main}>
         <Head>
           <title>Learn More | Amplify</title>
         </Head>
         <HeaderNav text="Learn More" type="simple-backBtn" />
-        <div id="mainContainer" className={`flex flex-col`}>
+        <div className={styles.mainContainer}>
           <SalesBar />
           <ArtistPie />
         </div>
