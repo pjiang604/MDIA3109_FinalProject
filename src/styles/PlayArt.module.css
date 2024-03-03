@@ -1,28 +1,30 @@
 .slideContainer {
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height:100%;
 }   
 
-  .slideContainer p {
-    margin: 5px 0;
-    font-size: 14px;
-  }
+.slideContainer img {
+  border-radius:10px;
+  height: 470px;
+  object-fit:cover;
+}
 
-  .neighbourhood span {
-    font-weight: bold;
-  }
+.slideContainer p {
+  margin: 5px 0;
+  font-size: 14px;
+}
 
-  .year span {
-    font-weight: bold;
-  }
+.neighbourhood span {
+  font-weight: bold;
+}
+
+.year span {
+  font-weight: bold;
+}
   
-  .status span {
-    font-weight: bold;
-  }
+.status span {
+  font-weight: bold;
+}
 
-  
-
-  
- 

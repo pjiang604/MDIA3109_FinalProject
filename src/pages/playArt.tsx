@@ -64,14 +64,12 @@ export default function PlayArt() {
                         d.title_of_work == ArtUntitled.Hundred ||
                         d.title_of_work == ArtUntitled.Fountain ? <p>No Title</p>
                         :
-                        <p>TITLE: {d.title_of_work}</p>
+                        <p><b>Title:</b> {d.title_of_work}</p>
                     }
                     <p className={styles.neighbourhood}><span>Neighbourhood: </span>{d.neighbourhood}</p>
                     <p className={styles.year}><span>Year of Installation: </span>{d.yearofinstallation}</p>
                     <p className={styles.status}><span>Status: </span>{d.status}</p>
-                    {
-                      d.artistprojectstatement == null ? <></> : <p>{d.artistprojectstatement.substring(0, 500)}</p>
-                    }
+                    
                   </div>
                 </div>
               )
