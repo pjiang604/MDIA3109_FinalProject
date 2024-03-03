@@ -1,24 +1,57 @@
 .main {
     flex: 1;
-  }
-  
-  .mainContainer {
+}
+
+.mainContainer {
     display: flex;
     flex-direction: column;
-  }
-  
-  .carouselContainer {
+}
+
+.carouselContainer {
     display: flex;
     flex-direction: row;
     width: 100%;
-  }
-  
-  .carousel {
+}
+
+.carousel {
     width: 100%;
-  }
-  
-  .sectionTitle {
+}
+
+.sectionTitle {
     margin-top: 20px;
     margin-bottom: 10px;
-  }
-  
+}
+
+/* Styles for desktop */
+@media (min-width: 1280px) {
+    .carouselContainer {
+        justify-content: center;
+
+    }
+
+    .carousel {
+        max-width: 100%;
+    }
+}
+
+/* Styles for iPad Air */
+@media (max-width: 1024px) {
+    .carouselContainer {
+        flex-wrap: wrap;
+    }
+
+    .carousel {
+        width: 100;
+    }
+}
+
+/* Styles for iPhone XR */
+@media (max-width: 414px) {
+    .carouselContainer {
+        flex-direction: column;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+}
