@@ -46,7 +46,7 @@ width: 100%;
 
 #mainContainer,
 #headerNav{
-  padding-left: 10%;
+  padding-left: 15%;
   padding-right: 10%;
 }
 
@@ -56,29 +56,8 @@ width: 100%;
 }
 
 #mainContainer{
-padding-top: 5%;
-}
-
-
-/* PlayArt Carousel */
-
-.slider-control-centerright {
-  position: absolute;
-  top: 10%
-}
-
-.slider-control-centerright  > button {
-  margin-right: 10px;
-  border-radius: 10px;
-}
-
-.slider-control-centerleft {
-  position: absolute;
-  top: 10%
-}
-
-.slider-control-centerleft  > button {
-  margin-right: 10px;
-  border-radius: 10px;
+  padding-top: 5%;
+  width: 100%;
+  max-width: 1200px;
 }
 

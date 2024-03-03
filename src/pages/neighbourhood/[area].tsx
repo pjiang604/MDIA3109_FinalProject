@@ -80,38 +80,26 @@ export default function Area() {
     })
   }
 
-  // const renderCenterLeftControls = ({ previousSlide }) => ( 
-  //   <button onClick={previousSlide}>
-  //     <i className="fa fa-arrow-left" />
-  //   </button>
-  //  );
-
   return (
-    <main>
+    <main className={styles.container}>
       <Head>
         <title>Neighbourhood | Amplify</title>
       </Head>
       <HeaderNav text={playlistData?.name || ""} type="full-backPlay" />
-      <div id="mainContainer" className={`flex flex-col`}>
+      <div id="mainContainer">
         <Carousel 
           className={styles.carousel}
           renderBottomCenterControls={() => null}
           renderCenterLeftControls={({ previousSlide }) => (
             <button onClick={previousSlide}>
-              <GoChevronLeft />
+              <p className={styles.carouselButton}><GoChevronLeft/></p>
             </button>
           )}
           renderCenterRightControls= {({ nextSlide }) => (
             <button onClick={nextSlide}>
-              <GoChevronRight />
+              <p className={styles.carouselButton}><GoChevronRight /></p>
             </button>
           )}
-          // slideIndex={100}
-          slidesToScroll={1}
-          slidesToShow={1}
-          cellSpacing={1}
-          disableEdgeSwiping={false}
-          dragging={false}
         >
           {
             data && data.map((a, aIndex) => {
