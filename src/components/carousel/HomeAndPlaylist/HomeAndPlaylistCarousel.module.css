@@ -1,6 +1,7 @@
 .carousel img {
-    max-width: 100%;
-    max-height: 200px;
+    width: 100%;
+    max-width: 880px;
+    max-height: 300px;
     object-fit:cover;
     border-radius:10px;
 }
