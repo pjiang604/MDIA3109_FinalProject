@@ -1,16 +1,15 @@
+import { useState } from "react";
+import Head from 'next/head';
 import HeaderNav from "@/components/navigation/HeaderNav";
-import Nav from "@/components/navigation/NavBar";
 import Playlist from "@/components/buttons/Playlist";
 import { neighbourhoods } from "@/data/neighbourhoods";
-import { useState } from "react";
-import Head from 'next/head'
-import styles from '@/styles/AllNeighbourhood.module.css'
+import Styles from "@/styles/AllNeighbourhood.module.css";
 
 export default function AllNeighbourhood() {
-  const [dataNeigh, setdataNeigh] = useState(neighbourhoods);
+  const [dataNeigh, setDataNeigh] = useState(neighbourhoods);
   
   return (
-    <main className={`flex-1`}>
+    <main className="flex-1">
       <Head>
         <title>Art Based on Neighbourhood</title>
       </Head>

@@ -1,0 +1,28 @@
+.flex-1 {
+    flex: 1;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-row {
+    flex-direction: row;
+  }
+  
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  
+  .gap-4 {
+    margin-left: 1rem;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
