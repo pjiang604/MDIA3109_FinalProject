@@ -7,10 +7,31 @@
   border-radius: 10px;
 }
 
+.learnMore {
+  background-color: var(--berry);
+  color:white;
+  padding-left:5%;
+  padding-right:5%;
+  padding-top: 3%;
+  padding-bottom:3%;
+  border-radius:10px;
+}
+
+.button {
+  margin-top:5%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.learnMore:hover {
+  background-color:var(--berryHover);
+}
+
 /* Mobile Size (iPhone 12 Pro) */
 @media only screen and (max-width: 600px) {
   .searchBar {
-    max-width: 310px;
+    max-width: 340px;
     margin: 0 0 10px 0px;
   }
 }
