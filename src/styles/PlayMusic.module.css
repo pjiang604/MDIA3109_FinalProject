@@ -1,42 +1,85 @@
 .playerContainer button.ButtonRSWP.rswp__toggle._ControlsButtonRSWP{
     color: var(--berry);
-  }
-  
-  .playerContainer .ButtonRSWP.rswp__toggle._ControlsButtonRSWP > svg{
-    background-color: var(--white);
-    border-radius: 100%;
-  }
+}
 
-  #mainContainer {
-    display:flex;
-    flex-direction:column;
-    height:100vh;
-  }
+.playerContainer .ButtonRSWP.rswp__toggle._ControlsButtonRSWP > svg{
+  background-color: var(--white);
+  border-radius: 100%;
+}
 
-  .statement {
-    color:white;
-    margin-top: 4%;
-    height:100%;
-  }
+#mainContainer {
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+}
 
-  .neighbourhood, 
-  .status, 
-  .year,
-  .title {
-    color:white;
-  }
+.carouselImages {
+  width: 90%;
+  height: 530px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px #b1b1b1;
+  margin: 30px;
+  object-fit: cover;
+}
 
-  .title {
-    margin-top: 4%;
-  }
+.carouselButtonLeft, .carouselButtonRight {
+  font-size: 30px;
+  background-color: var(--black);
+  position: absolute;
+  color: var(--lightGray);
+  padding: 3px 5px;
+  border-radius: 6px;
+  top: 60%;
+}
 
-  .slideContainer img {
-    border-radius: 10px;
-    object-fit:cover;
-  }
+.infoContainer {
+  margin-left: 90px;
+}
 
-  .noTitle {
-    font-size:20px;
-    color:white;
-    font-weight:600;
+.neighbourhood, 
+.status, 
+.year,
+.title {
+  color:white;
+}
+
+.title {
+  margin-top: 4%;
+}
+
+.noTitle {
+  font-size:20px;
+  color:white;
+  font-weight:600;
+}
+
+.statement {
+  color:white;
+  margin-top: 4%;
+  height:100%;text-align: justify;
+}
+
+/* Tablet Size (iPad Air) */
+@media only screen and (max-width: 900px) {
+  .carouselImages {
+    height: 415px;
   }
+  .carouselButtonLeft, .carouselButtonRight {
+    top: 53%;
+  }
+}
+
+/* Mobile Size (iPhone 12 Pro) */
+@media only screen and (max-width: 600px) {
+  .carouselImages {
+    height: 155px;
+    margin: 0 0 0 15px;
+  }
+  .carouselButtonLeft, .carouselButtonRight {
+    top: 19%;
+    font-size: 15px;
+  }
+  .infoContainer {
+    margin: 40px 0 160px 0;
+  }
+}

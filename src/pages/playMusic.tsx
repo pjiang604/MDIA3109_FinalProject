@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { useEffect, useState } from "react";
 import { getArt } from "@/hooks/getArt";
 import Carousel from "nuka-carousel";
+import { GoChevronLeft , GoChevronRight} from "react-icons/go";
 
 export default function PlayMusic() {
 
@@ -41,9 +42,17 @@ export default function PlayMusic() {
             <div id="mainContainer" className={`flex flex-col`}>
 
                 <Carousel style={{ marginBottom: "100px" }}
-                    renderCenterLeftControls={() => null}
-                    renderCenterRightControls={() => null}
                     renderBottomCenterControls={() => null}
+                    renderCenterLeftControls={({ previousSlide }) => (
+                        <button onClick={previousSlide}>
+                            <p className={styles.carouselButtonLeft}><GoChevronLeft/></p>
+                        </button>
+                    )}
+                    renderCenterRightControls= {({ nextSlide }) => (
+                        <button onClick={nextSlide}>
+                            <p className={styles.carouselButtonRight}><GoChevronRight /></p>
+                        </button>
+                    )}
                     afterSlide={changeSlideHeader}
                 >
                     {
@@ -51,30 +60,28 @@ export default function PlayMusic() {
                             return (
                                 <div key={aIndex} className={styles.slideContainer}>
                                     <Image
+                                    className={styles.carouselImages}
                                         key={aIndex}
                                         src={`/PublicArt/img${aIndex + 1}.jpg`}
                                         width={500}
                                         height={300}
                                         alt={a.title_of_work}
-                                        style={{
-                                            width: "500px",
-                                            height: "300px"
-                                        }}
                                     />
-                                    {
-                                        a.title_of_work == ArtUntitled.Untitled ||
+                                    <div className={styles.infoContainer}>
+                                        {
+                                            a.title_of_work == ArtUntitled.Untitled ||
                                             a.title_of_work == ArtUntitled.Mural ||
                                             a.title_of_work == ArtUntitled.Hundred ||
                                             a.title_of_work == ArtUntitled.Fountain ? <p className={styles.noTitle}>No Title</p>
-                                            :
-                                            <p className={styles.title}><b>Title:</b> {a.title_of_work}</p>
-                                    }
-                                    <p className={styles.neighbourhood}><b>Neighbourhood: </b>{a.neighbourhood}</p>
-                                    <p className={styles.year}><b>Year of Installation: </b>{a.yearofinstallation}</p>
-                                    <p className={styles.status}><b>Status: </b>{a.status}</p>
-                                    {
-                                        a.artistprojectstatement == null ? <></> : <p className={styles.statement}><b>About the Art</b> <br /> {a.artistprojectstatement.substring(0, 500)}</p>
-                                    }
+                                            : <p className={styles.title}><b>Title:</b> {a.title_of_work}</p>
+                                        }
+                                        <p className={styles.neighbourhood}><b>Neighbourhood: </b>{a.neighbourhood}</p>
+                                        <p className={styles.year}><b>Year of Installation: </b>{a.yearofinstallation}</p>
+                                        <p className={styles.status}><b>Status: </b>{a.status}</p>
+                                        {
+                                            a.artistprojectstatement == null ? <></> : <p className={styles.statement}><b>About the Art</b> <br /> {a.artistprojectstatement.substring(0, 500)}</p>
+                                        }
+                                    </div>
                                 </div>
                             )
 

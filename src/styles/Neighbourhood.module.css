@@ -32,6 +32,7 @@
   border-radius: 10px;
   box-shadow: 8px 8px 8px #b1b1b1;
   margin: 30px;
+  object-fit: cover;
 }
 
 .playListContainer {
@@ -48,7 +49,7 @@
   }
 }
 
-/* Mobile Size (iPhone XR) */
+/* Mobile Size (iPhone 12 Pro) */
 @media only screen and (max-width: 600px) {
   .artTitle {
     width: 290px;
