@@ -21,7 +21,7 @@ export default function MusicArtTab({
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            setAccessToken(`${localStorage.getItem("access_token")}`)
+            setAccessToken(`${sessionStorage.getItem("access_token")}`)
             const fetchArtist = async () => {
                 try {
 

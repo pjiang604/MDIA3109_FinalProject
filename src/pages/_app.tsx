@@ -36,13 +36,13 @@ export default function App({ Component, pageProps }: AppProps) {
         console.log("anonymous user, no data pulled")
       } else {
         try {
-          let accessTokenFromLocalStorage = localStorage.getItem("access_token");
-          while (!accessTokenFromLocalStorage || accessTokenFromLocalStorage === "") {
+          let accessTokenFromSessionStorage = sessionStorage.getItem("access_token");
+          while (!accessTokenFromSessionStorage || accessTokenFromSessionStorage === "") {
             console.log("No access token, retrying");
             await new Promise(resolve => setTimeout(resolve, 1000));
-            accessTokenFromLocalStorage = localStorage.getItem("access_token");
+            accessTokenFromSessionStorage = sessionStorage.getItem("access_token");
           }
-          setAccessTokenApp(accessTokenFromLocalStorage);
+          setAccessTokenApp(accessTokenFromSessionStorage);
 
         } catch (error) {
           console.error("_app.tsx useEffect error", error);

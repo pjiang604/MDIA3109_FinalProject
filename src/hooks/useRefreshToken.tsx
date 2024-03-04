@@ -15,7 +15,7 @@ export default function useRefreshToken(code: string) {
             setAccessToken(response.access_token);
             setRefreshToken(response.refresh_token);
             setExpiresIn(response.expires_in);
-            localStorage.setItem("access_token", response.access_token);
+            sessionStorage.setItem("access_token", response.access_token);
             setLoading(false)
             console.log(loading, "loading")
         } else {
@@ -28,7 +28,7 @@ export default function useRefreshToken(code: string) {
             let response = await refreshSpotifyToken(refreshToken);
             setAccessToken(response.access_token);
             setExpiresIn(response.expires_in);
-            localStorage.setItem("access_token refreshed", response.access_token);
+            sessionStorage.setItem("access_token refreshed", response.access_token);
         } catch (error) {
             console.error("refreshTokenFn error", error)
         }

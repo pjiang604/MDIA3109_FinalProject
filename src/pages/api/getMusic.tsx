@@ -3,7 +3,7 @@ import { useState } from "react"
 
 export const getPlaylist = async (playlist_id: string) => {
     try {
-        let accessToken = localStorage.getItem('access_token');
+        let accessToken = sessionStorage.getItem('access_token');
         if (accessToken) {
             const response = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}`, {
                 headers: {
@@ -24,7 +24,7 @@ export const getPlaylist = async (playlist_id: string) => {
 
 export const getArtist = async (playlist_id: string) => {
     try {
-        let accessToken = localStorage.getItem('access_token');
+        let accessToken = sessionStorage.getItem('access_token');
         if (accessToken) {
             const response = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}`, {
                 headers: {
@@ -46,7 +46,7 @@ export const getArtist = async (playlist_id: string) => {
 
 export const getArtistProfiles = async (stringArtistIds: string) => {
     try {
-        let accessToken = localStorage.getItem('access_token');
+        let accessToken = sessionStorage.getItem('access_token');
         if (accessToken) {
             const response = await fetch(`https://api.spotify.com/v1/artists?ids=${stringArtistIds}`, {
                 headers: {
@@ -67,7 +67,7 @@ export const getArtistProfiles = async (stringArtistIds: string) => {
 
 export const getRecentPlayed = async () => {
     try {
-        let accessToken = localStorage.getItem('access_token');
+        let accessToken = sessionStorage.getItem('access_token');
         if (accessToken) {
             const response = await fetch(`https://api.spotify.com/v1/me/player/recently-played`, {
                 headers: {
@@ -90,7 +90,7 @@ export const getRecentPlayed = async () => {
 export const playSong = async () => {
     try {
 
-        let accessToken = localStorage.getItem('access_token');
+        let accessToken = sessionStorage.getItem('access_token');
         if (accessToken) {
             const response = await fetch(`https://api.spotify.com/v1/me/player/play`, {
                 headers: {
