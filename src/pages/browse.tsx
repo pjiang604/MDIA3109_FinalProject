@@ -8,6 +8,7 @@ import Carousel from "nuka-carousel";
 import Head from 'next/head';
 import Skeleton from "@/components/skeleton";
 import styles from "@/styles/Browse.module.css"
+import Link from "next/link"
 
 export default function Browse() {
 
@@ -65,7 +66,9 @@ export default function Browse() {
               }
             </Carousel>
         }
-
+        <div className={styles.button}>
+          <button className={styles.learnMore}><Link href="/charts">Learn More About Music in Canada</Link></button>
+        </div>
       </div>
     </main>
   )
