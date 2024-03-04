@@ -50,8 +50,26 @@
 
 /* Mobile Size (iPhone XR) */
 @media only screen and (max-width: 600px) {
+  .artTitle {
+    width: 290px;
+    font-size: 12px;
+  }
   .carouselImages {
-    width: 300px;
-    height: 180px;
+    width: 250px;
+    height: 165px;
+    margin: 15px;
+  }
+  .carouselButtonLeft, .carouselButtonRight {
+    font-size: 13px;
+    top: 2px;
+  }
+  .carouselButtonLeft {
+    left: -10px;
+  }
+  .carouselButtonRight {
+    right: -10px;
+  }
+  .playListContainer {
+    padding-bottom: 200px;
   }
 }
