@@ -1,0 +1,8 @@
+.searchBar {
+  max-width: 610px;
+  width: 100%;
+  margin: 0 0 10px 40px;
+  padding: 10px;
+  background-color: var(--lightGray);
+  border-radius: 10px;
+}
