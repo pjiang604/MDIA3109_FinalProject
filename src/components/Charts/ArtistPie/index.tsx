@@ -41,7 +41,7 @@ export default function ArtistPie() {
         <>
             <div className={styles.mainContainer}>
                 <h2>A Statistical Profile of Artists in Canada in 2016</h2>
-                <p>Data from <Link href="https://canadacouncil.ca/research/research-library/2019/03/a-statistical-profile-of-artists-in-canada-in-2016">Canada Council for the Arts</Link></p>
+                <h4>Data from <Link href="https://canadacouncil.ca/research/research-library/2019/03/a-statistical-profile-of-artists-in-canada-in-2016">Canada Council for the Arts</Link></h4>
                 <div className={styles.chartContainer}>
                 <Pie data={data} />
                 </div>
