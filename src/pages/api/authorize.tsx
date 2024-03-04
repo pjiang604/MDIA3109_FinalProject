@@ -50,7 +50,7 @@ export const authorize = async () => {
         const scope: string =
             "user-read-private user-read-email streaming user-read-playback-state user-modify-playback-state user-read-recently-played";
 
-        localStorage.setItem("code_verifier", codeVerifier);
+        sessionStorage.setItem("code_verifier", codeVerifier);
 
         const args = new URLSearchParams({
             response_type: "code",
@@ -68,7 +68,7 @@ export const authorize = async () => {
 };
 
 export const getToken = async (code: string) => {
-    const codeVerifier = localStorage.getItem("code_verifier");
+    const codeVerifier = sessionStorage.getItem("code_verifier");
 
     const origin: string = window.location.origin
     const redirectUri: string = `${origin}/home`;

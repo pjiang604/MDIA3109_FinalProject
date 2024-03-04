@@ -27,7 +27,7 @@ export default function Area() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const localAccessToken = localStorage.getItem("access_token") || "no token"
+      const localAccessToken = sessionStorage.getItem("access_token") || "no token"
       setAccessToken(`${localAccessToken}`)
       console.log(accessToken)
     } else {

@@ -39,16 +39,16 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let accessTokenFromLocalStorage = localStorage.getItem("access_token");
+        let accessTokenFromSessionStorage = sessionStorage.getItem("access_token");
 
-        while (!accessTokenFromLocalStorage) {
+        while (!accessTokenFromSessionStorage) {
           setAnonAccess(true)
           console.log("No access token, retrying");
           await new Promise(resolve => setTimeout(resolve, 1000));
-          accessTokenFromLocalStorage = localStorage.getItem("access_token");
+          accessTokenFromSessionStorage = sessionStorage.getItem("access_token");
         }
         setAnonAccess(false)
-        setAccessTokenHome(accessTokenFromLocalStorage);
+        setAccessTokenHome(accessTokenFromSessionStorage);
 
         const stringArtistIds = dataArtist.map(a => a.artist_id).toString();
         const recentData = await getArtistProfiles(stringArtistIds);
