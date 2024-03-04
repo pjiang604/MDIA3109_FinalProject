@@ -9,7 +9,9 @@
 }
 
 
-  
-  @media (max-width: 1024p) {
-     
-  }
+ /* Styles for iPad Air */
+@media (max-width: 900px) {
+    .cardContainer {
+        gap: 2rem;
+    }
+}
