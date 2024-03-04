@@ -60,7 +60,7 @@ width: 100%;
 /* Mobile Size (iPhone 12 Pro) */
 @media only screen and (max-width: 600px) { 
   #mainContainer, #headerNav {
-    max-width: 365px;
+    max-width: 400px;
     padding-left: 10%;
     padding-right: 5%;
   }
