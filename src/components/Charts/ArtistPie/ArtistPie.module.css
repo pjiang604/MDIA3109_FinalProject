@@ -4,11 +4,17 @@
 }
 
 .chartContainer {
-    max-height: 800px;
+    max-height: 500px;
     display:flex;
     flex-direction:column;
     align-items:center;
-    padding-left:10%;
+}
+
+.mainContainer h4 {
+    display:flex;
+    justify-content:center;
+    gap: 0.25em;
+    width:100%;
 }
 
 .mainContainer h2 {
@@ -21,4 +27,35 @@
     text-align:left;
     padding-top:4%;
     padding-bottom: 2%;
+}
+
+/* Tablet Size (iPad Air) */
+@media only screen and (max-width: 900px) {
+    .mainContainer {
+        max-width: 800px;
+        max-height:400px;
+    }
+
+    .mainContainer p {
+        padding-right:10%;
+    }
+
+    .main h2 {
+        padding-left:10%;
+        padding-right:5%;
+    }
+  }
+
+ 
+/* Mobile Size (iPhone 12 Pro) */
+@media only screen and (max-width: 600px) {
+    .chartContainer {
+        max-width: 500px;
+        max-height:500px;
+    }
+
+    .mainContainer h4 {
+        margin-top:1em;
+        margin-bottom:1em;
+    }
 }

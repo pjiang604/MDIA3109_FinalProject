@@ -85,7 +85,7 @@ export default function SalesBar() {
         <>
             <div className={styles.main}>
                 <h2>Sound recording and music publishing, sales based on format of musical recordings</h2>
-                <p>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></p>
+                <h4>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></h4>
                 <div className={styles.chartContainer}>
                     <Bar options={options} data={data}/>
                 </div>
