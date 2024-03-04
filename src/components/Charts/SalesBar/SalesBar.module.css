@@ -14,18 +14,55 @@
 .main h2 {
     display:flex;
     align-items:center;
-    padding-left:10%;
 }
 
 .chartContainer {
     display:flex;
-    height:220px;
-    width:500px;
-    padding-left:15%;
+    flex-direction:column;
+    height:400px;
+    width:1000px;
     padding-right:10%;
+    align-items:center;
+    justify-content:center;
 }
 
 .main p {
     display:flex;
-    padding-left:10%;
+}
+
+/* Tablet Size (iPad Air) */
+@media only screen and (max-width: 900px) {
+    .chartContainer {
+        max-width: 800px;
+        max-height:400px;
+        padding-left:15%;
+    }
+
+    .main p {
+        padding-left: 15%;
+        padding-right:10%;
+    }
+
+    .main h2 {
+        padding-left:10%;
+        padding-right:5%;
+    }
+  }
+
+ 
+/* Mobile Size (iPhone 12 Pro) */
+@media only screen and (max-width: 600px) {
+    .chartContainer {
+        max-width: 500px;
+        max-height:300px;
+        padding-left:15%;
+    }
+
+    .main p {
+        padding-left:10%;
+    }
+
+    .main h2 {
+        padding-left:10%;
+    }
 }
