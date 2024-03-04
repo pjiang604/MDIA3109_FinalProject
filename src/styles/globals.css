@@ -53,8 +53,16 @@ width: 100%;
 }
 
 #headerNav{
-  padding-top: 10%;
-  padding-bottom: 5%;
+  padding-top: 5%;
+  padding-bottom: 3%;
 }
 
+/* Mobile Size (iPhone 12 Pro) */
+@media only screen and (max-width: 600px) { 
+  #mainContainer, #headerNav {
+    max-width: 365px;
+    padding-left: 10%;
+    padding-right: 5%;
+  }
+}
 

@@ -1,19 +1,37 @@
+.container {
+  position: sticky;
+  top: 0;
+}
+
 .slideContainer {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  height:100%;
+  align-items: center;
+  gap: 26px;
 }   
 
-.slideContainer img {
-  border-radius:10px;
-  height: 470px;
-  object-fit:cover;
+.carouselImages {
+  width: 89%;
+  height: 530px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px #b1b1b1;
+  margin-left: 40px;
+  object-fit: cover;
+}
+
+.carouselButtonLeft, .carouselButtonRight {
+  font-size: 30px;
+  background-color: var(--berry);
+  position: absolute;
+  color: var(--lightGray);
+  padding: 3px 5px;
+  border-radius: 6px;
 }
 
 .slideContainer p {
   margin: 5px 0;
-  font-size: 14px;
+  font-size: var(--medium-font);;
 }
 
 .neighbourhood span {
@@ -27,4 +45,32 @@
 .status span {
   font-weight: bold;
 }
+
+/* Tablet Size (iPad Air) */
+@media only screen and (max-width: 900px) {
+  .carouselImages {
+    height: 820px;
+  }
+}
+
+/* Mobile Size (iPhone 12 Pro) */
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 9px;
+  }
+  .slideContainer {
+    gap: 12px;
+  }
+  .carouselImages {
+    height: 475px;
+    margin-left: 0;
+  }
+  .carouselButtonLeft, .carouselButtonRight {
+    font-size: 18px;
+  }
+  .carouselButtonLeft {
+    left: -25px;
+  }
+}
+
 

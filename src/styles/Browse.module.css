@@ -6,3 +6,11 @@
   background-color: var(--lightGray);
   border-radius: 10px;
 }
+
+/* Mobile Size (iPhone 12 Pro) */
+@media only screen and (max-width: 600px) {
+  .searchBar {
+    max-width: 310px;
+    margin: 0 0 10px 0px;
+  }
+}

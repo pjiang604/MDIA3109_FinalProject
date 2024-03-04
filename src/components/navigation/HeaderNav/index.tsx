@@ -50,7 +50,7 @@ export default function HeaderNav({
     }
     return (
         <div id="headerNav" className={`w-full h-auto `}>
-            <div className={`w-full border-b-2 border-gray pb-0.5 flex flex-row justify-between gap-6 items-center`}>
+            <div className={`w-full border-b-2 border-gray pb-0.5 flex flex-row justify-between gap-6 items-center`} style={{padding: "6px 0"}}>
                 {
                     type === HeaderType.SBack ||
                         type === HeaderType.SMusic ||

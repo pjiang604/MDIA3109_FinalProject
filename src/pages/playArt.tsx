@@ -4,6 +4,7 @@ import Carousel from 'nuka-carousel';
 import styles from "@/styles/PlayArt.module.css"
 import Head from 'next/head'
 import { getArt } from "@/hooks/getArt";
+import { GoChevronLeft , GoChevronRight} from "react-icons/go";
 
 // Components
 import HeaderNav from "@/components/navigation/HeaderNav";
@@ -39,45 +40,48 @@ export default function PlayArt() {
       <Head>
         <title>Art | Amplify</title>
       </Head>
-      <HeaderNav type="simple-backBtn" text={headerTitle} />
-      <div id="mainContainer" className={`flex flex-col`}>
-
-        <Carousel
-          renderBottomCenterControls={() => null}
-          afterSlide={changeSlideHeader}
-          className={`max-w-eightyVw`}
-        >
-          {
-            data && data.map((d, index) => {
-              return (
-                <div key={index} className={styles.slideContainer}>
-                  <Image
-                    src={`/PublicArt/img${index + 1}.jpg`}
-                    height={500}
-                    width={500}
-                    alt={d.title_of_work}
-                  />
-                  <div >
-                    {
-                      d.title_of_work == ArtUntitled.Untitled ||
-                        d.title_of_work == ArtUntitled.Mural ||
-                        d.title_of_work == ArtUntitled.Hundred ||
-                        d.title_of_work == ArtUntitled.Fountain ? <p>No Title</p>
-                        :
-                        <p><b>Title:</b> {d.title_of_work}</p>
-                    }
-                    <p className={styles.neighbourhood}><span>Neighbourhood: </span>{d.neighbourhood}</p>
-                    <p className={styles.year}><span>Year of Installation: </span>{d.yearofinstallation}</p>
-                    <p className={styles.status}><span>Status: </span>{d.status}</p>
-                    
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <HeaderNav type="simple-backBtn" text={headerTitle} />
+        </div>
+        <div id="mainContainer" className={`flex flex-col`}>
+          <Carousel
+            renderBottomCenterControls={() => null}
+            renderCenterLeftControls={({ previousSlide }) => (
+              <button onClick={previousSlide}>
+                <p className={styles.carouselButtonLeft}><GoChevronLeft/></p>
+              </button>
+            )}
+            renderCenterRightControls= {({ nextSlide }) => (
+              <button onClick={nextSlide}>
+                <p className={styles.carouselButtonRight}><GoChevronRight /></p>
+              </button>
+            )}
+            afterSlide={changeSlideHeader}
+            className={`max-w-eightyVw`}
+          >
+            {
+              data && data.map((d, index) => {
+                return (
+                  <div key={index} className={styles.slideContainer}>
+                    <Image
+                      className={styles.carouselImages}
+                      src={`/PublicArt/img${index + 1}.jpg`}
+                      height={500}
+                      width={500}
+                      alt={d.title_of_work}
+                    />
+                    <div >
+                      <p className={styles.neighbourhood}><span>Neighbourhood: </span>{d.neighbourhood}</p>
+                      <p className={styles.year}><span>Year of Installation: </span>{d.yearofinstallation}</p>
+                      <p className={styles.status}><span>Status: </span>{d.status}</p>
+                    </div>
                   </div>
-                </div>
-              )
-            })
-          }
-        </Carousel>
-
-
+                )
+              })
+            }
+          </Carousel>
+        </div>
       </div>
     </main>
   )
