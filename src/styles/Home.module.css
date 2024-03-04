@@ -35,7 +35,7 @@
 }
 
 /* Styles for iPad Air */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .carouselContainer {
         flex-wrap: wrap;
     }
@@ -46,7 +46,7 @@
 }
 
 /* Styles for iPhone XR */
-@media (max-width: 414px) {
+@media (max-width: 600px) {
     .carouselContainer {
         flex-direction: column;
     }
