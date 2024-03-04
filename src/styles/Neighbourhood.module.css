@@ -8,6 +8,15 @@
   font-size: 20px;
 }
 
+.carouselImages {
+  width: 90%;
+  height: 530px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px #b1b1b1;
+  margin: 30px;
+  object-fit: cover;
+}
+
 .carouselButtonLeft, .carouselButtonRight {
   font-size: 30px;
   background-color: var(--berry);
@@ -24,15 +33,6 @@
 
 .carouselButtonRight {
   right: 10px;
-}
-
-.carouselImages {
-  width: 90%;
-  height: 530px;
-  border-radius: 10px;
-  box-shadow: 8px 8px 8px #b1b1b1;
-  margin: 30px;
-  object-fit: cover;
 }
 
 .playListContainer {
