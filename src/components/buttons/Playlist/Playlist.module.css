@@ -15,3 +15,11 @@
         height: 160px;
     }
  }
+
+ /* Mobile Size (iPhone XR) */
+@media (max-width: 600px) {
+    .carouselImage {
+        width: 120px;
+        height: 120px;
+    }
+  }

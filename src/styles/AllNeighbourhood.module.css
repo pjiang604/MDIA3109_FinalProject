@@ -15,3 +15,11 @@
         gap: 2rem;
     }
 }
+
+ /* Mobile Size (iPhone XR) */
+ @media (max-width: 600px) {
+    .cardContainer {
+        gap: 1rem;
+        
+    }
+  }
