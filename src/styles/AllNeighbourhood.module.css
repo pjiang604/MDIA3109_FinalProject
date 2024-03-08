@@ -1,3 +1,10 @@
+.container {
+    flex: 1;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
 .cardContainer {
     flex: 1;
     text-align: center;

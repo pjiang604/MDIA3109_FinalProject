@@ -9,21 +9,19 @@ export default function AllNeighbourhood() {
   const [dataNeigh, setDataNeigh] = useState(neighbourhoods);
   
   return (
-    <main className="flex-1">
+    <main className={styles.container}>
       <Head>
         <title>Art Based on Neighbourhood</title>
       </Head>
       <HeaderNav text="Art Based on Neighbourhood" type="simple-backBtn" />
-      <div className={"text-center"}>
-        <div id="mainContainer" className={styles.cardContainer}>
-          {dataNeigh.map((neighbourhood, index) => (
-            <Playlist
-              key={index}
-              name={neighbourhood.name}
-              image={neighbourhood.image}
-            />
-          ))}
-        </div>
+      <div id="mainContainer" className={styles.cardContainer}>
+        {dataNeigh.map((neighbourhood, index) => (
+          <Playlist
+            key={index}
+            name={neighbourhood.name}
+            image={neighbourhood.image}
+          />
+        ))}
       </div>
     </main>
   );
