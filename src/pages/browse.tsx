@@ -1,17 +1,14 @@
 import HeaderNav from "@/components/navigation/HeaderNav";
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 import MusicArtTab from "@/components/browse/MusicArtTab";
-import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist";
 import { useState, useEffect } from "react";
 import { getRecentPlayed } from "./api/getMusic";
 import Carousel from "nuka-carousel";
 import Head from 'next/head';
-import Skeleton from "@/components/skeleton";
 import styles from "@/styles/Browse.module.css"
 import Link from "next/link"
 
 export default function Browse() {
-
   const [recentData, setRecentData] = useState<SpotifyRecentlyPlayed>()
 
   useEffect(() => {
@@ -25,22 +22,19 @@ export default function Browse() {
       }
     }
     fetchRecentData()
-
   }, []);
 
   return (
-    <main className={`min-h-screen`} >
+    <main className={styles.container} >
       <Head>
         <title>Browse | Amplify</title>
       </Head>
       <HeaderNav text="Browse" type="simple-backBtn" />
-      <div className={`flex flex-col w-full items-center`}>
+      <div className={styles.searchContainer}>
         <input type="text" placeholder="Search for art and music" className={styles.searchBar}></input>
       </div>
       <div id="mainContainer" className={`flex flex-col gap-4`}>
         <MusicArtTab />
-
-
         {
           recentData &&
           <>
@@ -64,13 +58,11 @@ export default function Browse() {
               }
             </Carousel>
           </>
-
         }
         <div className={styles.button}>
           <button className={styles.learnMore}><Link href="/charts">Learn More About Music in Canada</Link></button>
         </div>
       </div>
-
     </main>
   )
 }
