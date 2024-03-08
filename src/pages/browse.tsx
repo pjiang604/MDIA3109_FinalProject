@@ -40,13 +40,11 @@ export default function Browse() {
       <div id="mainContainer" className={`flex flex-col gap-4`}>
         <MusicArtTab />
 
-        <h3>Past Searches</h3>
+
         {
-          !recentData ?
-            <SmallPlaylist
-              image={'/Logo/logo.png'}
-              type="skeleton" />
-            :
+          recentData &&
+          <>
+            <h3>Past Searches</h3>
             <Carousel
               wrapAround={true}
               slidesToShow={2.5}
@@ -65,11 +63,14 @@ export default function Browse() {
                 })
               }
             </Carousel>
+          </>
+
         }
         <div className={styles.button}>
           <button className={styles.learnMore}><Link href="/charts">Learn More About Music in Canada</Link></button>
         </div>
       </div>
+
     </main>
   )
 }

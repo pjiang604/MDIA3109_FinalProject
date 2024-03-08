@@ -10,7 +10,8 @@ import Head from "next/head";
 import Carousel from "nuka-carousel";
 import Image from "next/image";
 import styles from "@/styles/Neighbourhood.module.css"
-import { GoChevronLeft , GoChevronRight} from "react-icons/go";
+import { GoChevronLeft, GoChevronRight } from "react-icons/go";
+import Skeleton from "@/components/skeleton";
 
 export default function Area() {
 
@@ -84,17 +85,17 @@ export default function Area() {
       <Head>
         <title>Neighbourhood | Amplify</title>
       </Head>
-      <HeaderNav text={playlistData?.name || ""} type="full-backPlay" />
+      <HeaderNav text={`${location}`} type="full-backPlay" />
       <div id="mainContainer">
-        <Carousel 
+        <Carousel
           className={styles.carousel}
           renderBottomCenterControls={() => null}
           renderCenterLeftControls={({ previousSlide }) => (
             <button onClick={previousSlide}>
-              <p className={styles.carouselButtonLeft}><GoChevronLeft/></p>
+              <p className={styles.carouselButtonLeft}><GoChevronLeft /></p>
             </button>
           )}
-          renderCenterRightControls= {({ nextSlide }) => (
+          renderCenterRightControls={({ nextSlide }) => (
             <button onClick={nextSlide}>
               <p className={styles.carouselButtonRight}><GoChevronRight /></p>
             </button>
@@ -139,14 +140,7 @@ export default function Area() {
               }
             </div>
             :
-            <>
-              <SongCard
-                songTitle="logIn"
-                coverUrl={'/Logo/logo.png'}
-                type="skeleton"
-              />
-            </>
-
+            <Skeleton type="playlist" />
         }
 
       </div>

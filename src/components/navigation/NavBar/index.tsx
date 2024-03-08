@@ -54,7 +54,7 @@ export default function Nav({
         <>
             {
                 device === "desktop" ?
-                    <div className={`w-twentyp h-full bg-darkGray flex flex-col items-start gap-14 py-tenp`} >
+                    <div className={`w-twentyp h-full bg-darkGray flex flex-col items-start gap-14 py-tenp `} >
                         <div className={`flex flex-col items-center gap-2 mx-auto`}>
                             <Link href='/home' className={`flex flex-row gap-8 items-center`}>
                                 <Image
@@ -84,7 +84,7 @@ export default function Nav({
 
                         </div>
                         <div className={`flex flex-col items-center gap-2 mx-auto`}>
-                            <Link href='/allNeighbourhoods' className={`flex flex-row gap-8 items-center`}>
+                            <Link href='/allNeighbourhood' className={`flex flex-row gap-8 items-center`}>
                                 <Image
                                     src={type === NavType.Music ? "/Navigation/music/music_active.png" : "/Navigation/music/music.png"}
                                     width={0}
@@ -155,6 +155,8 @@ export default function Nav({
                                                             <SmallPlaylist
                                                                 key={aIndex}
                                                                 image={a.image}
+                                                                name={a.name}
+                                                                showName={false}
                                                                 type="neighbourhood" />
                                                         </div>
                                                         <div className={`w-1/3`}>

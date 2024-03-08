@@ -64,6 +64,7 @@ export default function App({ Component, pageProps }: AppProps) {
       setType("home")
 
     } else if (pathname === "/browse" ||
+      pathname === "/charts" ||
       pathname.startsWith("/neighbourhood") ||
       pathname.startsWith("/artist")) {
       setType("browse")
@@ -101,7 +102,7 @@ export default function App({ Component, pageProps }: AppProps) {
                   <>
                     {
                       !accessTokenApp ?
-                        <Skeleton />
+                        <Skeleton type='spotifyPlayer' />
                         :
                         <>
                           {
@@ -138,7 +139,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         <>
                           {
                             !accessTokenApp ?
-                             <Skeleton/>
+                              <Skeleton type="spotifyPlayer" />
                               :
                               <>
                                 {
@@ -173,7 +174,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         <>
                           {
                             !accessTokenApp ?
-                              <Skeleton />
+                              <Skeleton type="spotifyPlayer" />
                               :
                               <>
                                 {

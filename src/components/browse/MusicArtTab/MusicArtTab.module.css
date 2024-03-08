@@ -2,6 +2,10 @@
     font-weight: 800;
 }
 
+.tab:hover{
+    cursor: pointer;
+}
+
 .tabList {
     display: flex;
     flex-direction: row;
