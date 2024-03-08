@@ -82,15 +82,13 @@ export default function SalesBar() {
 
 
     return (
-        <>
-            <div className={styles.main}>
-                <h2>Sound recording and music publishing, sales based on format of musical recordings</h2>
-                <h4 className={styles.dataLink}>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></h4>
-                <div className={styles.chartContainer}>
-                    <Bar options={options} data={data}/>
-                </div>
-                <p>The bar chart takes data from Statistics Canada, looking at the number of sales based on format of musical recordings every two years from 2013.</p>
+        <div className={styles.main}>
+            <h2>Sound recording and music publishing, sales based on format of musical recordings</h2>
+            <h4 className={styles.dataLink}>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></h4>
+            <div className={styles.chartContainer}>
+                <Bar options={options} data={data}/>
             </div>
-        </>
+            <p>The bar chart takes data from Statistics Canada, looking at the number of sales based on format of musical recordings every two years from 2013.</p>
+        </div>
     )
 }

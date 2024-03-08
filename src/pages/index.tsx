@@ -25,21 +25,22 @@ export default function Landing() {
       <Head>
         <title>Amplify</title>
       </Head>
-      {loading &&
-        <div className={styles.info}>
-          <Image
-            src="/Logo/logo.png"
-            alt="logo"
-            height={354}
-            width={360}
-          />
-          <div>
-            <div className={styles.loading_dots}></div>
-            <div className={styles.loading_dots}></div>
-            <div className={styles.loading_dots}></div>
-            <div className={styles.loading_dots}></div>
+      {
+        loading &&
+          <div className={styles.info}>
+            <Image
+              src="/Logo/logo.png"
+              alt="logo"
+              height={354}
+              width={360}
+            />
+            <div>
+              <div className={styles.loading_dots}></div>
+              <div className={styles.loading_dots}></div>
+              <div className={styles.loading_dots}></div>
+              <div className={styles.loading_dots}></div>
+            </div>
           </div>
-        </div>
       }
     </div>
   )
