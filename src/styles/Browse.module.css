@@ -1,7 +1,7 @@
 .searchBar {
-  max-width: 610px;
+  max-width: 885px;
   width: 100%;
-  margin: 0 0 10px 40px;
+  margin: 0 0 10px 10px;
   padding: 10px;
   background-color: var(--lightGray);
   border-radius: 10px;
@@ -25,10 +25,18 @@
   background-color: var(--berryHover);
 }
 
+/* Tablet Size (iPad Air) */
+@media only screen and (max-width: 900px) {
+  .searchBar {
+    max-width: 618px;
+    margin: 0 0 10px 40px;
+  }
+}
+
 /* Mobile Size (iPhone 12 Pro) */
 @media only screen and (max-width: 600px) {
   .searchBar {
-    max-width: 340px;
-    margin: 0 0 10px 0px;
+    max-width: 336px;
+    margin: 0 0 10px 20px;
   }
 }
