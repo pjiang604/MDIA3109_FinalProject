@@ -43,16 +43,10 @@
 @media only screen and (max-width: 900px) {
     .mainContainer {
         max-width: 800px;
-        max-height:400px;
     }
 
     .mainContainer p {
-        padding-right:10%;
-    }
-
-    .main h2 {
-        padding-left:10%;
-        padding-right:5%;
+        padding-bottom: 18%;
     }
   }
 
@@ -60,8 +54,8 @@
 /* Mobile Size (iPhone 12 Pro) */
 @media only screen and (max-width: 600px) {
     .chartContainer {
-        max-width: 500px;
-        max-height:500px;
+        max-width: 450px;
+        max-height:450px;
     }
 
     .mainContainer h4 {
