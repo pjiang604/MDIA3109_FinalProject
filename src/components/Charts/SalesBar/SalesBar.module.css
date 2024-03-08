@@ -53,11 +53,11 @@
         padding-right:5%;
     }
   }
-
  
 /* Mobile Size (iPhone 12 Pro) */
 @media only screen and (max-width: 600px) {
     .chartContainer {
+        padding-right: 0;
         max-width: 320px;
         max-height: 150px;
     }

@@ -53,12 +53,21 @@
  
 /* Mobile Size (iPhone 12 Pro) */
 @media only screen and (max-width: 600px) {
+    .mainContainer {
+        padding-bottom: 55%;
+    }
+    .mainContainer >h2 {
+        font-size: var(--medium-font);
+    }
+    .mainContainer h4 {
+        font-size: var(--medium-font);
+    }
+    .mainContainer >p {
+        font-size: 10px;
+        padding-bottom: 0;
+    }
     .chartContainer {
         max-width: 450px;
         max-height:450px;
-    }
-    .mainContainer h4 {
-        margin-top:1em;
-        margin-bottom:1em;
     }
 }
