@@ -1,5 +1,8 @@
 .main {
     flex: 1;
+    height: 150vh;
+    position: sticky;
+    top: 0;
 }
 
 .mainContainer {

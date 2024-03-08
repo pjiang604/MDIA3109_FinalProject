@@ -34,16 +34,9 @@
     width:100%;
 }
 
-.mainContainer h2 {
-    /* padding-left:10%; */
-}
-
 .mainContainer p {
     display:flex;
-    padding-left:10%;
-    text-align:left;
     padding-top:4%;
-    padding-bottom: 2%;
 }
 
 /* Tablet Size (iPad Air) */
