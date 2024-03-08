@@ -13,8 +13,8 @@
 /* Styles for iPad Air */
  @media (max-width: 900px) {
     .carouselImage {
-        width: 160px;
-        height: 160px;
+        width: 260px;
+        height: 260px;
     }
  }
 
