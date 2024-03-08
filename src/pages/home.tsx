@@ -15,6 +15,7 @@ import UserLogout from "@/firebase/UserLogout"
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist"
 import Carousel from "nuka-carousel"
+import Skeleton from "@/components/skeleton"
 import Loading from "@/components/loading"
 
 export default function Home() {
@@ -99,8 +100,9 @@ export default function Home() {
           </div>
           <div>
             <h2 className={styles.sectionTitle}>Discover New Canadian Artists</h2>
-            <div className={styles.carouselContainer}>
-              {dataArtists ?
+
+            {dataArtists ?
+              <div className={styles.carouselContainer}>
                 <Carousel
                   className={styles.carousel}
                   wrapAround={true}
@@ -119,13 +121,11 @@ export default function Home() {
                     ))
                   }
                 </Carousel>
-                :
-                <SmallPlaylist
-                  image={'/Logo/logo.png'}
-                  type="skeleton"
-                />
-              }
-            </div>
+              </div>
+              :
+              <Skeleton type="square" />
+            }
+
           </div>
         </div>
       </main>

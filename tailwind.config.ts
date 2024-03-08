@@ -30,6 +30,7 @@ const config: Config = {
         eightyVw: "80vw"
       },
       padding: {
+        fivep: "5%",
         tenp: "10%"
       }
     },

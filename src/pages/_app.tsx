@@ -9,8 +9,10 @@ import useRefreshToken from '@/hooks/useRefreshToken';
 import { useMediaQuery } from '@react-hooks-hub/use-media-query';
 import Loading from '@/components/loading';
 import Skeleton from '@/components/skeleton';
+import React from "react"
 
 export default function App({ Component, pageProps }: AppProps) {
+  React.useLayoutEffect = React.useEffect
 
   const [uriData, setUriData] = useState<string>()
   const [offsetData, setOffsetData] = useState<number>()
@@ -27,6 +29,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const [anonLoading, setAnonLoading] = useState(true)
 
   console.log(uriData, "uri data")
+
+
 
 
   useEffect(() => {
@@ -64,6 +68,7 @@ export default function App({ Component, pageProps }: AppProps) {
       setType("home")
 
     } else if (pathname === "/browse" ||
+      pathname === "/charts" ||
       pathname.startsWith("/neighbourhood") ||
       pathname.startsWith("/artist")) {
       setType("browse")
@@ -101,7 +106,7 @@ export default function App({ Component, pageProps }: AppProps) {
                   <>
                     {
                       !accessTokenApp ?
-                        <Skeleton />
+                        <Skeleton type='spotifyPlayer' />
                         :
                         <>
                           {
@@ -138,7 +143,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         <>
                           {
                             !accessTokenApp ?
-                             <Skeleton/>
+                              <Skeleton type="spotifyPlayer" />
                               :
                               <>
                                 {
@@ -173,7 +178,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         <>
                           {
                             !accessTokenApp ?
-                              <Skeleton />
+                              <Skeleton type="spotifyPlayer" />
                               :
                               <>
                                 {

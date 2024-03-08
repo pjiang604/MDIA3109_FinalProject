@@ -14,7 +14,7 @@ export default function Charts() {
           <title>Learn More | Amplify</title>
         </Head>
         <HeaderNav text="Learn More" type="simple-backBtn" />
-        <div className={styles.mainContainer}>
+        <div id="mainContainer" className={styles.mainContainer}>
           <SalesBar />
           <ArtistPie />
         </div>

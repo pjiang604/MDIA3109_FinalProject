@@ -9,23 +9,20 @@
 
 .learnMore {
   background-color: var(--berry);
-  color:white;
-  padding-left:5%;
-  padding-right:5%;
-  padding-top: 3%;
-  padding-bottom:3%;
-  border-radius:10px;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 1em;
 }
 
 .button {
-  margin-top:5%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .learnMore:hover {
-  background-color:var(--berryHover);
+  background-color: var(--berryHover);
 }
 
 /* Mobile Size (iPhone 12 Pro) */

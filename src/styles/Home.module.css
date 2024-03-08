@@ -22,12 +22,15 @@
     margin-bottom: 10px;
 }
 
+
+
 /* Styles for desktop */
 @media (min-width: 1280px) {
     .carouselContainer {
         justify-content: center;
         width: 100%;
     }
+
 
     .carousel {
         max-width: 100%;
