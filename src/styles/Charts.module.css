@@ -11,3 +11,9 @@
     height:100%;
 
 }
+
+/* Tablet Size (iPad Air) */
+@media only screen and (max-width: 900px) { }
+
+/* Mobile Size (iPhone 12 Pro) */
+@media only screen and (max-width: 600px) { }
