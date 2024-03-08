@@ -2,7 +2,6 @@
     display:flex;
     flex-direction:column;
     justify-content:center;
-    /* align-items:center; */
     width:100%;
     gap: 1em;
 }
@@ -47,18 +46,10 @@
 /* Tablet Size (iPad Air) */
 @media only screen and (max-width: 900px) {
     .chartContainer {
-        max-width: 800px;
-        max-height:400px;
-        padding-left:15%;
+        max-width: 666px;
+        max-height:320px;
     }
-
-    .main p {
-        padding-left: 15%;
-        padding-right:10%;
-    }
-
     .main h2 {
-        padding-left:10%;
         padding-right:5%;
     }
   }
