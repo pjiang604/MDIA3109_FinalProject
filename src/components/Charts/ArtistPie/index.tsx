@@ -13,20 +13,26 @@ export const data = {
             label: 'Number of People',
             data: [3500, 27700, 27600, 21100, 14700, 11400, 10100, 6400, 4200],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
+                'rgba(251, 186, 114, 0.2)',
+                'rgba(141, 167, 190, 0.2)',
+                'rgba(162, 173, 145, 0.2)',
+                'rgba(12, 12, 12, 0.2)',
+                'rgba(213, 122, 102, 0.2)',
+                'rgba(153, 15, 75, 0.2)',
+                'rgba(135, 145, 158, 0.2)',
+                'rgba(255, 227, 220, 0.2)',
+                'rgba(219, 180, 173, 0.2)',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
+                'rgba(251, 186, 114, 0.5)',
+                'rgba(141, 167, 190, 0.5)',
+                'rgba(162, 173, 145, 0.5)',
+                'rgba(12, 12, 12, 0.5)',
+                'rgba(213, 122, 102, 0.5)',
+                'rgba(153, 15, 75, 0.5)',
+                'rgba(135, 145, 158, 0.5)',
+                'rgba(255, 227, 220, 0.5)',
+                'rgba(219, 180, 173, 0.5)',
             ],
             borderWidth: 1,
         },
@@ -41,7 +47,7 @@ export default function ArtistPie() {
         <>
             <div className={styles.mainContainer}>
                 <h2>A Statistical Profile of Artists in Canada in 2016</h2>
-                <h4>Data from <Link href="https://canadacouncil.ca/research/research-library/2019/03/a-statistical-profile-of-artists-in-canada-in-2016">Canada Council for the Arts</Link></h4>
+                <h4 className={styles.dataLink}>Data from <Link href="https://canadacouncil.ca/research/research-library/2019/03/a-statistical-profile-of-artists-in-canada-in-2016">Canada Council for the Arts</Link></h4>
                 <div className={styles.chartContainer}>
                 <Pie data={data} />
                 </div>

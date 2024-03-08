@@ -2,9 +2,23 @@
     display:flex;
     flex-direction:column;
     justify-content:center;
-    align-items:center;
+    /* align-items:center; */
     width:100%;
     gap: 1em;
+}
+
+.dataLink { 
+    text-align: center;
+}
+
+.dataLink >a {
+    color: var(--berry);
+    border-bottom: 1px solid var(--berry);
+}
+
+.dataLink >a:hover{
+    color: var(--blue);
+    border-bottom: 1px solid var(--blue);
 }
 
 .barChart canvas {

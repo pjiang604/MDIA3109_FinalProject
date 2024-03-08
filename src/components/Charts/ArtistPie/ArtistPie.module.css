@@ -1,6 +1,23 @@
 .mainContainer {
     max-height: 800px;
     padding-top:8%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.dataLink { 
+    text-align: center;
+}
+
+.dataLink >a {
+    color: var(--berry);
+    border-bottom: 1px solid var(--berry);
+}
+
+.dataLink >a:hover{
+    color: var(--blue);
+    border-bottom: 1px solid var(--blue);
 }
 
 .chartContainer {
@@ -18,7 +35,7 @@
 }
 
 .mainContainer h2 {
-    padding-left:10%;
+    /* padding-left:10%; */
 }
 
 .mainContainer p {

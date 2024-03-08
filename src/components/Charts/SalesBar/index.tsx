@@ -53,27 +53,27 @@ export const data = {
         {
             label: 'Musical Compact Discs',
             data: cd,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            backgroundColor: 'rgba(12, 12, 12, 0.5)',
         },
         {
             label: 'Digital Downloads - Albums',
             data: digitalAlbum,
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            backgroundColor: 'rgba(162, 173, 145, 0.5)',
         },
         {
             label: 'Digital Downloads - Singles',
             data: digitalSingles,
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            backgroundColor: 'rgba(153, 15, 75, 0.5)',
         },
         {
             label: 'Other Formats (vinyl records, DVD audio, etc.',
             data: other,
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            backgroundColor: 'rgba(255, 227, 220 , 0.5)',
         },
         {
             label: 'Streaming Sales',
             data: streaming,
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            backgroundColor: 'rgba(219, 180, 173, 0.5)',
         },
     ],
 };
@@ -85,7 +85,7 @@ export default function SalesBar() {
         <>
             <div className={styles.main}>
                 <h2>Sound recording and music publishing, sales based on format of musical recordings</h2>
-                <h4>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></h4>
+                <h4 className={styles.dataLink}>Data from <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2110008401">Statistics Canada</Link></h4>
                 <div className={styles.chartContainer}>
                     <Bar options={options} data={data}/>
                 </div>
