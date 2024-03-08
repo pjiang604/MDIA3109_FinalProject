@@ -39,20 +39,16 @@ export const data = {
     ],
 };
 
-
-
 export default function ArtistPie() {
 
     return (
-        <>
-            <div className={styles.mainContainer}>
-                <h2>A Statistical Profile of Artists in Canada in 2016</h2>
-                <h4 className={styles.dataLink}>Data from <Link href="https://canadacouncil.ca/research/research-library/2019/03/a-statistical-profile-of-artists-in-canada-in-2016">Canada Council for the Arts</Link></h4>
-                <div className={styles.chartContainer}>
-                    <Pie data={data} />
-                </div>
-                <p>The above pie chart provides statistics on the kinds of artists in Canada in 2016. The pie chart categorizes artists into different areas, such as dancers or actors and comedians, to show how many Canadians are grouped in each category. From the pie chart above, musicians and singers are the largest category.</p>
+        <div className={styles.mainContainer}>
+            <h2>A Statistical Profile of Artists in Canada in 2016</h2>
+            <h4 className={styles.dataLink}>Data from <Link href="https://canadacouncil.ca/research/research-library/2019/03/a-statistical-profile-of-artists-in-canada-in-2016">Canada Council for the Arts</Link></h4>
+            <div className={styles.chartContainer}>
+                <Pie data={data} />
             </div>
-        </>
+            <p>The above pie chart provides statistics on the kinds of artists in Canada in 2016. The pie chart categorizes artists into different areas, such as dancers or actors and comedians, to show how many Canadians are grouped in each category. From the pie chart above, musicians and singers are the largest category.</p>
+        </div>
     )
 }

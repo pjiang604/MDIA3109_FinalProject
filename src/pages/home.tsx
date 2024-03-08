@@ -58,8 +58,6 @@ export default function Home() {
       } catch (error) {
         console.error("Home.tsx useEffect error", error);
       }
-
-
     };
 
     fetchData();
@@ -125,7 +123,6 @@ export default function Home() {
               :
               <Skeleton type="square" />
             }
-
           </div>
         </div>
       </main>

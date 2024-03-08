@@ -8,19 +8,17 @@ import ArtistPie from "@/components/Charts/ArtistPie"
 export default function Charts() {
 
   return (
-    <>
-      <main className={styles.main}>
-        <Head>
-          <title>Learn More | Amplify</title>
-        </Head>
+    <main className={styles.main}>
+      <Head>
+        <title>Learn More | Amplify</title>
+      </Head>
+      <div className={styles.title}>
         <HeaderNav text="Learn More" type="simple-backBtn" />
-        <div id="mainContainer" className={styles.mainContainer}>
-          <SalesBar />
-          <ArtistPie />
-        </div>
-
-      </main>
-    </>
-
+      </div>
+      <div id="mainContainer" className={styles.mainContainer}>
+        <SalesBar />
+        <ArtistPie />
+      </div>
+    </main>
   )
 }
