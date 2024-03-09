@@ -44,7 +44,7 @@ export default function PlayArt() {
         <div className={styles.title}>
           <HeaderNav type="simple-backBtn" text={headerTitle} />
         </div>
-        <div id="mainContainer" className={`flex flex-col`}>
+        <div className={styles.mainContainer}>
           <Carousel
             renderBottomCenterControls={() => null}
             renderCenterLeftControls={({ previousSlide }) => (
@@ -58,7 +58,7 @@ export default function PlayArt() {
               </button>
             )}
             afterSlide={changeSlideHeader}
-            className={`max-w-eightyVw`}
+            className={styles.carouselContainer}
           >
             {
               data && data.map((d, index) => {
@@ -68,7 +68,7 @@ export default function PlayArt() {
                       className={styles.carouselImages}
                       src={`/PublicArt/img${index + 1}.jpg`}
                       height={500}
-                      width={500}
+                      width={850}
                       alt={d.title_of_work}
                     />
                     <div >
