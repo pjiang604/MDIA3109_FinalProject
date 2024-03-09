@@ -72,7 +72,7 @@ export default function PlayArt() {
                       alt={d.title_of_work}
                     />
                     <div >
-                      <p className={styles.neighbourhood}><span>Neighbourhood: </span>{d.neighbourhood}</p>
+                    <p className={styles.neighbourhood}><b>Neighbourhood: </b>{d.neighbourhood}</p>
                       <p className={styles.year}><span>Year of Installation: </span>{d.yearofinstallation}</p>
                       <p className={styles.status}><span>Status: </span>{d.status}</p>
                     </div>
