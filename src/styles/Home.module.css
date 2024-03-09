@@ -1,6 +1,6 @@
 .main {
     flex: 1;
-    height: 150vh;
+    height: 1335px;
     position: sticky;
     top: 0;
 }
@@ -45,7 +45,6 @@
     .carouselContainer {
         flex-wrap: wrap;
     }
-
     .carousel {
         width: 100;
     }
