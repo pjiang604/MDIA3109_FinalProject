@@ -48,7 +48,12 @@ export default function ArtistPie() {
             <div className={styles.chartContainer}>
                 <Pie data={data} />
             </div>
-            <p>The above pie chart provides statistics on the kinds of artists in Canada in 2016. The pie chart categorizes artists into different areas, such as dancers or actors and comedians, to show how many Canadians are grouped in each category. From the pie chart above, musicians and singers are the largest category.</p>
+            <p>
+                The above pie chart provides statistics on the kinds of artists in Canada in 2016. 
+                The pie chart categorizes artists into different areas, such as dancers or actors and 
+                comedians, to show how many Canadians are grouped in each category. From the pie chart 
+                above, musicians and singers are the largest category.
+            </p>
         </div>
     )
 }

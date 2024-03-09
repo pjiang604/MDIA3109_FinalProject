@@ -37,6 +37,7 @@
 .mainContainer p {
     display:flex;
     padding-top:4%;
+    padding-bottom: 15%;
 }
 
 /* Tablet Size (iPad Air) */

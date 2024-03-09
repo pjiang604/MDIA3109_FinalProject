@@ -54,7 +54,7 @@ export default function Nav({
         <>
             {
                 device === "desktop" ?
-                    <div className={`w-twentyp h-full bg-darkGray flex flex-col items-start gap-14 py-tenp `} >
+                    <div className={`w-twentyp h-full bg-darkGray flex flex-col items-start gap-14 pt-20 pb-24 `} >
                         <div className={`flex flex-col items-center gap-2 mx-auto`}>
                             <Link href='/home' className={`flex flex-row gap-8 items-center`}>
                                 <Image
