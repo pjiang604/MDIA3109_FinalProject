@@ -38,7 +38,6 @@
   background-color: var(--berryHover);
 }
 
-
 /* Tablet Size (iPad Air) */
 @media only screen and (max-width: 900px) {
   .searchBar {

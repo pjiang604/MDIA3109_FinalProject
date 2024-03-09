@@ -1,5 +1,5 @@
 .playerContainer button.ButtonRSWP.rswp__toggle._ControlsButtonRSWP{
-    color: var(--berry);
+  color: var(--berry);
 }
 
 .playerContainer .ButtonRSWP.rswp__toggle._ControlsButtonRSWP > svg{

@@ -5,7 +5,6 @@ import styles from '@/styles/Landing.module.css'
 import Head from 'next/head'
 
 export default function Landing() {
-
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 

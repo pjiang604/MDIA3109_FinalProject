@@ -126,10 +126,7 @@ export default function Nav({
                                             })
                                         }
                                     </>
-
                             }
-
-
                         </div>
                         <div className={`flex flex-col items-center gap-2 mx-auto`}>
                             <Link href='/playArt' className={`flex flex-row gap-8 items-center`}>
@@ -175,8 +172,7 @@ export default function Nav({
                     <>
                         {
                             device === "tablet" ?
-                                <div className={`fixed left-0 top-0 w-eightp pt-tenp
-                    w-eightp h-full bg-darkGray flex flex-col items-center gap-12 py-3`} >
+                                <div className={`fixed left-0 top-0 w-eightp pt-tenp w-eightp h-full bg-darkGray flex flex-col items-center gap-12 py-3`} >
                                     <div className={`flex flex-col items-center `}>
                                         <Link
                                             href='/home'>
@@ -244,8 +240,6 @@ export default function Nav({
                                                             })
                                                         }
                                                     </>
-
-
                                             }
                                         </div>
                                     </div>
@@ -347,7 +341,5 @@ export default function Nav({
                     </>
             }
         </>
-
-
     )
 }

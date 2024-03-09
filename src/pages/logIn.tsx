@@ -3,11 +3,10 @@ import styles from '@/styles/LogIn.module.css'
 import Head from 'next/head'
 import { useRouter } from "next/router"
 
-// Components
-import UserEmailSignIn from "@/firebase/UserEmailSignin"
+// Firebase
+import UserEmailSignIn from "@/firebase/UserEmailSignin";
 
 export default function LogIn() {
-
   const router = useRouter()
 
   const anonUser = () => {
@@ -19,7 +18,6 @@ export default function LogIn() {
       }
     })
   }
-
 
   return (
     <main className={styles.container}>

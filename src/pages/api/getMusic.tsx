@@ -43,7 +43,6 @@ export const getArtist = async (playlist_id: string) => {
     }
 }
 
-
 export const getArtistProfiles = async (stringArtistIds: string) => {
     try {
         let accessToken = sessionStorage.getItem('access_token');
@@ -89,7 +88,6 @@ export const getRecentPlayed = async () => {
 
 export const playSong = async () => {
     try {
-
         let accessToken = sessionStorage.getItem('access_token');
         if (accessToken) {
             const response = await fetch(`https://api.spotify.com/v1/me/player/play`, {
@@ -98,7 +96,6 @@ export const playSong = async () => {
                 }
             });
             const playlistData = await response.json();
-            // console.log('Playlist data: ', playlistData);
 
             return playlistData;
         } else {

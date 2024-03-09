@@ -32,8 +32,6 @@ export default function useRefreshToken(code: string) {
         } catch (error) {
             console.error("refreshTokenFn error", error)
         }
-
-
     };
 
     useEffect(() => {

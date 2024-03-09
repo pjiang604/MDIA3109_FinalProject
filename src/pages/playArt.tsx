@@ -3,11 +3,13 @@ import Image from "next/image";
 import Carousel from 'nuka-carousel';
 import styles from "@/styles/PlayArt.module.css"
 import Head from 'next/head'
-import { getArt } from "@/hooks/getArt";
 import { GoChevronLeft , GoChevronRight} from "react-icons/go";
 
 // Components
 import HeaderNav from "@/components/navigation/HeaderNav";
+
+// Hook
+import { getArt } from "@/hooks/getArt";
 
 enum ArtUntitled {
   Untitled = "Untitled", // Untitled
@@ -17,10 +19,8 @@ enum ArtUntitled {
 }
 
 export default function PlayArt() {
-
   const [data, setData] = useState<PublicArt[]>([]);
   const [headerTitle, setHeadertitle] = useState<string>(`Captain George Vancouver`)
-
 
   useEffect(() => {
     const fetchArt = async () => {

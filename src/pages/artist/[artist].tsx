@@ -1,5 +1,3 @@
-import SongCard from "@/components/buttons/SongCard";
-import HeaderNav from "@/components/navigation/HeaderNav";
 import { getArtist } from "../api/getMusic";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -7,9 +5,11 @@ import { artists } from "@/data/artists";
 import Image from "next/image";
 import Carousel from "nuka-carousel";
 
+// Components
+import SongCard from "@/components/buttons/SongCard";
+import HeaderNav from "@/components/navigation/HeaderNav";
 
 export default function Artist() {
-
     const [accessToken, setAccessToken] = useState<string>();
     const [playlistData, setPlaylistData] = useState<ArtistTopTracks>()
     const [artistData, setArtistData] = useState([...artists])
@@ -53,9 +53,6 @@ export default function Artist() {
         }
     }, [artistQuery, artistData]);
 
-
-
-
     const playSong = (songUri: string, index: number) => {
         router.push({
             pathname: '/playMusic',
@@ -83,15 +80,12 @@ export default function Artist() {
                                         width={500}
                                         height={500}
                                         alt={`${i.track.name} album cover`}
-
                                     />
                                 )
                             })
                         }
-
                     </Carousel>
                 </div>
-
                 {
                     playlistData && playlistData.tracks.items.map((i, index) => {
                         const songUri = i.track.uri
@@ -106,7 +100,6 @@ export default function Artist() {
                         )
                     })
                 }
-
             </div>
         </main>
     )

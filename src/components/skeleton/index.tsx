@@ -2,9 +2,7 @@ import Link from "next/link"
 import styles from './Skeleton.module.css'
 import ContentLoader from "react-content-loader"
 
-export default function Skeleton({
-    type
-}: ISkeleton) {
+export default function Skeleton({ type }: ISkeleton) {
     return (
         <>
             {
@@ -53,6 +51,5 @@ export default function Skeleton({
                     </>
             }
         </>
-
     )
 }

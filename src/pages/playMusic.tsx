@@ -1,11 +1,15 @@
-import HeaderNav from "@/components/navigation/HeaderNav";
 import styles from '../styles/PlayMusic.module.css'
 import Image from "next/image";
 import Head from 'next/head'
 import { useEffect, useState } from "react";
-import { getArt } from "@/hooks/getArt";
 import Carousel from "nuka-carousel";
 import { GoChevronLeft , GoChevronRight} from "react-icons/go";
+
+// Components
+import HeaderNav from "@/components/navigation/HeaderNav";
+
+// Hook
+import { getArt } from "@/hooks/getArt";
 
 export default function PlayMusic() {
 
@@ -37,10 +41,8 @@ export default function PlayMusic() {
             <Head>
                 <title>Now Playing | Amplify</title>
             </Head>
-
             <HeaderNav text="Now Playing" type="simple-music" />
             <div id="mainContainer" className={`flex flex-col`}>
-
                 <Carousel style={{ marginBottom: "100px" }}
                     renderBottomCenterControls={() => null}
                     renderCenterLeftControls={({ previousSlide }) => (
@@ -84,11 +86,9 @@ export default function PlayMusic() {
                                     </div>
                                 </div>
                             )
-
                         })
                     }
                 </Carousel>
-
             </div>
         </main>
     )

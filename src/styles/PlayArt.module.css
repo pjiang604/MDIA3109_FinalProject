@@ -30,6 +30,7 @@
 }
 
 .carouselImages {
+  height: 560px;
   border-radius: 10px;
   box-shadow: 8px 8px 8px #b1b1b1;
   margin-left: 40px;
