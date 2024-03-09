@@ -37,6 +37,7 @@
     padding-right:10%;
     align-items:center;
     justify-content:center;
+    box-shadow: 0 0 1px var(--berry);
 }
 
 .main p {
