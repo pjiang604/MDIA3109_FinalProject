@@ -10,7 +10,7 @@
 
 .carouselImage:hover {
     opacity: 1; 
-
+    filter: none;
 }
 
 /* Styles for iPad Air */
