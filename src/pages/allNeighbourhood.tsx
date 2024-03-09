@@ -1,9 +1,13 @@
 import { useState } from "react";
 import Head from 'next/head';
+import styles from "@/styles/AllNeighbourhood.module.css";
+
+// Components
 import HeaderNav from "@/components/navigation/HeaderNav";
 import Playlist from "@/components/buttons/Playlist";
+
+// Data
 import { neighbourhoods } from "@/data/neighbourhoods";
-import styles from "@/styles/AllNeighbourhood.module.css";
 
 export default function AllNeighbourhood() {
   const [dataNeigh, setDataNeigh] = useState(neighbourhoods);

@@ -1,20 +1,25 @@
-import SongCard from "@/components/buttons/SongCard";
-import HeaderNav from "@/components/navigation/HeaderNav";
-import Nav from "@/components/navigation/NavBar";
 import { getPlaylist } from "../api/getMusic";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { neighbourhoods } from "@/data/neighbourhoods";
-import { getArt } from "@/hooks/getArt";
 import Head from "next/head";
 import Carousel from "nuka-carousel";
 import Image from "next/image";
 import styles from "@/styles/Neighbourhood.module.css"
 import { GoChevronLeft, GoChevronRight } from "react-icons/go";
+
+// Components
+import Nav from "@/components/navigation/NavBar";
+import SongCard from "@/components/buttons/SongCard";
+import HeaderNav from "@/components/navigation/HeaderNav";
 import Skeleton from "@/components/skeleton";
 
-export default function Area() {
+// Data
+import { neighbourhoods } from "@/data/neighbourhoods";
 
+// Hook
+import { getArt } from "@/hooks/getArt";
+
+export default function Area() {
   const [accessToken, setAccessToken] = useState<string>();
   const [playlistData, setPlaylistData] = useState<SpotifyPlaylist>()
   const [neighData, setNeighData] = useState([...neighbourhoods])
@@ -40,7 +45,6 @@ export default function Area() {
     const neighbourhood = neighData.find(neigh => neigh.name === location);
 
     if (neighbourhood) {
-
       const playlist_id = neighbourhood.playlist_id;
       setPlaylistId(playlist_id)
 
@@ -116,11 +120,9 @@ export default function Area() {
                   />
                 </div>
               )
-
             })
           }
         </Carousel>
-
         {
           playlistData ?
             <div className={styles.playListContainer}>
@@ -142,9 +144,7 @@ export default function Area() {
             :
             <Skeleton type="playlist" />
         }
-
       </div>
-
     </main>
   )
 }

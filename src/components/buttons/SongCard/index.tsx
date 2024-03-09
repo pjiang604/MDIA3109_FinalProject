@@ -1,7 +1,5 @@
 import Image from "next/image"
 
-
-
 export default function SongCard({
     songTitle,
     artistName,
@@ -29,6 +27,5 @@ export default function SongCard({
                     </div>
             }
         </>
-
     )
 }

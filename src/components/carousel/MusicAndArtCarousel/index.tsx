@@ -4,16 +4,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 export default function MusicAndArtCarousel() {
-
     const settings = {
         className: "center",
         centerMode: true,
         infinite: true,
         centerPadding: '40px',
         slidesToShow: 3,
-        
     };
     return (
         <div className="slider-container">

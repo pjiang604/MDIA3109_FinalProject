@@ -15,7 +15,6 @@
     justify-content: center;
 }
 
-
  /* Styles for iPad Air */
 @media (max-width: 900px) {
     .cardContainer {

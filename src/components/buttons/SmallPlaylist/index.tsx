@@ -1,6 +1,6 @@
-import Image from "next/image"
-import Link from "next/link"
-import ContentLoader from "react-content-loader"
+import Image from "next/image";
+import Link from "next/link";
+import ContentLoader from "react-content-loader";
 
 enum ESmallPlaylist {
     Neighbourhood = "neighbourhood",
@@ -26,8 +26,7 @@ export default function SmallPlaylist({
                             alt="neighbourhood"
                             className={`object-cover h-full rounded-md z-0`} />
                     </div>
-                </Link>
-                :
+                </Link> :
                 <>
                     {
                         type === ESmallPlaylist.Artist &&
@@ -44,9 +43,7 @@ export default function SmallPlaylist({
                         </Link>
                     }
                 </>
-
             }
         </>
-
     )
 }

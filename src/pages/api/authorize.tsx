@@ -40,8 +40,6 @@ if (typeof window !== "undefined") {
 }
 
 export const authorize = async () => {
-
-    
     generateCodeChallenge(codeVerifier).then((codeChallenge) => {
         const origin: string = window.location.origin
         const redirectUri: string = `${origin}/home`;
@@ -94,7 +92,6 @@ export const getToken = async (code: string) => {
         window.location.href = "/";
     }
 };
-
 
 export const refreshSpotifyToken = async (refresh_token: string) => {
     const body = new URLSearchParams({

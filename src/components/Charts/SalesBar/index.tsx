@@ -1,4 +1,3 @@
-
 import Link from "next/link"
 import styles from './SalesBar.module.css'
 import {
@@ -41,7 +40,7 @@ export const options = {
 
 const labels = ['2013', '2015', '2017', '2019', '2021'];
 
-const cd = [170.7, 151.0, 118.2, 57.5, 40.0]; //need to specify this is in million $ scale
+const cd = [170.7, 151.0, 118.2, 57.5, 40.0]; 
 const digitalAlbum = [69.3, 49.0, 39.7, 15.1, 10.3];
 const digitalSingles = [90.1, 74.3, 51.8, 35.9, 23.7];
 const other = [21.5, 23.2, 34.4, 31.3, 67.8];
@@ -79,8 +78,6 @@ export const data = {
 };
 
 export default function SalesBar() {
-
-
     return (
         <div className={styles.main}>
             <h2>Sound recording and music publishing, sales based on format of musical recordings</h2>

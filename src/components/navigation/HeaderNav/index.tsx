@@ -38,7 +38,6 @@ export default function HeaderNav({
         })
     }
 
-
     const playShuffle = () => {
         router.push({
             pathname: '/playMusic',

@@ -10,9 +10,7 @@ import { authorize } from '@/pages/api/authorize';
 import { neighbourhoods } from "@/data/neighbourhoods"
 import Skeleton from '@/components/skeleton';
 
-export default function MusicArtTab({
-
-}) {
+export default function MusicArtTab({}) {
     const [dataNeigh, setDataNeigh] = useState(neighbourhoods)
     const [dataArtist, setDataArtist] = useState(artists)
     const [dataArtists, setDataArtists] = useState<IArtistsData>()
@@ -55,15 +53,15 @@ export default function MusicArtTab({
             <TabPanel className={styles.tabPanel}>
                 {
                     !dataArtists ?
-                    <Skeleton type="square"/>
-                        :
-                        <Carousel
-                            wrapAround={true}
-                            slidesToShow={2.5}
-                            cellSpacing={10}
-                            withoutControls={true}
-                        >
-                            {dataArtists && dataArtists.artists.map((a, aIndex) => {
+                    <Skeleton type="square"/> :
+                    <Carousel
+                        wrapAround={true}
+                        slidesToShow={2.5}
+                        cellSpacing={10}
+                        withoutControls={true}
+                    >
+                        {
+                            dataArtists && dataArtists.artists.map((a, aIndex) => {
                                 return (
                                     <SmallPlaylist
                                         key={aIndex}
@@ -71,8 +69,8 @@ export default function MusicArtTab({
                                         image={a.images[0].url}
                                         type='artist' />
                                 )
-                            })}
-                        </Carousel>
+                        })}
+                    </Carousel>
                 }
             </TabPanel>
             <TabPanel className={styles.tabPanel}>
@@ -83,7 +81,6 @@ export default function MusicArtTab({
                         cellSpacing={10}
                         withoutControls={true}
                     >
-
                         {
                             dataNeigh && dataNeigh.map((a, aIndex) => {
                                 return (
@@ -98,7 +95,5 @@ export default function MusicArtTab({
                 </div>
             </TabPanel>
         </Tabs>
-
     );
-
 }

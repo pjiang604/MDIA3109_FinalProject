@@ -5,8 +5,6 @@ export default function MusicPlayer({
     uri,
     offset
 }: IMusicPlayer) {
-
-
     return (
         <div className={``}>
             {
@@ -25,9 +23,7 @@ export default function MusicPlayer({
                         }}
 
                     />
-                    :
-                    <>
-                    </>
+                    :<></>
             }
         </div>
     )
