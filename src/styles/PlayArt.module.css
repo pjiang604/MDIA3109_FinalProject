@@ -1,6 +1,18 @@
+.mainContainer {
+  display: flex;
+  width: 100%;
+  max-width: 1250px;
+  padding-left: 7%;
+}
+
 .container {
   position: sticky;
   top: 0;
+}
+
+.carouselContainer {
+  width: 100%;
+  max-width: 1000px;
 }
 
 .slideContainer {
@@ -11,9 +23,12 @@
   gap: 26px;
 }   
 
+.slider-container {
+  max-width: 1250px;
+  width: 100%;
+}
+
 .carouselImages {
-  width: 89%;
-  height: 530px;
   border-radius: 10px;
   box-shadow: 8px 8px 8px #b1b1b1;
   margin-left: 40px;
@@ -48,20 +63,36 @@
 
 /* Tablet Size (iPad Air) */
 @media only screen and (max-width: 900px) {
+  .mainContainer {
+    padding-left: 12%;
+  }
+  .carouselContainer {
+    max-width: 614px;
+  }
   .carouselImages {
+    width: 85%;
     height: 820px;
   }
 }
 
 /* Mobile Size (iPhone 12 Pro) */
 @media only screen and (max-width: 600px) {
+  .mainContainer {
+    max-width: 355px;
+    margin-left: 16px;
+    padding: 5% 5% 45% 5%;
+  }
   .title {
     font-size: 9px;
   }
   .slideContainer {
     gap: 12px;
   }
+  .carouselContainer {
+    max-width: 310px;
+  }
   .carouselImages {
+    width: 90%;
     height: 475px;
     margin-left: 0;
   }
