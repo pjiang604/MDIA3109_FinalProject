@@ -25,6 +25,7 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+    box-shadow: 0 0 1px var(--berry);
 }
 
 .mainContainer h4 {
