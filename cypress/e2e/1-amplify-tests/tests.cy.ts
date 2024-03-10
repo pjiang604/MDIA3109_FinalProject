@@ -3,7 +3,6 @@ describe('Home Page', () => {
         cy.visit('http://localhost:3000/home');
         cy.get('h2').should('be.visible');
     })
-
 })
 
 describe('Log In Page', () => {
@@ -30,7 +29,7 @@ describe('Nav bar', () => {
         cy.get('a[href*="/home"]').click();
         cy.get('h2').should('be.visible');
         cy.get('a[href*="/browse"]').click();
-        cy.get('h3').should('contain', 'Past Searches');
+        cy.get('h2').should('contain', 'Log in');
         cy.get('a[href*="/allNeighbourhood"]').click();
         cy.get('img').should('be.visible');
         cy.get('a[href*="/playArt"]').click();
@@ -53,11 +52,20 @@ describe('small playlist button', () => {
         cy.get('h2').should('be.visible');
     })
 
-    // it('clicking on small playlist component button brings user to playlist page', () => {
-    //     cy.visit('http://localhost:3000/home');
-    //     cy.get('a[href*="/allNeighbourhood"]').click();
-    //     const area = 'Kitsilano';
-    //     cy.get(`a[href*=/neighbourhood/${area}"]`).click();
-    //     cy.get('img').should('be.visible');
-    // })
+//     it('clicking on small playlist component button brings user to playlist page', () => {
+//         cy.visit('http://localhost:3000/home');
+//         cy.get('a[href*="/allNeighbourhood"]').click();
+//         const area = 'Kitsilano';
+//         cy.get(`a[href*=/neighbourhood/${area}"]`).click();
+//         cy.get('img').should('be.visible');
+//     })
+})
+
+
+describe('browse page', () => {
+    it('going to browse page and then clicking login button', () => {
+        cy.visit('http://localhost:3000/home');
+        cy.get('a[href*="/browse"]').click();
+        cy.get('button').should('contain', 'Learn More About Music in Canada');
+    })
 })
