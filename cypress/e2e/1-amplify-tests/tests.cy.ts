@@ -19,13 +19,6 @@ describe('Log In Page', () => {
     })
 })
 
-// describe('Loading Page', () => {
-//     it('index (loading) page has loading dots', () => {
-//         cy.visit('http://localhost:3000');
-//         cy.get('.loading_dots').should('be.visible');
-//     })
-// })
-
 describe('Nav bar', () => {
     it('nav bar has icon images', () => {
         cy.visit('http://localhost:3000/home');
