@@ -51,13 +51,12 @@ describe('small playlist button', () => {
         cy.get('h2').should('be.visible');
     })
 
-//     it('clicking on small playlist component button brings user to playlist page', () => {
-//         cy.visit('http://localhost:3000/home');
-//         cy.get('a[href*="/allNeighbourhood"]').click();
-//         const area = 'Kitsilano';
-//         cy.get(`a[href*=/neighbourhood/${area}"]`).click();
-//         cy.get('img').should('be.visible');
-//     })
+    it('clicking on small playlist component button brings user to playlist page', () => {
+        cy.visit('http://localhost:3000/home');
+        cy.get('a[href*="/allNeighbourhood"]').click();
+        const area = 'Kitsilano';
+        cy.get('img').should('be.visible');
+    })
 })
 
 describe('browse page', () => {
