@@ -37,7 +37,6 @@ describe('Nav bar', () => {
     })
 })
 
-
 describe('header nav', () => {
     it('header nav has h1', () => {
         cy.visit('http://localhost:3000/home');
@@ -61,11 +60,18 @@ describe('small playlist button', () => {
 //     })
 })
 
-
 describe('browse page', () => {
     it('going to browse page and then clicking login button', () => {
         cy.visit('http://localhost:3000/home');
         cy.get('a[href*="/browse"]').click();
         cy.get('button').should('contain', 'Learn More About Music in Canada');
+    })
+})
+
+describe('sign up page', () => {
+    it('sign up page contains title', () => {
+        cy.visit('http://localhost:3000/');
+        cy.get('a[href*="/signUp"]').click();
+        cy.get('h1').should('contain', 'Create an account');
     })
 })
