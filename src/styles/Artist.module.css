@@ -1,0 +1,6 @@
+.main {
+    flex: 1;
+    height: 1380px;
+    position: sticky;
+    top: 0;
+  }

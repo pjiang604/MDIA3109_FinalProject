@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { artists } from "@/data/artists";
 import Image from "next/image";
 import Carousel from "nuka-carousel";
+import styles from '@/styles/Artist.module.css'
 
 // Components
 import SongCard from "@/components/buttons/SongCard";
@@ -65,7 +66,7 @@ export default function Artist() {
     }
 
     return (
-        <main className={``} >
+        <main className={styles.main} >
             <HeaderNav text={`${artistQuery}` || ""} type="full-backPlay" />
             <div id="mainContainer" className={`flex flex-col`}>
                 <div className={`flex flex-row w-full mb-4`}>

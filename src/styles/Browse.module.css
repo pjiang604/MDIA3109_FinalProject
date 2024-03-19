@@ -1,8 +1,15 @@
-.container {
+/* .container {
   display: flex;
   flex-direction: column;
   align-items: baseline;
   height: 1184px;
+  position: sticky;
+  top: 0;
+} */
+
+.main {
+  flex: 1;
+  height: 1380px;
   position: sticky;
   top: 0;
 }

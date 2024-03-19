@@ -25,7 +25,7 @@ export default function Browse() {
   }, []);
 
   return (
-    <main className={styles.container} >
+    <main className={styles.main} >
       <Head>
         <title>Browse | Amplify</title>
       </Head>
