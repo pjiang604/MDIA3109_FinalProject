@@ -38,7 +38,7 @@
 .mainContainer p {
     display:flex;
     padding-top:4%;
-    padding-bottom: 15%;
+    padding-bottom: 5%;
 }
 
 /* Tablet Size (iPad Air) */
@@ -48,14 +48,14 @@
     }
 
     .mainContainer p {
-        padding-bottom: 18%;
+        padding-bottom: 14%;
     }
   }
  
 /* Mobile Size (iPhone 12 Pro) */
 @media only screen and (max-width: 600px) {
     .mainContainer {
-        padding-bottom: 55%;
+        padding-bottom: 5%;
     }
     .mainContainer >h2 {
         font-size: var(--medium-font);
