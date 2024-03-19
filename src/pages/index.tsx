@@ -28,7 +28,7 @@ export default function Landing() {
         loading &&
           <div className={styles.info}>
             <Image
-              src="/Logo/logo.png"
+              src="/Logo/logo.svg"
               alt="logo"
               height={354}
               width={360}
