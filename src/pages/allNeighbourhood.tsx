@@ -13,7 +13,7 @@ export default function AllNeighbourhood() {
   const [dataNeigh, setDataNeigh] = useState(neighbourhoods);
   
   return (
-    <main className={styles.container}>
+    <main className={styles.main}>
       <Head>
         <title>Art Based on Neighbourhood</title>
       </Head>

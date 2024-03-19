@@ -1,9 +1,8 @@
-
-.container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.main {
+  flex: 1;
+  height: 1380px;
+  position: sticky;
+  top: 0;
 }
 
 .artTitle {

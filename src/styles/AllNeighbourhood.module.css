@@ -1,9 +1,9 @@
-.container {
+.main {
     flex: 1;
-    height: 1266px;
+    height: 1380px;
     position: sticky;
     top: 0;
-}
+  }
 
 .cardContainer {
     flex: 1;

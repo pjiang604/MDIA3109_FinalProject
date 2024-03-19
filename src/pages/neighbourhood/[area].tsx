@@ -85,7 +85,7 @@ export default function Area() {
   }
 
   return (
-    <main className={styles.container}>
+    <main className={styles.main}>
       <Head>
         <title>Neighbourhood | Amplify</title>
       </Head>

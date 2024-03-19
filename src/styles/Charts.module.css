@@ -1,8 +1,9 @@
 .main {
-    display:flex;
-    flex-direction:column;
-    height:100%;
-}
+    flex: 1;
+    height: 1380px;
+    position: sticky;
+    top: 0;
+  }
 
 .mainContainer {
     display: flex;
