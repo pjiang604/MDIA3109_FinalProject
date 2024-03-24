@@ -5,8 +5,6 @@ import { useEffect, useState } from "react"
 import { getRecentPlayed } from "@/pages/api/getMusic"
 import SmallPlaylist from "@/components/buttons/SmallPlaylist"
 import { neighbourhoods } from "@/data/neighbourhoods"
-import Loading from "@/components/loading"
-import Skeleton from "@/components/skeleton"
 
 enum NavType {
     Home = "home",

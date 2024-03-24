@@ -1,4 +1,3 @@
-import { playSong } from "@/pages/api/getMusic"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { neighbourhoods } from "@/data/neighbourhoods"
