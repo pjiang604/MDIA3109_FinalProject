@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const clientID: string = `${process.env.NEXT_PUBLIC_CLIENT_ID}`
 const clientSecret: string = `${process.env.NEXT_PUBLIC_CLIENT_SECRET}`
 

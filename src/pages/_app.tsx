@@ -60,6 +60,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
   useEffect(() => {
+
+    if (!router || !router.query || !pathname) {
+      return;
+    }
+
     const { playlist_id } = router.query
     const { track_num } = router.query
     setUriData(`${playlist_id}`)
@@ -85,7 +90,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     }
 
-  })
+  }, [router, pathname])
 
 
   const { device } = useMediaQuery({

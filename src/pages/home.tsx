@@ -6,12 +6,10 @@ import { getArtistProfiles } from "./api/getMusic";
 
 // Components
 import HeaderNav from "@/components/navigation/HeaderNav";
-import UserLogout from "@/firebase/UserLogout";
 import SmallPlaylist from "@/components/buttons/SmallPlaylist";
 import HomeAndPlaylistCarousel from "@/components/carousel/HomeAndPlaylist";
 import Carousel from "nuka-carousel";
 import Skeleton from "@/components/skeleton";
-import Loading from "@/components/loading";
 
 // Data
 import { neighbourhoods } from "@/data/neighbourhoods";

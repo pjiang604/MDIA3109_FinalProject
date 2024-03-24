@@ -1,6 +1,3 @@
-import { access } from "fs";
-import { useState } from "react"
-
 export const getPlaylist = async (playlist_id: string) => {
     try {
         let accessToken = sessionStorage.getItem('access_token');

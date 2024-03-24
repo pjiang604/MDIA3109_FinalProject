@@ -8,7 +8,6 @@ import styles from "@/styles/Neighbourhood.module.css"
 import { GoChevronLeft, GoChevronRight } from "react-icons/go";
 
 // Components
-import Nav from "@/components/navigation/NavBar";
 import SongCard from "@/components/buttons/SongCard";
 import HeaderNav from "@/components/navigation/HeaderNav";
 import Skeleton from "@/components/skeleton";
