@@ -54,7 +54,7 @@ export default function Nav({
         <>
             {
                 device === "desktop" ?
-                    <div className={`w-twentyp h-full bg-darkGray flex flex-col items-start gap-14 pt-20 pb-24 `} >
+                    <div className={`w-twentyp h-full bg-darkGray flex flex-col items-start gap-14 pt-20 pb-24 rounded-br-2xl `} >
                         <div className={`flex flex-col items-center gap-2 mx-auto`}>
                             <Link href='/home' className={`flex flex-row gap-8 items-center`}>
                                 <Image
@@ -157,7 +157,9 @@ export default function Nav({
                                                                 type="neighbourhood" />
                                                         </div>
                                                         <div className={`w-1/3`}>
-                                                            <p className={`text-white text-center`}>{a.name}</p>
+                                                            <Link href={`/neighbourhood/${a.name}`}>
+                                                                <p className={`text-white text-center`}>{a.name}</p>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 }

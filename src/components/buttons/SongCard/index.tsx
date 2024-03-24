@@ -10,7 +10,7 @@ export default function SongCard({
         <>
             {
                 !type &&
-                    <div className={`bg-gray p-1 rounded-lg flex flex-row gap-2 my-1 px-2 py-3`}>
+                    <div className={`bg-gray p-1 rounded-lg flex flex-row gap-2 my-1 px-2 py-3 cursor-pointer`}>
                         <div className={`rounded-lg rounded-lg `}>
                             <Image
                                 src={coverUrl}
